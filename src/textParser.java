@@ -45,6 +45,8 @@ public class textParser {
 //        System.out.println("Troll: "+ Troll);
 //        System.out.println("Master Yamamoto: "+ master);
 
+
+
         boolean x;
         while (true) {
             String inputLine = "";   // will hold the full input line
@@ -71,34 +73,39 @@ public class textParser {
             if (tokenizer.hasMoreTokens())
                 word1 = tokenizer.nextToken();      // get first word
             else
-                word1 = "quit";
+                word1 = "";
             if (tokenizer.hasMoreTokens())
                 word2 = tokenizer.nextToken();      // get second word
             else
-                word2 = "quit";
-
-
+                word2 = "";
 
             // Conditions
-            if (word2.equals("north")) {
-                System.out.println(home.get("north") + ": Hey I'm your fitness trainer, Susie. Thanks for attending. Your strength has increased!!");
+            if (word1.equals("go") || word1.equals("move")) {
+                switch (word2){
+                    case "north":
+                        System.out.println(home.get("north") + ": Hey I'm your fitness trainer, Susie. Thanks for attending. Your strength has increased!!");
+                        break;
+                    case "east":
+                        System.out.println(home.get("east") + ": Hey I'm the Shaman, Yoshi. Thanks for attending. Your super power blast increased");
+                        break;
+                    case "west":
+                        System.out.println(home.get("west") + ": Hey I'm Mr. Baker. You're in the cafeteria. Thanks for attending. Your health increased");
+                        break;
+                    case "south":
+                        System.out.println(home.get("south") + ": Get ready to fight the Bully");
+                        break;
+                    default:
+                        System.out.println("Only can go north,south,east,west");
+                        break;
+                }
             }
-            if (word2.equals("east")) {
-                System.out.println(home.get("east") + ": Hey I'm the Shaman, Yoshi. Thanks for attending. Your super power blast increased");
-            }
-            if (word2.equals("west")) {
-                System.out.println(home.get("west") + ": Hey I'm Mr. Baker. You're in the cafeteria. Thanks for attending. Your health increased");
-            }
-            if (word2.equals("south")) {
-                System.out.println(home.get("south") + ": Get ready to fight the Bully");
-            }
-
-            if (word1.equals("quit") || word2.equals("quit")) {
+            else if (word1.equals("quit") || word2.equals("quit")) {
                 break;
             }
+            else {
+                System.out.println("no such command.......yet");
+            }
         }
-
-
     }
+}
 
-    }
