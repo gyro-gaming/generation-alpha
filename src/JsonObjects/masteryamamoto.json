@@ -1,0 +1,26 @@
+{
+    "The Church of Flames":
+  {
+    "north":"The Cliff of Demise",
+    "south": "The Screaming Pasture",
+    "west": "The Gate of Eternal Fate",
+    "east": "Master Yamamoto Fight",
+    "item": "Holy Water"
+  },
+  "The Cliff of Demise":
+  {
+    "south": "The Church of Flames"
+  },
+  "The Screaming Pasture":
+  {
+    "north": "The Church of Flames"
+  },
+  "The Gate of Eternal Fate":
+  {
+    "east": "The Church of Flames"
+  },
+  "Master Yamamoto Fight":
+  {
+    "west": "The Church of Flames"
+  }
+}
