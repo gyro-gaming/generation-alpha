@@ -1,0 +1,21 @@
+{
+    "Home":
+  {
+    "north":"Hunter X",
+    "south": "Talon",
+    "east": "Troll"
+  },
+  "Hunter X":
+  {
+    "south": "Home"
+  },
+  "Talon":
+  {
+    "north": "Home"
+  },
+  "Troll":
+  {
+    "west": "Home",
+    "east": "Master Yamamoto"
+  }
+}
