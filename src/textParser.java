@@ -1,0 +1,104 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.StringTokenizer;
+
+public class textParser {
+    public static void main(String[] args) {
+        // create a Map for different level location
+        // For home(starting point)
+        HashMap<String, String> home = new HashMap<String, String>();
+        home.put("north", "Gym");
+        home.put("west", "Shaman");
+        home.put("south", "Bully Fight");
+        home.put("east", "Cafeteria");
+
+        // For hunterX location if bully is defeated
+        HashMap<String, String> hunterX = new HashMap<String, String>();
+        hunterX.put("north", "Hunter X Fight");
+        hunterX.put("west", "Saloon");
+        hunterX.put("south", "Grave site");
+        hunterX.put("east", "The Rapid River");
+
+        // For Talon location if hunterX is defeated
+        HashMap<String, String> Talon = new HashMap<String, String>();
+        Talon.put("north", "The Willow Tree Trail");
+        Talon.put("west", "Museum");
+        Talon.put("east", "The Merchant");
+        Talon.put("south", "Talon Fight");
+
+        // For Troll location when Talon is defeated
+        HashMap<String, String> Troll = new HashMap<String, String>();
+        Troll.put("west", "Bridge Officer");
+        Troll.put("east", "Troll Fight");
+
+        // For Master Yamamoto when Troll is defeated
+        HashMap<String, String> master = new HashMap<String, String>();
+        master.put("east", "Master Yamamoto Fight");
+        master.put("west", "The Gate of Eternal Fate");
+        master.put("north", "The Cliff of Demise");
+        master.put("south", "The Screaming Pasture");
+
+//        System.out.println("Home: "+ home);
+//        System.out.println("HunterX: "+ hunterX);
+//        System.out.println("Talon: "+ Talon);
+//        System.out.println("Troll: "+ Troll);
+//        System.out.println("Master Yamamoto: "+ master);
+
+        boolean x;
+        while (true) {
+            String inputLine = "";   // will hold the full input line
+            String word1;
+            String word2;
+
+            System.out.print("> ");     // print prompt
+
+
+        /*Scanner sc = new Scanner(System.in);
+        System.out.print("Choose a direction\n>");
+        String noun = sc.nextLine();*/
+            BufferedReader reader =
+                    new BufferedReader(new InputStreamReader(System.in));
+            try {
+                inputLine = reader.readLine();
+            } catch (java.io.IOException exc) {
+                System.out.println("There was an error during reading: "
+                        + exc.getMessage());
+            }
+
+            StringTokenizer tokenizer = new StringTokenizer(inputLine);
+
+            if (tokenizer.hasMoreTokens())
+                word1 = tokenizer.nextToken();      // get first word
+            else
+                word1 = "quit";
+            if (tokenizer.hasMoreTokens())
+                word2 = tokenizer.nextToken();      // get second word
+            else
+                word2 = "quit";
+
+
+
+            // Conditions
+            if (word2.equals("north")) {
+                System.out.println(home.get("north") + ": Hey I'm your fitness trainer, Susie. Thanks for attending. Your strength has increased!!");
+            }
+            if (word2.equals("east")) {
+                System.out.println(home.get("east") + ": Hey I'm the Shaman, Yoshi. Thanks for attending. Your super power blast increased");
+            }
+            if (word2.equals("west")) {
+                System.out.println(home.get("west") + ": Hey I'm Mr. Baker. You're in the cafeteria. Thanks for attending. Your health increased");
+            }
+            if (word2.equals("south")) {
+                System.out.println(home.get("south") + ": Get ready to fight the Bully");
+            }
+
+            if (word1.equals("quit") || word2.equals("quit")) {
+                break;
+            }
+        }
+
+
+    }
+
+    }
