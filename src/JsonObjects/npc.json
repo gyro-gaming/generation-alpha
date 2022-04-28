@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Grandma Louise",
+    "hp": 0,
+    "dialogue" : ["Hello my dear!", "Come back for dinner"],
+    "item": []
+  },
+  {
+    "name": "Mr.Baker",
+    "hp": 0,
+    "dialogue" : ["Welcome to the Cafeteria"],
+    "item": ["bread"]
+  },
+  {
+    "name": "Fitness Susie",
+    "hp": 0,
+    "dialogue" : ["Welcome to the Gym"],
+    "item": []
+  },
+  {
+    "name": "Yoshi",
+    "hp": 0,
+    "dialogue" : ["Want to learn some super power?"],
+    "item": ["Super Power Blast"]
+  },
+  {
+    "name": "Talkative Nancy",
+    "hp": 0,
+    "dialogue" : ["..."],
+    "item": []
+  },
+  {
+    "name": "Risky Joe",
+    "hp": 0,
+    "dialogue" : ["Welcome to the Saloon!"],
+    "item": ["Talisman"]
+  },
+  {
+    "name": "Fisher Jane",
+    "hp": 0,
+    "dialogue" : ["Be quite!"],
+    "item": ["fish"]
+  },
+  {
+    "name": "Dr.Smith",
+    "hp": 0,
+    "dialogue" : ["Welcome to the Museum."],
+    "item": []
+  },
+  {
+    "name": "Traveler Bob",
+    "hp": 0,
+    "dialogue" : ["What do you want to buy?"],
+    "item": ["Ibuprofen"]
+  },
+  {
+    "name": "Officer Randy",
+    "hp": 0,
+    "dialogue" : ["Let me see your pass!"],
+    "item": []
+  },
+  {
+    "name": "Priest Roman",
+    "hp": 0,
+    "dialogue" : ["Amen"],
+    "item": ["Holy Water"]
+  }
+]
