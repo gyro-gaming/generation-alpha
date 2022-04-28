@@ -1,0 +1,49 @@
+{
+  "characters": [
+    {
+      "type": "NPC",
+      "name": "Grandma Louise",
+      "quote": "TBD",
+      "image": "TBD",
+      "location": {
+        "home": "Town Center"
+      }
+    },
+    {
+      "type": "NPC",
+      "name": "Shaman",
+      "quote": "TBD",
+      "image": "TBD",
+      "location": {
+        "home": "Temple"
+      }
+    },
+    {
+      "type": "NPC",
+      "name": "Lunch Lady",
+      "quote": "TBD",
+      "image": "TBD",
+      "location": {
+        "home": "Cafeteria"
+      }
+    },
+    {
+      "type": "NPC",
+      "name": "Ka-Ya",
+      "quote": "TBD",
+      "image": "TBD",
+      "location": {
+        "home": "Gym"
+      }
+    },
+    {
+      "type": "Villain",
+      "name": "TBD",
+      "quote": "TBD",
+      "image": "TBD",
+      "location": {
+        "home": "Sand Lot"
+      }
+    }
+  ]
+}

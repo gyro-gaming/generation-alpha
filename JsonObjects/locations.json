@@ -1,0 +1,72 @@
+{
+  "territories": [
+    {
+      "type": "territory",
+      "name": "Home",
+      "description": "TBD",
+      "image": "TBD",
+      "start": "Town Center",
+      "locations": [
+        {
+          "type": "structure",
+          "name": "Town Center",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "north": "Gym",
+            "south": "Sand lot",
+            "west": "Temple",
+            "east": "Cafeteria"
+          },
+          "character": "Grandma Louise",
+          "item": null
+        },
+        {
+          "type": "structure",
+          "name": "Gym",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "south": "Town Center"
+          },
+          "character": "TBD",
+          "item": null
+        },
+        {
+          "type": "structure",
+          "name": "Temple",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "east": "Town Center"
+          },
+          "character": "Shaman",
+          "item": null
+        },
+        {
+          "type": "structure",
+          "name": "Cafeteria",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "west": "Town Center"
+          },
+          "character": "TBD",
+          "item": null
+        },
+        {
+          "type": "dojo",
+          "name": "Sand Lot",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "north": "Town Center"
+          },
+          "character": "TBD",
+          "item": null
+        }
+      ]
+    }
+  ]
+}
+
