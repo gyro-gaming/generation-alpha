@@ -1,29 +1,14 @@
 package com.generation_alpha.locations;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.generation_alpha.characters.Villain;
-
-class Territory implements Location {
+public class Territory extends Location {
     private String name;
     private String description;
-    private Map<Direction, String> map;
-    private Villain villain;
-
-    public Territory(String name) {
-        setName(name);
-        Territory territory = jsonReader(name);
-        setDescription(territory.getDescription());
-        setMap(territory.getMap());
-        setVillain(territory.getVillain());
-    }
+    private String image;
+    private Structure start;
+    private List<Map<String, Object>> locations;
 
     public void setName(String name) {
         this.name = name;
@@ -41,38 +26,27 @@ class Territory implements Location {
         return description;
     }
 
-    public void setMap(Map<Direction, String> map) {
-        this.map = map;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public Map<Direction, String> getMap() {
-        return map;
+    public String getImage() {
+        return image;
     }
 
-    public void setVillain(Villain villain) {
-        this.villain = villain;
+    public void setStart(Structure start) {
+        this.start = start;
     }
 
-    public Villain getVillain() {
-        return villain;
+    public Structure getStart() {
+        return start;
     }
 
-    private Territory jsonReader(String name) {
-        String file = "";
-        ObjectMapper mapper = new ObjectMapper();
-        List<Territory> territories = new ArrayList<>();
+    public void setLocations(List<Map<String, Object>> locations) {
+        this.locations = locations;
+    }
 
-        try {
-            territories = mapper.readValue(new File(file), new TypeReference<List<Territory>>(){});
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-
-        for (Territory territory : territories) {
-            if (territory.getName().equals(name)) {
-                return territory;
-            }
-        }
-        return null;
+    public List<Map<String, Object>> getLocations() {
+        return locations;
     }
 }
