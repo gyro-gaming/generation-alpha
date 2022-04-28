@@ -1,0 +1,16 @@
+{
+    "Bridge Officer":
+  {
+    "east": "Bridge of Death"
+  },
+  "Bridge of Death":
+  {
+    "west": "Bridge Officer",
+    "east": "Troll Fight",
+    "item": "Shield"
+  },
+  "Troll Fight":
+  {
+    "west": "Bridge of Death"
+  }
+}
