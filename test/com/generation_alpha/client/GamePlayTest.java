@@ -17,9 +17,7 @@ public class GamePlayTest {
     @Test
     public void getTerritory() {
         Territory territory = gamePlay.getTerritory("Home");
-
         System.out.println(territory.getLocations());
-
     }
 
     @Test
