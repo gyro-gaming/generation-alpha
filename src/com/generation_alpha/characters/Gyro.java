@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Gyro extends Fighter {
     private String name;
-    private String quote;
+    private List<String> quote;
     private String image;
     private Location location;
     private int strength;
@@ -29,12 +29,12 @@ public class Gyro extends Fighter {
     }
 
     @Override
-    public void setQuote(String quote) {
+    public void setQuote(List<String> quote) {
         this.quote = quote;
     }
 
     @Override
-    public String says() {
+    public List<String> says() {
         return quote;
     }
 
