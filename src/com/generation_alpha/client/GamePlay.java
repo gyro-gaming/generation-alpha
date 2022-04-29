@@ -57,8 +57,7 @@ public class GamePlay {
                         locationMap.get("description").toString(),
                         locationMap.get("image").toString(),
                         (Map<String, Object>) locationMap.get("directions"),
-                        getCharacters(locationMap.get("character").toString()),
-                        getItems(locationMap.get("item").toString())
+                        getCharacters(locationMap.get("character").toString())
                 );
                 locationList.add(dojo);
             }
@@ -122,18 +121,21 @@ public class GamePlay {
                 strengthBoost.setDescription(itemMap.get("description").toString());
                 strengthBoost.setImage(itemMap.get("image").toString());
                 strengthBoost.setLocation(new Building(itemMap.get("location").toString()));
+                strengthBoost.setStrengthBoost(Integer.parseInt(itemMap.get("modifier").toString()));
                 return strengthBoost;
             } else if (itemMap.get("name").equals(name) && itemMap.get("type").equals("Health")) {
                 HealthBoost healthBoost = new HealthBoost(name);
                 healthBoost.setDescription(itemMap.get("description").toString());
                 healthBoost.setImage(itemMap.get("image").toString());
                 healthBoost.setLocation(new Building(itemMap.get("location").toString()));
+                healthBoost.setHealthBoost(Integer.parseInt(itemMap.get("modifier").toString()));
                 return healthBoost;
-            } else if (itemMap.get("name").equals(name) && itemMap.get("type").equals("PowerItem")) {
+            } else if (itemMap.get("name").equals(name) && itemMap.get("type").equals("Power")) {
                 PowerItem powerItem = new PowerItem(name);
                 powerItem.setDescription(itemMap.get("description").toString());
                 powerItem.setImage(itemMap.get("image").toString());
                 powerItem.setLocation(new Dojo(itemMap.get("location").toString()));
+                powerItem.setCombatMultiplier(Integer.parseInt(itemMap.get("modifier").toString()));
                 return powerItem;
             }
         }

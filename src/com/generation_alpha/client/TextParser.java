@@ -1,5 +1,5 @@
 package com.generation_alpha.client;
-
+/*
 import org.json.simple.*;
 import org.json.simple.parser.*;
 import java.io.*;
@@ -9,8 +9,9 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
-
+*/
 public class TextParser {
+    /*
     public static void main(String[] args) throws IOException {
         // create a Map for different level location
         // For home(starting point)
@@ -151,5 +152,6 @@ public class TextParser {
 
 
     }
-}
 
+     */
+}

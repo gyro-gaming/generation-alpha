@@ -21,13 +21,12 @@ public class Dojo extends Structure {
     }
 
     public Dojo(String name, String description, String image, Map<String, Object> objectMap,
-                    Character villain, Item power) {
+                    Character villain) {
         setName(name);
         setDescription(description);
         setImage(image);
         setMap(objectMap);
         setCharacter(villain);
-        setItem(power);
     }
 
     @Override

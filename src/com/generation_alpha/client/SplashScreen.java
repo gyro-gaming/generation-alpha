@@ -1,3 +1,5 @@
+package com.generation_alpha.client;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -25,7 +27,7 @@ public class SplashScreen {
     }
     public SplashScreen() {
 
-        backgroundImage = new ImageIcon("Resources/backgroundImage.png");
+        backgroundImage = new ImageIcon("resources/backgroundImage.png");
         myLabel = new JLabel(backgroundImage);
         myLabel.setSize(800, 600);
         window = new JFrame("Generation Alpha");

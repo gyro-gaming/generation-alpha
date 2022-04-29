@@ -44,7 +44,7 @@
           },
           "character": "Shaman",
           "item_type": "Health",
-          "item": "health1"
+          "item": "power3"
         },
         {
           "type": "Building",
@@ -56,7 +56,7 @@
           },
           "character": "TBD",
           "item_type": "Health",
-          "item": "health2"
+          "item": "health1"
         },
         {
           "type": "Dojo",
@@ -67,8 +67,7 @@
             "north": "Town Center"
           },
           "character": "TBD",
-          "item_type": "Power",
-          "item": "power3"
+          "item_type": "Power"
         }
       ]
     },
