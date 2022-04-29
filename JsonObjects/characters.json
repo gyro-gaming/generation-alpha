@@ -3,7 +3,7 @@
     {
       "type": "NPC",
       "name": "Grandma Louise",
-      "quote": "TBD",
+      "quote": "Hello my dear!",
       "image": "TBD",
       "location": {
         "territory":"home",
@@ -13,7 +13,7 @@
     {
       "type": "NPC",
       "name": "Shaman",
-      "quote": "TBD",
+      "quote": "Want to learn some super power?",
       "image": "TBD",
       "location": {
         "territory":"home",
@@ -22,8 +22,8 @@
     },
     {
       "type": "NPC",
-      "name": "Lunch Lady",
-      "quote": "TBD",
+      "name": "Mr.Baker",
+      "quote": "Welcome to the Cafeteria",
       "image": "TBD",
       "location": {
         "territory":"home",
@@ -32,8 +32,8 @@
     },
     {
       "type": "NPC",
-      "name": "Ka-Ya",
-      "quote": "TBD",
+      "name": "Fitness Susie",
+      "quote": "Welcome to the Gym",
       "image": "TBD",
       "location": {
         "territory":"home",
@@ -43,7 +43,7 @@
     {
       "type": "Villain",
       "name": "TBD",
-      "quote": "TBD",
+      "quote": "Bully Fight",
       "image": "TBD",
       "location": {
         "territory":"home",
@@ -53,6 +53,114 @@
         "power1",
         "power2"
       ]
+    },
+    {
+      "type": "NPC",
+      "name": "Talkative Nancy",
+      "quote": ["..."],
+      "image": "TBD",
+      "location": {
+        "HunterX": "Town Center"
+      }
+    },
+    {
+      "type": "NPC",
+      "name": "Risky Joe",
+      "quote": "Welcome to the Saloon!",
+      "image": "TBD",
+      "location": {
+        "HunterX": "Saloon"
+      }
+    },
+    {
+      "type": "NPC",
+      "name": "Fisher Jane",
+      "quote": "Be quite!",
+      "image": "TBD",
+      "location": {
+        "HunterX": "The Rapid River"
+      }
+    },
+    {
+      "type": "Villain",
+      "name": "TBD",
+      "quote": "Hunter X Fight",
+      "image": "TBD",
+      "location": {
+        "HunterX": "TBD"
+      }
+    },
+    {
+      "type": "NPC",
+      "name": "Dr.Smith",
+      "quote": ["Welcome to the Museum."],
+      "image": "TBD",
+      "location": {
+        "Talon": "Museum"
+      }
+    },
+    {
+      "type": "NPC",
+      "name": "Traveler Bob",
+      "quote": "What do you want to buy?",
+      "image": "TBD",
+      "location": {
+        "Talon": "Store"
+      }
+    },
+    {
+      "type": "Villain",
+      "name": "TBD",
+      "quote": "Talon Fight",
+      "image": "TBD",
+      "location": {
+        "Talon": "TBD"
+      }
+    },
+    {
+      "type": "NPC",
+      "name": "Officer Randy",
+      "quote": "Let me see your pass!",
+      "image": "TBD",
+      "location": {
+        "Troll": "Troll Gate"
+      }
+    },
+    {
+      "type": "Villain",
+      "name": "TBD",
+      "quote": "Troll Fight",
+      "image": "TBD",
+      "location": {
+        "Troll": "TBD"
+      }
+    },
+    {
+      "type": "NPC",
+      "name": "Priest Roman",
+      "quote": "Bless you.",
+      "image": "TBD",
+      "location": {
+        "Yamamoto": "The Church of Flames"
+      }
+    },
+    {
+      "type": "NPC",
+      "name": "Creepy Crow",
+      "quote": "TBD",
+      "image": "TBD",
+      "location": {
+        "Yamamoto": "The Gate of Eternal Fate"
+      }
+    },
+    {
+      "type": "Villain",
+      "name": "Master Yamamoto",
+      "quote": "Kill all",
+      "image": "TBD",
+      "location": {
+        "Yamamoto": "TBD"
+      }
     }
   ]
 }
