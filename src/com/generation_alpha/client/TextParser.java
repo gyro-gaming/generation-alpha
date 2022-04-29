@@ -45,10 +45,10 @@ public class TextParser {
                 if (word1.equals("go") || word1.equals("move") || word1.equals("run") || word1.equals("jump")){
                     forGo(input[0] + " " + input[1]);
                 }
-                if (word1.equals("get") || word1.equals("pickup") || word1.equals("grab") || word1.equals("take")){
+                else if (word1.equals("get") || word1.equals("pickup") || word1.equals("grab") || word1.equals("take")){
                     forGet(input[0] + " " + input[1]);
                 }
-                if (word1.equals("quit") || word1.equals("q")){
+                else if (word1.equals("quit") || word1.equals("q")){
                     return input;
                 }
                 else{
