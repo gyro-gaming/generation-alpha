@@ -20,7 +20,7 @@
           },
           "character": "Grandma Louise",
           "item_type": "Strength",
-          "item": "null"
+          "item": "strength1"
         },
         {
           "type": "Building",
@@ -32,7 +32,7 @@
           },
           "character": "TBD",
           "item_type": "Strength",
-          "item": null
+          "item": "strength2"
         },
         {
           "type": "Building",
@@ -44,7 +44,7 @@
           },
           "character": "Shaman",
           "item_type": "Health",
-          "item": "null"
+          "item": "health1"
         },
         {
           "type": "Building",
@@ -56,7 +56,7 @@
           },
           "character": "TBD",
           "item_type": "Health",
-          "item": "null"
+          "item": "health2"
         },
         {
           "type": "Dojo",
@@ -68,7 +68,7 @@
           },
           "character": "TBD",
           "item_type": "Power",
-          "item": "null"
+          "item": "power3"
         }
       ]
     }

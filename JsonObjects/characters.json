@@ -3,10 +3,11 @@
     {
       "type": "NPC",
       "name": "Grandma Louise",
-      "quote": ["Hello my dear!", "Come back for dinner"],
+      "quote": "Hello my dear!",
       "image": "TBD",
       "location": {
-        "home": "Home"
+        "territory":"home",
+        "structure": "Town Center"
       }
     },
     {
@@ -15,7 +16,8 @@
       "quote": "Want to learn some super power?",
       "image": "TBD",
       "location": {
-        "home": "Temple"
+        "territory":"home",
+        "structure": "Temple"
       }
     },
     {
@@ -24,7 +26,8 @@
       "quote": "Welcome to the Cafeteria",
       "image": "TBD",
       "location": {
-        "home": "Cafeteria"
+        "territory":"home",
+        "structure": "Cafeteria"
       }
     },
     {
@@ -33,7 +36,8 @@
       "quote": "Welcome to the Gym",
       "image": "TBD",
       "location": {
-        "home": "Gym"
+        "territory":"home",
+        "structure": "Gym"
       }
     },
     {
@@ -42,8 +46,13 @@
       "quote": "Bully Fight",
       "image": "TBD",
       "location": {
-        "home": "Sand Lot"
-      }
+        "territory":"home",
+        "structure": "Sand Lot"
+      },
+      "powers": [
+        "power1",
+        "power2"
+      ]
     },
     {
       "type": "NPC",

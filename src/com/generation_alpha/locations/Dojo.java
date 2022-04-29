@@ -95,7 +95,7 @@ public class Dojo extends Structure {
         Direction[] directions = Direction.values();
         for (Map.Entry<String, Object> entry : objectMap.entrySet()) {
             for (Direction direction : directions) {
-                if (entry.getKey().toUpperCase().equals(direction)) {
+                if (entry.getKey().toUpperCase().equals(direction.toString())) {
                     newMap.put(direction, entry.getValue().toString());
                 }
             }
