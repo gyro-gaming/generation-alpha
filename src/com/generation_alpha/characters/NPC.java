@@ -2,9 +2,11 @@ package com.generation_alpha.characters;
 
 import com.generation_alpha.locations.Location;
 
+import java.util.List;
+
 public class NPC implements Character {
     private String name;
-    private String quote;
+    private List<String> quote;
     private String image;
     private Location location;
 
@@ -25,12 +27,12 @@ public class NPC implements Character {
     }
 
     @Override
-    public void setQuote(String quote) {
+    public void setQuote(List<String> quote) {
         this.quote = quote;
     }
 
     @Override
-    public String says() {
+    public List<String> says() {
         return quote;
     }
 

@@ -72,14 +72,14 @@ public class GamePlay {
         for (Map<String, Object> characterMap : characters) {
             if (characterMap.get("name").equals(name) && characterMap.get("type").equals("NPC")) {
                 NPC npc = new NPC(name);
-                npc.setQuote(characterMap.get("quote").toString());
+                npc.setQuote((List<String>)characterMap.get("quote"));
                 npc.setImage(characterMap.get("image").toString());
                 Map<String, Object> locationMap = (Map<String, Object>) characterMap.get("location");
                 npc.setLocation(new Building(locationMap.get("structure").toString()));
                 return npc;
             } else if (characterMap.get("name").equals(name) && characterMap.get("type").equals("Villain")) {
                 Villain villain = new Villain(name);
-                villain.setQuote(characterMap.get("quote").toString());
+                villain.setQuote((List<String>)characterMap.get("quote"));
                 villain.setImage(characterMap.get("image").toString());
                 Map<String, Object> locationMap = (Map<String, Object>) characterMap.get("location");
                 villain.setLocation(new Dojo(locationMap.get("structure").toString()));

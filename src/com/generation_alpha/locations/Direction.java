@@ -1,6 +1,6 @@
 package com.generation_alpha.locations;
 
-enum Direction {
+public enum Direction {
     NORTH,
     EAST,
     SOUTH,
