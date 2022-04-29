@@ -1,16 +1,17 @@
-package com.generation_alpha.characters;
+package com.generation_alpha.items;
 
 import com.generation_alpha.locations.Location;
 
-public class NPC implements Character {
+public class HealthBoost implements Item {
     private String name;
-    private String quote;
+    private String description;
     private String image;
     private Location location;
+    private int healthBoost;
 
-    public NPC() {}
+    public HealthBoost() {}
 
-    public NPC(String name) {
+    public HealthBoost(String name) {
         setName(name);
     }
 
@@ -25,13 +26,13 @@ public class NPC implements Character {
     }
 
     @Override
-    public void setQuote(String quote) {
-        this.quote = quote;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
-    public String says() {
-        return quote;
+    public String getDescription() {
+        return description;
     }
 
     @Override
@@ -52,5 +53,13 @@ public class NPC implements Character {
     @Override
     public Location getLocation() {
         return location;
+    }
+
+    public void setHealthBoost(int healthBoost) {
+        this.healthBoost = healthBoost;
+    }
+
+    public int getHealthBoost() {
+        return healthBoost;
     }
 }
