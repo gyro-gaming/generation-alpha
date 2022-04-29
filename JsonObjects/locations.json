@@ -8,7 +8,7 @@
       "start": "Town Center",
       "locations": [
         {
-          "type": "structure",
+          "type": "Building",
           "name": "Town Center",
           "description": "TBD",
           "image": "TBD",
@@ -19,10 +19,11 @@
             "east": "Cafeteria"
           },
           "character": "Grandma Louise",
-          "item": null
+          "item_type": "Strength",
+          "item": "strength1"
         },
         {
-          "type": "structure",
+          "type": "Building",
           "name": "Gym",
           "description": "TBD",
           "image": "TBD",
@@ -30,10 +31,11 @@
             "south": "Town Center"
           },
           "character": "TBD",
-          "item": null
+          "item_type": "Strength",
+          "item": "strength2"
         },
         {
-          "type": "structure",
+          "type": "Building",
           "name": "Temple",
           "description": "TBD",
           "image": "TBD",
@@ -41,10 +43,11 @@
             "east": "Town Center"
           },
           "character": "Shaman",
-          "item": null
+          "item_type": "Health",
+          "item": "health1"
         },
         {
-          "type": "structure",
+          "type": "Building",
           "name": "Cafeteria",
           "description": "TBD",
           "image": "TBD",
@@ -52,10 +55,11 @@
             "west": "Town Center"
           },
           "character": "TBD",
-          "item": null
+          "item_type": "Health",
+          "item": "health2"
         },
         {
-          "type": "dojo",
+          "type": "Dojo",
           "name": "Sand Lot",
           "description": "TBD",
           "image": "TBD",
@@ -63,7 +67,8 @@
             "north": "Town Center"
           },
           "character": "TBD",
-          "item": null
+          "item_type": "Power",
+          "item": "power3"
         }
       ]
     }

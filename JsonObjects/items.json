@@ -1,0 +1,37 @@
+{
+  "items": [
+    {
+      "type": "Strength",
+      "name": "TBD",
+      "description": "TBD",
+      "image": "TBD",
+      "location": {
+        "territory": "Home",
+        "structure": "Gym"
+      },
+      "modifier": "+5"
+    },
+    {
+      "type": "Health",
+      "name": "TBD",
+      "description": "TBD",
+      "image": "TBD",
+      "location": {
+        "territory": "Home",
+        "structure": "Cafeteria"
+      },
+      "modifier": "+25"
+    },
+    {
+      "type": "Power",
+      "name": "TBD",
+      "description": "TBD",
+      "image": "TBD",
+      "location": {
+        "territory": "Home",
+        "structure": "Temple"
+      },
+      "modifier": "x5"
+    }
+  ]
+}

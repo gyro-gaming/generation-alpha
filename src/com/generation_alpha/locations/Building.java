@@ -6,28 +6,28 @@ import com.generation_alpha.items.Item;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Dojo extends Structure {
+public class Building extends Structure {
     private String name;
     private String description;
     private String image;
     private Map<Direction, String> map;
-    private Character villain;
-    private Item power;
+    private Character npc;
+    private Item item;
 
-    public Dojo() {}
+    public Building() {}
 
-    public Dojo(String name) {
+    public Building(String name) {
         setName(name);
     }
 
-    public Dojo(String name, String description, String image, Map<String, Object> objectMap,
-                    Character villain, Item power) {
+    public Building(String name, String description, String image, Map<String, Object> objectMap,
+                    Character npc, Item item) {
         setName(name);
         setDescription(description);
         setImage(image);
         setMap(objectMap);
-        setCharacter(villain);
-        setItem(power);
+        setCharacter(npc);
+        setItem(item);
     }
 
     @Override
@@ -71,23 +71,23 @@ public class Dojo extends Structure {
     }
 
     @Override
-    public void setCharacter(Character villain) {
-        this.villain = villain;
+    public void setCharacter(Character npc) {
+        this.npc = npc;
     }
 
     @Override
     public Character getCharacter() {
-        return villain;
+        return npc;
     }
 
     @Override
-    public void setItem(Item power) {
-        this.power = power;
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     @Override
     public Item getItem() {
-        return power;
+        return item;
     }
 
     private Map<Direction, String> convertMap(Map<String, Object> objectMap) {
@@ -100,6 +100,7 @@ public class Dojo extends Structure {
                 }
             }
         }
+
         return newMap;
     }
 }
