@@ -1,16 +1,17 @@
-package com.generation_alpha.characters;
+package com.generation_alpha.items;
 
 import com.generation_alpha.locations.Location;
 
-public class NPC implements Character {
+public class PowerItem implements Item {
     private String name;
-    private String quote;
+    private String description;
     private String image;
     private Location location;
+    private int combatMultiplier;
 
-    public NPC() {}
+    public PowerItem() {}
 
-    public NPC(String name) {
+    public PowerItem(String name) {
         setName(name);
     }
 
@@ -25,13 +26,13 @@ public class NPC implements Character {
     }
 
     @Override
-    public void setQuote(String quote) {
-        this.quote = quote;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
-    public String says() {
-        return quote;
+    public String getDescription() {
+        return description;
     }
 
     @Override
@@ -52,5 +53,13 @@ public class NPC implements Character {
     @Override
     public Location getLocation() {
         return location;
+    }
+
+    public void setCombatMultiplier(int combatMultiplier) {
+        this.combatMultiplier = combatMultiplier;
+    }
+
+    public int getCombatMultiplier() {
+        return combatMultiplier;
     }
 }

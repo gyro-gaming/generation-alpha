@@ -1,7 +1,7 @@
 package com.generation_alpha.characters;
 
+import com.generation_alpha.items.PowerItem;
 import com.generation_alpha.locations.Location;
-import com.generation_alpha.powers.Power;
 import com.generation_alpha.items.Item;
 
 import java.util.List;
@@ -13,66 +13,88 @@ class Gyro extends Fighter {
     private Location location;
     private int strength;
     private int health;
-    private List<Power> powers;
+    private List<PowerItem> powers;
     private List<Item> items;
 
-    public Gyro() {
+    public Gyro() {}
 
+    @Override
+    public void setName(String name) {
+        this.name = name;
     }
+
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
+    public void setQuote(String quote) {
+        this.quote = quote;
+    }
+
+    @Override
     public String says() {
         return quote;
     }
 
+    @Override
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @Override
     public String getImage() {
         return image;
     }
 
+    @Override
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    @Override
     public Location getLocation() {
         return location;
     }
 
-    public void setStrength(int Strength) {
+    @Override
+    public void setStrength(int strength) {
         this.strength = strength;
     }
 
+    @Override
     public int getStrength() {
         return strength;
     }
 
+    @Override
     public void setHealth(int health) {
         this.health = health;
     }
 
+    @Override
     public int getHealth() {
         return health;
     }
 
-    public void setPowers(List<Power> powers) {
-        this.powers = powers;
+    @Override
+    public void setPowers(List<PowerItem> powerItems) {
+        this.powers = powerItems;
     }
 
-    public void addPowers(Power power) {
-        powers.add(power);
+    @Override
+    public void usePowers(PowerItem powerItem) {
+        powers.remove(powerItem);
     }
 
-    public void usePowers(Power power) {
-        powers.remove(power);
-    }
-
-    public List<Power> getPowers() {
+    @Override
+    public List<PowerItem> getPowers() {
         return powers;
     }
 
     public void setItems(List<Item> items) {
         this.items = items;
-    }
-
-    public void addItems(Item item) {
-        items.add(item);
     }
 
     public void useItems(Item item) {
