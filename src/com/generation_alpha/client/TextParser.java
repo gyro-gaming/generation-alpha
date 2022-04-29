@@ -1,18 +1,9 @@
 package com.generation_alpha.client;
 
-import com.generation_alpha.items.HealthBoost;
-import com.generation_alpha.items.Item;
-import com.generation_alpha.items.StrengthBoost;
 import com.generation_alpha.locations.Direction;
 import com.generation_alpha.locations.Territory;
-import org.json.simple.*;
-import org.json.simple.parser.*;
+
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 public class TextParser {
@@ -21,7 +12,7 @@ public class TextParser {
     String word1;
     String word2;
     public String[] promptInput() throws IOException {
-        JSONParser parser = new JSONParser();
+
         boolean x;
         while (true) {
             String inputLine = "";   // will hold the full input line
