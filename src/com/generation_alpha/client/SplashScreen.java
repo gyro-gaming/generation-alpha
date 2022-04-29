@@ -10,11 +10,11 @@ public class SplashScreen {
     JFrame window;
     ImageIcon backgroundImage;
     Container container;
-    JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel;
+    JPanel titleNamePanel, startButtonPanel, instructionsButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel;
     JLabel titleNameLabel, hpLabel, hpLabelNumber, inventoryLabel, inventoryLabelName, myLabel;
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 60);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 30);
-    JButton startButton, choice1, choice2, choice3, choice4;
+    JButton startButton, instructionsButton, choice1, choice2, choice3, choice4;
     JTextArea mainTextArea;
     int playerHP;
     String inventory;
@@ -40,14 +40,24 @@ public class SplashScreen {
         container = window.getContentPane();
 
         titleNamePanel = new JPanel();
-        titleNamePanel.setBounds(100, 100, 500, 100);
+        titleNamePanel.setBounds(150, 100, 500, 100);
         titleNamePanel.setBackground(Color.black);
         titleNameLabel = new JLabel("Generation Alpha");
         titleNameLabel.setForeground(Color.white);
         titleNameLabel.setFont(titleFont);
 
+        instructionsButtonPanel = new JPanel();
+        instructionsButtonPanel.setBounds(250, 350, 280, 100);
+        instructionsButtonPanel.setBackground(Color.black);
+
+        instructionsButton = new JButton("INSTRUCTIONS");
+        instructionsButton.setBackground(Color.black);
+        instructionsButton.setForeground(Color.black);
+        instructionsButton.setFont(normalFont);
+//        instructionsButton.addActionListener(tsHandler);
+
         startButtonPanel = new JPanel();
-        startButtonPanel.setBounds(300, 400, 150, 50);
+        startButtonPanel.setBounds(350, 400, 150, 50);
         startButtonPanel.setBackground(Color.black);
 
         startButton = new JButton("START");
@@ -58,9 +68,11 @@ public class SplashScreen {
         startButton.setFocusPainted(false);
 
         titleNamePanel.add(titleNameLabel);
+        instructionsButtonPanel.add(instructionsButton);
         startButtonPanel.add(startButton);
 
         container.add(titleNamePanel);
+        container.add(instructionsButtonPanel);
         container.add(startButtonPanel);
         container.add(myLabel);
     }
@@ -69,6 +81,7 @@ public class SplashScreen {
 
         titleNamePanel.setVisible(false);
         startButtonPanel.setVisible(false);
+        instructionsButtonPanel.setVisible(false);
         myLabel.setVisible(false);
 
         mainTextPanel = new JPanel();
