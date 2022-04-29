@@ -1,3 +1,5 @@
+package com.generation_alpha.client;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

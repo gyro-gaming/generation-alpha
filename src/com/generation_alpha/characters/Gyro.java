@@ -6,7 +6,7 @@ import com.generation_alpha.items.Item;
 
 import java.util.List;
 
-class Gyro extends Fighter {
+public class Gyro extends Fighter {
     private String name;
     private String quote;
     private String image;

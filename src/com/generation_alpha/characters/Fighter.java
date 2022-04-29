@@ -4,7 +4,7 @@ import com.generation_alpha.items.PowerItem;
 
 import java.util.List;
 
-abstract class Fighter implements Character {
+public abstract class Fighter implements Character {
     public abstract void setStrength(int a);
     public abstract int getStrength();
     public abstract void setHealth(int b);
