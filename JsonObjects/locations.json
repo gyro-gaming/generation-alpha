@@ -66,6 +66,243 @@
           "item": null
         }
       ]
+    },
+    {
+      "type": "territory",
+      "name": "Hunter X",
+      "description": "TBD",
+      "image": "TBD",
+      "start": "Town Center",
+      "locations": [
+        {
+          "type": "Building",
+          "name": "Town Center",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "north": "TBD",
+            "south": "Grave Site",
+            "west": "Saloon",
+            "east": "The Rapid River"
+          },
+          "character": "Talkative Nancy",
+          "item_type": "TBD",
+          "item": "TBD"
+        },
+        {
+          "type": "Dojo",
+          "name": "TBD",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "south": "Town Center"
+          },
+          "character": "TBD",
+          "item_type": "TBD",
+          "item": "TBD"
+        },
+        {
+          "type": "Building",
+          "name": "Saloon",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "east": "Town Center"
+          },
+          "character": "Risky Joe",
+          "item_type": "Health",
+          "item": "Talisman"
+        },
+        {
+          "type": "Building",
+          "name": "The Rapid River",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "west": "Town Center"
+          },
+          "character": "Fisher Jane",
+          "item_type": "Health",
+          "item": "fish"
+        }
+      ]
+    },
+    {
+      "type": "territory",
+      "name": "Talon",
+      "description": "TBD",
+      "image": "TBD",
+      "start": "Stairway to Heaven",
+      "locations": [
+        {
+          "type": "structure",
+          "name": "Stairway to Heaven",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "north":"The Willow Tree Trail",
+            "south": "TBD",
+            "west": "Museum",
+            "east": "The Merchant"
+          },
+          "character": "TBD",
+          "item": null
+        },
+        {
+          "type": "structure",
+          "name": "The Willow Tree Trail",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "south": "Stairway to Heaven"
+          },
+          "character": "TBD",
+          "item": null
+        },
+        {
+          "type": "structure",
+          "name": "Museum",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "east": "Stairway to Heaven"
+          },
+          "character": "Dr. Smith",
+          "item": null
+        },
+        {
+          "type": "structure",
+          "name": "The Merchant",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "west": "Stairway to Heaven"
+          },
+          "character": "Traveler Bob",
+          "item": "Ibuprofen"
+        },
+        {
+          "type": "dojo",
+          "name": "TBD",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "north": "Stairway to Heaven"
+          },
+          "character": "TBD",
+          "item": null
+        }
+      ]
+    },
+    {
+      "type": "territory",
+      "name": "Troll",
+      "description": "TBD",
+      "image": "TBD",
+      "start": "Town Center",
+      "locations": [
+        {
+          "type": "structure",
+          "name": "Bridge Gate",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "east": "Bridge of Death"
+          },
+          "character": "Officer Randy",
+          "item": null
+        },
+        {
+          "type": "structure",
+          "name": "Bridge of Death",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "west": "Bridge Gate",
+            "east": "TBD"
+          },
+          "character": "TBD",
+          "item": "Shield"
+        },
+        {
+          "type": "dojo",
+          "name": "TBD",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "west": "Bridge of Death"
+          },
+          "character": "TBD",
+          "item": null
+        }
+      ]
+    },
+    {
+      "type": "territory",
+      "name": "Yamamoto",
+      "description": "TBD",
+      "image": "TBD",
+      "start": "The Church of Flames",
+      "locations": [
+        {
+          "type": "structure",
+          "name": "The Church of Flames",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "north":"The Cliff of Demise",
+            "south": "The Screaming Pasture",
+            "west": "The Gate of Eternal Fate",
+            "east": "TBD"
+          },
+          "character": "Priest Roman",
+          "item": "Holly Water"
+        },
+        {
+          "type": "structure",
+          "name": "The Cliff of Demise",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "south": "The Church of Flames"
+          },
+          "character": "TBD",
+          "item": null
+        },
+        {
+          "type": "structure",
+          "name": "The Gate of Eternal Fate",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "east": "The Church of Flames"
+          },
+          "character": "Creepy Crow",
+          "item": null
+        },
+        {
+          "type": "dojo",
+          "name": "TBD",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "west": "The Church of Flames"
+          },
+          "character": "TBD",
+          "item": null
+        },
+        {
+          "type": "structure",
+          "name": "The Screaming Pasture",
+          "description": "TBD",
+          "image": "TBD",
+          "directions": {
+            "north": "The Church of Flames"
+          },
+          "character": "TBD",
+          "item": null
+        }
+      ]
     }
   ]
 }
