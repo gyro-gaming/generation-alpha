@@ -6,13 +6,16 @@ import java.awt.event.ActionListener;
 public class SplashScreen {
 
     JFrame window;
+    ImageIcon backgroundImage;
     Container container;
-    JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel;
-    JLabel titleNameLabel;
+    JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel;
+    JLabel titleNameLabel, hpLabel, hpLabelNumber, inventoryLabel, inventoryLabelName, myLabel;
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 60);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 30);
     JButton startButton, choice1, choice2, choice3, choice4;
     JTextArea mainTextArea;
+    int playerHP;
+    String inventory;
 
     TitleScreenHandler tsHandler = new TitleScreenHandler();
 
@@ -21,23 +24,28 @@ public class SplashScreen {
         new SplashScreen();
     }
     public SplashScreen() {
-        window = new JFrame();
+
+        backgroundImage = new ImageIcon("Resources/backgroundImage.png");
+        myLabel = new JLabel(backgroundImage);
+        myLabel.setSize(800, 600);
+        window = new JFrame("Generation Alpha");
         window.setSize(800, 600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setLocationRelativeTo(null);
         window.getContentPane().setBackground(Color.black);
         window.setLayout(null);
         window.setVisible(true);
         container = window.getContentPane();
 
         titleNamePanel = new JPanel();
-        titleNamePanel.setBounds(100, 100, 600, 150);
+        titleNamePanel.setBounds(100, 100, 500, 100);
         titleNamePanel.setBackground(Color.black);
         titleNameLabel = new JLabel("Generation Alpha");
         titleNameLabel.setForeground(Color.white);
         titleNameLabel.setFont(titleFont);
 
         startButtonPanel = new JPanel();
-        startButtonPanel.setBounds(300, 400, 200, 100);
+        startButtonPanel.setBounds(300, 400, 150, 50);
         startButtonPanel.setBackground(Color.black);
 
         startButton = new JButton("START");
@@ -45,18 +53,21 @@ public class SplashScreen {
         startButton.setForeground(Color.black);
         startButton.setFont(normalFont);
         startButton.addActionListener(tsHandler);
+        startButton.setFocusPainted(false);
 
         titleNamePanel.add(titleNameLabel);
         startButtonPanel.add(startButton);
 
         container.add(titleNamePanel);
         container.add(startButtonPanel);
+        container.add(myLabel);
     }
 
     public void createGameScreen() {
 
         titleNamePanel.setVisible(false);
         startButtonPanel.setVisible(false);
+        myLabel.setVisible(false);
 
         mainTextPanel = new JPanel();
         mainTextPanel.setBounds(100, 100, 600, 250);
@@ -81,26 +92,71 @@ public class SplashScreen {
         choice1.setBackground(Color.black);
         choice1.setForeground(Color.black);
         choice1.setFont(normalFont);
+        choice1.setFocusPainted(false);
         choiceButtonPanel.add(choice1);
 
         choice2 = new JButton("Choice 2");
         choice2.setBackground(Color.black);
         choice2.setForeground(Color.black);
         choice2.setFont(normalFont);
+        choice2.setFocusPainted(false);
         choiceButtonPanel.add(choice2);
 
         choice3 = new JButton("Choice 3");
         choice3.setBackground(Color.black);
         choice3.setForeground(Color.black);
         choice3.setFont(normalFont);
+        choice3.setFocusPainted(false);
         choiceButtonPanel.add(choice3);
 
         choice4 = new JButton("Choice 4");
         choice4.setBackground(Color.black);
         choice4.setForeground(Color.black);
         choice4.setFont(normalFont);
+        choice4.setFocusPainted(false);
         choiceButtonPanel.add(choice4);
 
+        playerPanel = new JPanel();
+        playerPanel.setBounds(100, 15, 600, 50);
+        playerPanel.setBackground(Color.black);
+        playerPanel.setLayout(new GridLayout(1, 4));
+        container.add(playerPanel);
+        hpLabel = new JLabel("HP:");
+        hpLabel.setFont(normalFont);
+        hpLabel.setForeground(Color.white);
+        playerPanel.add(hpLabel);
+        hpLabelNumber = new JLabel();
+        hpLabelNumber.setFont(normalFont);
+        hpLabelNumber.setForeground(Color.white);
+        playerPanel.add(hpLabelNumber);
+        inventoryLabel = new JLabel("Inventory:");
+        inventoryLabel.setFont(normalFont);
+        inventoryLabel.setForeground(Color.white);
+        playerPanel.add(inventoryLabel);
+        inventoryLabelName = new JLabel();
+        inventoryLabelName.setFont(normalFont);
+        inventoryLabelName.setForeground(Color.white);
+        playerPanel.add(inventoryLabelName);
+
+        playerSetup();
+
+    }
+    public void playerSetup() {
+        playerHP = 15;
+        inventory = "Knife";
+        inventoryLabelName.setText(inventory);
+        hpLabelNumber.setText("" + playerHP);
+
+        navigate();
+    }
+
+    public void navigate() {
+        mainTextArea.setText("You are here. \nWhere do you want to go next?");
+
+        choice1.setText("go north");
+        choice2.setText("go east");
+        choice3.setText("go south");
+        choice4.setText("go west");
     }
 
     public class TitleScreenHandler implements ActionListener{
@@ -109,5 +165,4 @@ public class SplashScreen {
         }
     }
 
-    //This is a commit to make a change
 }
