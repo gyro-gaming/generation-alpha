@@ -36,6 +36,7 @@ public class GamePlay {
                 territory.setDescription(territoryMap.get("description").toString());
                 territory.setImage(territoryMap.get("image").toString());
                 territory.setMap((Map<String, Object>)territoryMap.get("directions"));
+                System.out.println((List) territoryMap.get("locations"));
                 locationList = (List) territoryMap.get("locations");
                 territory.setLocations(locationList);
                 territory.setStart(getStart(territoryMap.get("start").toString()));
