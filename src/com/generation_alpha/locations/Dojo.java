@@ -6,7 +6,7 @@ import com.generation_alpha.items.Item;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Dojo extends Structure {
+class Dojo extends Structure {
     private String name;
     private String description;
     private String image;
@@ -61,7 +61,7 @@ public class Dojo extends Structure {
 
     @Override
     public void setMap(Map<String, Object> objectMap) {
-        this.map = convertMap(objectMap);
+        this.map = GamePlay.convertMap(objectMap);
     }
 
     @Override
@@ -87,18 +87,5 @@ public class Dojo extends Structure {
     @Override
     public Item getItem() {
         return power;
-    }
-
-    private Map<Direction, String> convertMap(Map<String, Object> objectMap) {
-        Map<Direction, String> newMap = new HashMap<>();
-        Direction[] directions = Direction.values();
-        for (Map.Entry<String, Object> entry : objectMap.entrySet()) {
-            for (Direction direction : directions) {
-                if (entry.getKey().toUpperCase().equals(direction.toString())) {
-                    newMap.put(direction, entry.getValue().toString());
-                }
-            }
-        }
-        return newMap;
     }
 }

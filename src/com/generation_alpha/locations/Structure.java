@@ -5,9 +5,7 @@ import com.generation_alpha.items.Item;
 
 import java.util.Map;
 
-public abstract class Structure implements Location {
-    public abstract void setMap(Map<String, Object> a);
-    public abstract Map<Direction, String> getMap();
+abstract class Structure extends Territory {
     public abstract void setCharacter(Character b);
     public abstract Character getCharacter();
     public abstract void setItem(Item c);

@@ -14,60 +14,15 @@ public class VillainTest {
     }
 
     @Test
-    public void setName() {
-        villain.setName("Clyde");
-        assertEquals(villain.getName(), "Clyde");
+    public void usePowers() {
     }
 
     @Test
-    public void getName() {
+    public void useItems() {
     }
 
     @Test
-    public void setQuote() {
-    }
+    public void testMe() {
 
-    @Test
-    public void says() {
-    }
-
-    @Test
-    public void setImage() {
-    }
-
-    @Test
-    public void getImage() {
-    }
-
-    @Test
-    public void setLocation() {
-    }
-
-    @Test
-    public void getLocation() {
-    }
-
-    @Test
-    public void setStrength() {
-    }
-
-    @Test
-    public void getStrength() {
-    }
-
-    @Test
-    public void setHealth() {
-    }
-
-    @Test
-    public void getHealth() {
-    }
-
-    @Test
-    public void setPowers() {
-    }
-
-    @Test
-    public void getPowers() {
     }
 }

@@ -12,34 +12,7 @@ public class NPCTest {
     }
 
     @Test
-    public void setName() {
-    }
+    public void testMe() {
 
-    @Test
-    public void getName() {
-    }
-
-    @Test
-    public void setQuote() {
-    }
-
-    @Test
-    public void says() {
-    }
-
-    @Test
-    public void setImage() {
-    }
-
-    @Test
-    public void getImage() {
-    }
-
-    @Test
-    public void setLocation() {
-    }
-
-    @Test
-    public void getLocation() {
     }
 }
