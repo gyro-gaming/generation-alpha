@@ -1,6 +1,7 @@
 package com.generation_alpha.locations;
 
 import com.generation_alpha.characters.Character;
+import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.characters.NPC;
 import com.generation_alpha.characters.Villain;
 import com.generation_alpha.client.JsonParser;
@@ -8,7 +9,6 @@ import com.generation_alpha.items.HealthBoost;
 import com.generation_alpha.items.Item;
 import com.generation_alpha.items.PowerItem;
 import com.generation_alpha.items.StrengthBoost;
-import com.generation_alpha.locations.*;
 
 
 import java.util.ArrayList;
@@ -19,6 +19,18 @@ import java.util.Map;
 public class GamePlay {
     private Territory territory;
     private List<Map<String, Object>> locationList;
+
+    public int moveGyro(Gyro gyro, String name, List<Structure> locations) {
+        int index = 0;
+        for (Structure location : locations) {
+            if (location.getName().equals(name)) {
+                gyro.setLocation(location);
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
 
     /**
      * method creates a Territory object
@@ -36,7 +48,6 @@ public class GamePlay {
                 territory.setDescription(territoryMap.get("description").toString());
                 territory.setImage(territoryMap.get("image").toString());
                 territory.setMap((Map<String, Object>)territoryMap.get("directions"));
-                System.out.println((List) territoryMap.get("locations"));
                 locationList = (List) territoryMap.get("locations");
                 territory.setLocations(locationList);
                 territory.setStart(getStart(territoryMap.get("start").toString()));
