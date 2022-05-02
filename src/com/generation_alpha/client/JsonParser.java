@@ -8,8 +8,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-class JsonParser {
+public class JsonParser {
 
+    /**
+     * method parses .json into a Java usable map created by
+     * Jackson library
+     * @param file
+     * @return
+     */
     public static Map<String, Object> parseJson(String file) {
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> map = new HashMap<>();

@@ -141,7 +141,7 @@
       "quote": ["Bless you."],
       "image": "TBD",
       "location": {
-        "Yamamoto": "The Church of Flames"
+        "Master Yamamoto": "The Church of Flames"
       }
     },
     {
@@ -150,7 +150,7 @@
       "quote": ["TBD"],
       "image": "TBD",
       "location": {
-        "Yamamoto": "The Gate of Eternal Fate"
+        "Master Yamamoto": "The Gate of Eternal Fate"
       }
     },
     {
@@ -159,7 +159,7 @@
       "quote": ["Kill all"],
       "image": "TBD",
       "location": {
-        "Yamamoto": "TBD"
+        "Master Yamamoto": "TBD"
       }
     }
   ]
