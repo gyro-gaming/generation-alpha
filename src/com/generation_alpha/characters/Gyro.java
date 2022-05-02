@@ -1,6 +1,7 @@
 package com.generation_alpha.characters;
 
 import com.generation_alpha.items.PowerItem;
+import com.generation_alpha.locations.GamePlay;
 import com.generation_alpha.locations.Location;
 import com.generation_alpha.items.Item;
 
@@ -48,7 +49,7 @@ public class Gyro extends Fighter {
         return image;
     }
 
-    @Override
+
     public void setLocation(Location location) {
         this.location = location;
     }
