@@ -1,7 +1,5 @@
 package com.generation_alpha.client;
-
-import com.generation_alpha.locations.Direction;
-import com.generation_alpha.locations.Territory;
+import com.generation_alpha.locations.*;
 
 class Look {
     public static String forLook(String inputLine, String location) {
@@ -12,8 +10,8 @@ class Look {
                     Territory n = north.getTerritory("Home");
                     System.out.println("Map: " + n.getLocations().get(0).getMap());
                     System.out.println("Location: " + n.getLocations().get(0).getMap().get(Direction.NORTH));
-                    System.out.println("Character Name: " + n.getLocations().get(1).getCharacter().getName());
-                    System.out.println("Item Name: " + n.getLocations().get(1).getItem().getName());
+                    System.out.println("Character Name: " + n.getLocations().get(0).getCharacter().getName());
+                    System.out.println("Item Name: " + n.getLocations().get(0).getItem().getName());
                     break;
                 case "south":
                     GamePlay south = new GamePlay();

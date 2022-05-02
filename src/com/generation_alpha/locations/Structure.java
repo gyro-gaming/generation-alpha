@@ -5,7 +5,7 @@ import com.generation_alpha.items.Item;
 
 import java.util.Map;
 
-abstract class Structure extends Territory {
+public abstract class Structure extends Territory {
     public abstract void setCharacter(Character b);
     public abstract Character getCharacter();
     public abstract void setItem(Item c);

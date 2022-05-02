@@ -1,18 +1,7 @@
 package com.generation_alpha.client;
 
-import com.generation_alpha.characters.Character;
-import com.generation_alpha.items.HealthBoost;
-import com.generation_alpha.items.Item;
-import com.generation_alpha.items.PowerItem;
-import com.generation_alpha.items.StrengthBoost;
-import com.generation_alpha.locations.Direction;
-import com.generation_alpha.locations.Location;
-import com.generation_alpha.locations.Territory;
-
 import java.io.*;
 import java.util.StringTokenizer;
-
-
 
 public class TextParser {
     // create a Map for different level location
