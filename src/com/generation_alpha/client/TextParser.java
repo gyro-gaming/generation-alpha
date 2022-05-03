@@ -55,6 +55,15 @@ public class TextParser {
                     String quote = Ask.forAsk(gameBoard, word2);
                     System.out.println(quote);
                 }
+                else if (word1.equals("inspect")) {
+                    if (gameBoard.getGyro().getItems().size() > 0) {
+                        String description = Inspect.forInspect(gameBoard);
+                        System.out.println(description);
+                    }else{
+                        System.out.println("No items in your bag!!");
+                    }
+
+                }
                 else if (word1.equals("quit") || word1.equals("q")){
                     return word2;
                 }
