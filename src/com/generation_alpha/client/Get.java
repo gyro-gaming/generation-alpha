@@ -18,8 +18,11 @@ class Get {
         if (name.equals("null")) {
             return "There is no item at this location.";
         }
-        Item item = gamePlay.getItems(name);
-        System.out.println(item);
+        Item item = gyro.getLocation().getItem();
+        if (!item.getName().equals(name)) {
+            return "That item is not in this building.";
+        }
+
         if (item instanceof StrengthBoost || item instanceof HealthBoost) {
             gyro.addItem(item);
             location.setItem(new StrengthBoost("null"));
