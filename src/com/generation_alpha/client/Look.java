@@ -192,7 +192,7 @@ class Look {
                     System.out.println("Map: " + e.getMap());
                     System.out.println("Location: " + e.getMap().get(Direction.EAST));
                     System.out.println("Character Name: " +characters.get(14).get("name"));
-                    System.out.println("Item:");
+                    System.out.println("Item: "+ characters.get(14).get("item"));
                     break;
                 default:
                     System.out.println("You can only look north, south, east, west");
