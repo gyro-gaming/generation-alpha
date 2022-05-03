@@ -38,18 +38,22 @@ public class TextParser {
                     word2 = "";
 
                 //  Conditions - forGo, forGet,forLook, quit
-                if (word1.equals("go") || word1.equals("move") || word1.equals("run") || word1.equals("jump")){
-                     Go.forGo(gameBoard, word2);
-                    System.out.println(gameBoard.getGyro().getLocation().getName());
-                }
-                else if (word1.equals("get") || word1.equals("pickup") || word1.equals("grab") || word1.equals("take")){
+                if (word1.equals("go") || word1.equals("move") || word1.equals("run") || word1.equals("jump")) {
+                    Go.forGo(gameBoard, word2);
+                    System.out.println("You are now in " + gameBoard.getGyro().getLocation().getName());
+                    System.out.println("Would you like to ask " + gameBoard.getGyro().getLocation().getCharacter().getName() + " a question?");
+                    System.out.println("There is also a " + gameBoard.getGyro().getLocation().getItem().getName() + " in the room.");
+                } else if (word1.equals("get") || word1.equals("pickup") || word1.equals("grab") || word1.equals("take")) {
                     String result = Get.forGet(gameBoard, word2);
                     System.out.println(result);
-                }
-                else if(word1.equals("look") || word1.equals("examine") || word1.equals("peel")){
+                } else if (word1.equals("look") || word1.equals("examine") || word1.equals("peel")) {
                     String desc = Look.forLook(gameBoard, word2);
                     System.out.println(desc);
 
+                }
+                else if (word1.equals("asks")) {
+                    String quote = Ask.forAsk(gameBoard, word2);
+                    System.out.println(quote);
                 }
                 else if (word1.equals("quit") || word1.equals("q")){
                     return word2;
