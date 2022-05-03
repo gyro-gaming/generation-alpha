@@ -79,7 +79,7 @@
     {
       "type": "NPC",
       "name": "Fisher Jane",
-      "item": "fish",
+      "item": "Fish",
       "item_type": "Health",
       "quote": ["Be quite!"],
       "image": "TBD",
@@ -113,7 +113,7 @@
       "name": "Traveler Bob",
       "quote": ["What do you want to buy?"],
       "image": "TBD",
-      "item": "ibuprofen",
+      "item": "Ibuprofen",
       "location": {
         "territory":"Talon",
         "structure":"The Merchant"
@@ -153,6 +153,7 @@
     {
       "type": "NPC",
       "name": "Priest Roman",
+      "item": "Holy Water",
       "quote": ["Bless you."],
       "image": "TBD",
       "location": {
