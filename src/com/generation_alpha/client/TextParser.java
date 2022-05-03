@@ -10,7 +10,7 @@ public class TextParser {
     String word2;           // will hold the second word entered
 
     // Method to prompt for input
-    public String promptInput(String location) throws IOException {
+    public String promptInput(GameBoard gameBoard) throws IOException {
         // Start the game by giving prompt and using while loop
         while (true) {
             String inputLine = "";   // will hold the full input line
@@ -39,13 +39,16 @@ public class TextParser {
 
                 //  Conditions - forGo, forGet,forLook, quit
                 if (word1.equals("go") || word1.equals("move") || word1.equals("run") || word1.equals("jump")){
-                    Go.forGo(word2);
+                     Go.forGo(gameBoard, word2);
+                    System.out.println(gameBoard.getGyro().getLocation().getName());
                 }
                 else if (word1.equals("get") || word1.equals("pickup") || word1.equals("grab") || word1.equals("take")){
-                    Get.forGet(word2);
+                    String result = Get.forGet(gameBoard, word2);
+                    System.out.println(result);
                 }
                 else if(word1.equals("look") || word1.equals("examine") || word1.equals("peel")){
-                    Look.forLook(word2,location);
+                    String desc = Look.forLook(gameBoard, word2);
+                    System.out.println(desc);
 
                 }
                 else if (word1.equals("quit") || word1.equals("q")){

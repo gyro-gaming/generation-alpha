@@ -1,6 +1,7 @@
 package com.generation_alpha.characters;
 
 import com.generation_alpha.locations.Location;
+import com.generation_alpha.locations.Structure;
 
 import java.util.List;
 
@@ -11,6 +12,6 @@ public interface Character {
     public List<String> says();
     void setImage(String c);
     public String getImage();
-    void setLocation(Location d);
+    void setLocation(Structure d);
     public Location getLocation();
 }

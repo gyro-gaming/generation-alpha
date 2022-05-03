@@ -1,7 +1,7 @@
 package com.generation_alpha.characters;
 
 import com.generation_alpha.items.PowerItem;
-import com.generation_alpha.locations.Location;
+import com.generation_alpha.locations.Structure;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ public class Villain extends Fighter {
     private String name;
     private List<String> quote;
     private String image;
-    private Location location;
+    private Structure location;
     private int strength;
     private int health;
     private List<PowerItem> powers;
@@ -51,12 +51,12 @@ public class Villain extends Fighter {
     }
 
     @Override
-    public void setLocation(Location location) {
+    public void setLocation(Structure location) {
         this.location = location;
     }
 
     @Override
-    public Location getLocation() {
+    public Structure getLocation() {
         return location;
     }
 

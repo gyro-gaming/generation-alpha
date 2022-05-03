@@ -1,18 +1,16 @@
 package com.generation_alpha.characters;
 
 import com.generation_alpha.items.PowerItem;
-import com.generation_alpha.locations.GamePlay;
-import com.generation_alpha.locations.Location;
 import com.generation_alpha.items.Item;
+import com.generation_alpha.locations.Structure;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Gyro extends Fighter {
     private String name;
     private List<String> quote;
     private String image;
-    private Location location;
+    private Structure location;
     private int strength;
     private int health;
     private List<PowerItem> powers;
@@ -55,12 +53,12 @@ public class Gyro extends Fighter {
     }
 
 
-    public void setLocation(Location location) {
+    public void setLocation(Structure location) {
         this.location = location;
     }
 
     @Override
-    public Location getLocation() {
+    public Structure getLocation() {
         return location;
     }
 
@@ -90,9 +88,6 @@ public class Gyro extends Fighter {
     }
 
     public void addPower(PowerItem powerItem) {
-        if (powers == null) {
-            powers = new ArrayList<>();
-        }
         powers.add(powerItem);
     }
 
@@ -111,9 +106,6 @@ public class Gyro extends Fighter {
     }
 
     public void addItem(Item item) {
-        if (items == null) {
-            items = new ArrayList<>();
-        }
         items.add(item);
     }
 

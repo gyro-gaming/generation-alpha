@@ -19,16 +19,15 @@ public class GamePlay {
     private Territory territory;
     private List<Map<String, Object>> locationList;
 
-    public int moveGyro(Gyro gyro, String name, List<Structure> locations) {
-        int index = 0;
-        for (Structure location : locations) {
-            if (location.getName().equals(name)) {
-                gyro.setLocation(location);
-                return index;
-            }
-            index++;
-        }
-        return -1;
+
+    public Gyro getGyro(String name) {
+        Gyro gyro = new Gyro(name);
+        gyro.setStrength(10);
+        gyro.setHealth(100);
+        gyro.setLocation(territory.getStart());
+        gyro.setItems(new ArrayList<>());
+        gyro.setPowers(new ArrayList<>());
+        return gyro;
     }
 
     /**
@@ -152,10 +151,56 @@ public class GamePlay {
         for (Map.Entry<String, Object> entry : objectMap.entrySet()) {
             for (Direction direction : directions) {
                 if (entry.getKey().toUpperCase().equals(direction.toString())) {
+
                     newMap.put(direction, entry.getValue().toString());
                 }
             }
         }
         return newMap;
+    }
+
+    public int moveGyro(Gyro gyro, String name, List<Structure> locations) {
+        int index = 0;
+        for (Structure location : locations) {
+            if (location.getName().equals(name)) {
+                gyro.setLocation(location);
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+
+    public String getLocation(String name, List<Structure> locations) {
+        for (Structure location : locations) {
+            if (location.getName().equals(name)) {
+                return location.getImage() + " & " + location.getDescription();
+            }
+        }
+        territory = getTerritory(name);
+            return territory.getImage() + " & " + territory.getDescription();
+    }
+
+    public Direction getDirection(String input) {
+        Direction direction = null;
+        switch (input) {
+            case "north":
+                direction = Direction.NORTH;
+                break;
+            case "east":
+                direction = Direction.EAST;
+                break;
+            case "west":
+                direction = Direction.WEST;
+                break;
+            case "south":
+                direction = Direction.SOUTH;
+                break;
+            default:
+                // TODO: make a method to print errors on screen
+                // "Error: You can only look north, south, east, and west.";
+                break;
+        }
+        return direction;
     }
 }

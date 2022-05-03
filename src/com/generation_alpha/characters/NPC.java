@@ -1,6 +1,6 @@
 package com.generation_alpha.characters;
 
-import com.generation_alpha.locations.Location;
+import com.generation_alpha.locations.Structure;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ public class NPC implements Character {
     private String name;
     private List<String> quote;
     private String image;
-    private Location location;
+    private Structure location;
 
     public NPC() {}
 
@@ -47,12 +47,12 @@ public class NPC implements Character {
     }
 
     @Override
-    public void setLocation(Location location) {
+    public void setLocation(Structure location) {
         this.location = location;
     }
 
     @Override
-    public Location getLocation() {
+    public Structure getLocation() {
         return location;
     }
 }

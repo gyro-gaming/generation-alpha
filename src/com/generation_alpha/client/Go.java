@@ -1,34 +1,34 @@
 package com.generation_alpha.client;
 
+import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.locations.Direction;
+import com.generation_alpha.locations.GamePlay;
+import com.generation_alpha.locations.Location;
+import com.generation_alpha.locations.Structure;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 class Go {
-    public static Direction forGo(String inputLine) {
-
-        // from Direction Enum , variable is declared and starts off as null
-        Direction direction = null;
-
-
-        // Conditions - Switch statement that will assign enum to proper case
-        switch (inputLine) {
-            case "north":
-                direction = Direction.NORTH;
-                break;
-            case "east":
-                direction = Direction.EAST;
-                break;
-            case "west":
-                direction = Direction.WEST;
-                break;
-            case "south":
-                direction = Direction.SOUTH;
-                break;
-            default:
-                System.out.println("Error: You can only go north,south,east,west");
-                break;
+    public static Structure forGo(GameBoard gameBoard, String input) {
+        Gyro gyro = gameBoard.getGyro();
+        Location start = gyro.getLocation();
+        GamePlay gamePlay = gameBoard.getGamePlay();
+        List<Structure> locations = gameBoard.getTerritory().getLocations();
+        for (Structure location : locations) {
+            if (location.getName().equals(start.getName())) {
+                start = location;
+            }
         }
-
-        System.out.println(direction);
-        return direction;
+        Map<Direction, String> map = start.getMap();
+        Direction direction = gamePlay.getDirection(input);
+        if (map.containsKey(direction)) {
+            String locName = map.get(direction);
+            int index = gamePlay.moveGyro(gyro, locName, locations);
+            return locations.get(index);
+        } else {
+            return null;
+        }
     }
 }
