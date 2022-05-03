@@ -46,6 +46,10 @@ public class TextParser {
                 }
                 else if(word1.equals("look") || word1.equals("examine") || word1.equals("peel")){
                     Look.forLook(word2,"Home");
+                    Look.forLook(word2,"Talon");
+                    Look.forLook(word2,"Hunter X");
+                    Look.forLook(word2,"Troll");
+                    Look.forLook(word2, "Master Yamamoto");
                 }
                 else if (word1.equals("quit") || word1.equals("q")){
                     return word2;
@@ -59,11 +63,6 @@ public class TextParser {
             }
         }
     }
-
-
-
-
-
     }
 
 
