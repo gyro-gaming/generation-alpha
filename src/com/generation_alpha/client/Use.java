@@ -13,28 +13,34 @@ public class Use {
         Gyro gyro = gameBoard.getGyro();
         Item item = gameBoard.getGamePlay().getItems(name);
         if(item instanceof StrengthBoost) {
+            if (gyro.getStrength() == 100) {
+                return "You are already too pumped up to add more strength";
+            }
             StrengthBoost strBst = (StrengthBoost)item;
             int boost = strBst.getStrengthBoost();
             gyro.setStrength(gyro.getStrength() + boost);
             List<Item> items = gyro.getItems();
-            for (Item i : items) {
-                if(i.getName().equals(item.getName())) {
-                    gyro.useItem(i);
+            for (int i = 0; i < items.size(); i++) {
+                if(items.get(i).getName().equals(name)) {
+                    gyro.useItem(items.get(i));
                 }
             }
-            return String.format("You used a %s and gained %d strength.", item.getName(), ((StrengthBoost) item).getStrengthBoost());
+            return String.format("You used a %s and gained %d strength.\nYou now have %d strength.", item.getName(), ((StrengthBoost) item).getStrengthBoost(), gyro.getStrength());
         }
         else if (item instanceof HealthBoost) {
+            if (gyro.getHealth() == 100) {
+                return "You cannot have more than 100 health at this time";
+            }
             HealthBoost hltBst = (HealthBoost)item;
             int boost = hltBst.getHealthBoost();
             gyro.setHealth(gyro.getHealth() + boost);
             List<Item> items = gyro.getItems();
-            for (Item i : items) {
-                if (i.getName().equals(item.getName())) {
-                    gyro.useItem(i);
+            for (int i = 0; i < items.size(); i++) {
+                if(items.get(i).getName().equals(name)) {
+                    gyro.useItem(items.get(i));
                 }
             }
-            return String.format("You used a %s and gained %d health.", item.getName(), ((HealthBoost) item).getHealthBoost());
+            return String.format("You used a %s and gained %d health.\nYou now have %d health.", item.getName(), ((HealthBoost) item).getHealthBoost(), gyro.getHealth());
         }
         return String.format("%s is not in your bag.", name);
     }
