@@ -1,7 +1,6 @@
 package com.generation_alpha;
 
 import com.apps.util.Console;
-//import com.apps.util.SplashApp;
 
 import java.awt.*;
 import java.io.IOException;
