@@ -10,7 +10,7 @@ public class TextParser {
     String word2;           // will hold the second word entered
 
     // Method to prompt for input
-    public String promptInput() throws IOException {
+    public String promptInput(String location) throws IOException {
         // Start the game by giving prompt and using while loop
         while (true) {
             String inputLine = "";   // will hold the full input line
@@ -45,11 +45,8 @@ public class TextParser {
                     Get.forGet(word2);
                 }
                 else if(word1.equals("look") || word1.equals("examine") || word1.equals("peel")){
-                    Look.forLook(word2,"Home");
-                    Look.forLook(word2,"Talon");
-                    Look.forLook(word2,"Hunter X");
-                    Look.forLook(word2,"Troll");
-                    Look.forLook(word2, "Master Yamamoto");
+                    Look.forLook(word2,location);
+
                 }
                 else if (word1.equals("quit") || word1.equals("q")){
                     return word2;

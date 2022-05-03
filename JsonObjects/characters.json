@@ -46,7 +46,7 @@
       "quote": ["Bully Fight"],
       "image": "TBD",
       "location": {
-        "territory":"home",
+        "territory":"Home",
         "structure": "Sand Lot"
       },
       "powers": [
@@ -60,25 +60,32 @@
       "quote": ["..."],
       "image": "TBD",
       "location": {
-        "HunterX": "Town Center"
+        "territory":"Hunter X",
+        "structure": "Town Center"
       }
     },
     {
       "type": "NPC",
       "name": "Risky Joe",
+      "item": "Talisman",
+      "item_type": "Health",
       "quote": ["Welcome to the Saloon!"],
       "image": "TBD",
       "location": {
-        "HunterX": "Saloon"
+        "territory":"Hunter X",
+        "structure": "Saloon"
       }
     },
     {
       "type": "NPC",
       "name": "Fisher Jane",
+      "item": "Fish",
+      "item_type": "Health",
       "quote": ["Be quite!"],
       "image": "TBD",
       "location": {
-        "HunterX": "The Rapid River"
+        "territory":"Hunter X",
+        "structure": "The Rapid River"
       }
     },
     {
@@ -87,7 +94,8 @@
       "quote": ["Hunter X Fight"],
       "image": "TBD",
       "location": {
-        "HunterX": "TBD"
+        "territory":"Hunter X",
+        "structure": "TBD"
       }
     },
     {
@@ -96,7 +104,8 @@
       "quote": ["Welcome to the Museum."],
       "image": "TBD",
       "location": {
-        "Talon": "Museum"
+        "territory":"Talon",
+        "structure":"Museum"
       }
     },
     {
@@ -104,8 +113,10 @@
       "name": "Traveler Bob",
       "quote": ["What do you want to buy?"],
       "image": "TBD",
+      "item": "Ibuprofen",
       "location": {
-        "Talon": "Store"
+        "territory":"Talon",
+        "structure":"The Merchant"
       }
     },
     {
@@ -114,16 +125,19 @@
       "quote": ["Talon Fight"],
       "image": "TBD",
       "location": {
-        "Talon": "TBD"
+        "territory":"Talon",
+        "structure":"TBD"
       }
     },
     {
       "type": "NPC",
       "name": "Officer Randy",
+      "item": "Shield",
       "quote": ["Let me see your pass!"],
       "image": "TBD",
       "location": {
-        "Troll": "Troll Gate"
+        "territory":"Troll",
+        "structure":"Troll Gate"
       }
     },
     {
@@ -132,16 +146,19 @@
       "quote": ["Troll Fight"],
       "image": "TBD",
       "location": {
-        "Troll": "TBD"
+        "territory":"Troll",
+        "structure": "TBD"
       }
     },
     {
       "type": "NPC",
       "name": "Priest Roman",
+      "item": "Holy Water",
       "quote": ["Bless you."],
       "image": "TBD",
       "location": {
-        "Master Yamamoto": "The Church of Flames"
+        "territory":"Master Yamamoto",
+        "structure":"The Church of Flames"
       }
     },
     {
@@ -150,7 +167,8 @@
       "quote": ["TBD"],
       "image": "TBD",
       "location": {
-        "Master Yamamoto": "The Gate of Eternal Fate"
+        "territory":"Master Yamamoto",
+        "structure":"The Gate of Eternal Fate"
       }
     },
     {
@@ -159,7 +177,8 @@
       "quote": ["Kill all"],
       "image": "TBD",
       "location": {
-        "Master Yamamoto": "TBD"
+        "territory":"Master Yamamoto",
+        "structure": "TBD"
       }
     }
   ]
