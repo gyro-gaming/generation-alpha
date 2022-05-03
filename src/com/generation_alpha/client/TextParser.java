@@ -14,7 +14,7 @@ public class TextParser {
         // Start the game by giving prompt and using while loop
         while (true) {
             String inputLine = "";   // will hold the full input line
-
+            System.out.println("Which action will you like to do?");
             System.out.print("> ");     // print prompt
 
             // Takes in input and saves it as inputLine
