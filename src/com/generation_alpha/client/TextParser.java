@@ -64,6 +64,14 @@ public class TextParser {
                     }
 
                 }
+                else if (word1.equals("use")) {
+                    if (gameBoard.getGyro().getItems().size() > 0) {
+                        String result = Use.forUse(gameBoard, word2);
+                        System.out.println(result);
+                    }else{
+                        System.out.println("No items in your bag!!");
+                    }
+                }
                 else if (word1.equals("quit") || word1.equals("q")){
                     return word2;
                 }
