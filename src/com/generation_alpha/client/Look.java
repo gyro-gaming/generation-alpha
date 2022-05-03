@@ -63,7 +63,7 @@ class Look {
                     System.out.println("Map: " + e.getMap());
                     System.out.println("Location: " + e.getLocations().get(3).getName());
                     System.out.println("Character: " + e.getLocations().get(3).getCharacter().getName());
-                    System.out.println("Items: ");
+                    System.out.println("Items: " + characters.get(7).get("item"));
                     break;
                 case "north":
                     GamePlay north = new GamePlay();
@@ -79,7 +79,7 @@ class Look {
                     System.out.println("Map: " + w.getMap());
                     System.out.println("Location: " + w.getLocations().get(2).getName());
                     System.out.println("Character: " + w.getLocations().get(2).getCharacter().getName());
-                    System.out.println("Items: ");
+                    System.out.println("Items: " + characters.get(6).get("item"));
                     break;
                 default:
                     break;
@@ -117,7 +117,7 @@ class Look {
                     System.out.println("Map: " + e.getMap());
                     System.out.println("Location: " + e.getMap().get(Direction.EAST));
                     System.out.println("Character Name: " + characters.get(10).get("name"));
-                    System.out.println("Item: 'Ibuprofen' ");
+                    System.out.println("Item: " + characters.get(10).get("item"));
                     break;
                 default:
                     System.out.println("You can only look north, south, east, west");
@@ -139,7 +139,7 @@ class Look {
                     System.out.println("Map: " + e.getMap());
                     System.out.println("Location: " + e.getMap().get(Direction.EAST));
                     System.out.println("Character: " + characters.get(12).get("name"));
-                    System.out.println("Items: 'Shield' " );
+                    System.out.println("Items: " + characters.get(12).get("item"));
                     break;
                 case "north":
                     GamePlay north = new GamePlay();

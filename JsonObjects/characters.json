@@ -67,6 +67,8 @@
     {
       "type": "NPC",
       "name": "Risky Joe",
+      "item": "Talisman",
+      "item_type": "Health",
       "quote": ["Welcome to the Saloon!"],
       "image": "TBD",
       "location": {
@@ -77,6 +79,8 @@
     {
       "type": "NPC",
       "name": "Fisher Jane",
+      "item": "fish",
+      "item_type": "Health",
       "quote": ["Be quite!"],
       "image": "TBD",
       "location": {
@@ -109,6 +113,7 @@
       "name": "Traveler Bob",
       "quote": ["What do you want to buy?"],
       "image": "TBD",
+      "item": "ibuprofen",
       "location": {
         "territory":"Talon",
         "structure":"The Merchant"
@@ -127,6 +132,7 @@
     {
       "type": "NPC",
       "name": "Officer Randy",
+      "item": "Shield",
       "quote": ["Let me see your pass!"],
       "image": "TBD",
       "location": {
