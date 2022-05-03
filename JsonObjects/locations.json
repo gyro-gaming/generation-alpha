@@ -83,7 +83,10 @@
       "image": "TBD",
       "start": "Town Center",
       "directions": {
-        "south": "Home"
+        "north": "TBD",
+        "south": "Grave Site",
+        "west": "Saloon",
+        "east": "The Rapid River"
       },
       "locations": [
         {
@@ -146,7 +149,10 @@
       "image": "TBD",
       "start": "Stairway to Heaven",
       "directions": {
-        "north": "Home"
+        "north": "The Willow Tree Trail",
+        "south": "TBD",
+        "west": "Museum",
+        "east": "The Merchant"
       },
       "locations": [
         {
@@ -263,7 +269,10 @@
       "image": "TBD",
       "start": "The Church of Flames",
       "directions": {
-        "west": "Troll"
+        "north": "The Cliff of Demise",
+        "south": "The Screaming Pasture",
+        "west": "The Gate of Eternal Fate",
+        "east": "TBD"
       },
       "locations": [
         {
