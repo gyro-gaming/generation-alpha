@@ -1,4 +1,4 @@
-package com.generation_alpha.client;
+package com.generation_alpha.locations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JsonParser {
+class JsonParser {
 
     /**
      * method parses .json into a Java usable map created by

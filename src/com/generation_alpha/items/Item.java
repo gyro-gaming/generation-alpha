@@ -3,12 +3,12 @@ package com.generation_alpha.items;
 import com.generation_alpha.locations.Location;
 
 public interface Item {
-    void setName(String a);
+    void setName(String b);
     String getName();
-    void setDescription(String b);
+    void setDescription(String c);
     String getDescription();
-    void setImage(String c);
+    void setImage(String d);
     String getImage();
-    void setLocation(Location d);
+    void setLocation(Location e);
     Location getLocation();
 }

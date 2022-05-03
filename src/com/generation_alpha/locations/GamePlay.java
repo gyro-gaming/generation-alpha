@@ -4,7 +4,6 @@ import com.generation_alpha.characters.Character;
 import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.characters.NPC;
 import com.generation_alpha.characters.Villain;
-import com.generation_alpha.client.JsonParser;
 import com.generation_alpha.items.HealthBoost;
 import com.generation_alpha.items.Item;
 import com.generation_alpha.items.PowerItem;

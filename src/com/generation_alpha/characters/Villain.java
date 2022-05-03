@@ -86,7 +86,7 @@ public class Villain extends Fighter {
     }
 
     @Override
-    public void usePowers(PowerItem powerItem) {
+    public void usePower(PowerItem powerItem) {
         powers.remove(powerItem);
     }
 
