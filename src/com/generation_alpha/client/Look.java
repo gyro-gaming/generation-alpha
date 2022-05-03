@@ -16,16 +16,16 @@ class Look {
                     Territory n = north.getTerritory("Home");
                     System.out.println("Map: " + n.getLocations().get(0).getMap());
                     System.out.println("Location: " + n.getLocations().get(0).getMap().get(Direction.NORTH));
-                    System.out.println("Character name: " + n.getLocations().get(1).getCharacter().getName());
-                    System.out.println("Item: " + n.getLocations().get(1).getItem().getName());
+                    System.out.println("Character name: " + n.getLocations().get(0).getCharacter().getName());
+                    System.out.println("Item: " + n.getLocations().get(0).getItem().getName());
                     break;
                 case "south":
                     GamePlay south = new GamePlay();
                     Territory s = south.getTerritory("Home");
                     System.out.println(s.getLocations().get(0).getMap());
                     System.out.println(s.getLocations().get(0).getMap().get(Direction.SOUTH));
-                    System.out.println(s.getLocations().get(4).getCharacter().getName());
-                    System.out.println("Power item needs to be added to locations.json");
+                    System.out.println(characters.get(4).get("character"));
+                    System.out.println("Item: " + characters.get(4).get("powers"));
                     break;
                 case "west":
                     GamePlay west = new GamePlay();
@@ -40,7 +40,7 @@ class Look {
                     Territory e = east.getTerritory("Home");
                     System.out.println(e.getLocations().get(0).getMap());
                     System.out.println(e.getLocations().get(0).getMap().get(Direction.EAST));
-                    System.out.println(e.getLocations().get(3).getCharacter().getName());
+                    System.out.println(characters.get(2).get("name"));
                     System.out.println(e.getLocations().get(3).getItem().getName());
                     break;
                 default:
@@ -138,8 +138,8 @@ class Look {
                     Territory e = east.getTerritory("Troll");
                     System.out.println("Map: " + e.getMap());
                     System.out.println("Location: " + e.getMap().get(Direction.EAST));
-                    System.out.println("Character: " + characters.get(12).get("name"));
-                    System.out.println("Items: " + characters.get(12).get("item"));
+                    System.out.println("Character: " + characters.get(13).get("type"));
+                    System.out.println("Items: " + characters.get(13).get("item"));
                     break;
                 case "north":
                     GamePlay north = new GamePlay();
@@ -154,8 +154,8 @@ class Look {
                     Territory w = west.getTerritory("Troll");
                     System.out.println("Map: " + w.getMap());
                     System.out.println("Location: " + w.getMap().get(Direction.WEST));
-                    System.out.println("Character: " + characters.get(13).get("type"));
-                    System.out.println("Items: ");
+                    System.out.println("Character: " + characters.get(12).get("name"));
+                    System.out.println("Items: " + characters.get(12).get("item"));
                     break;
                 default:
                     break;
@@ -174,8 +174,8 @@ class Look {
                     GamePlay south = new GamePlay();
                     Territory s = south.getTerritory("Master Yamamoto");
                     System.out.println("Map: " + s.getMap());
-                    System.out.println("Location: TBD" + s.getMap().get(Direction.SOUTH));
-                    System.out.println("Character Name: " + s.getLocations().get(4).getCharacter().getName());
+                    System.out.println("Location: " + s.getMap().get(Direction.SOUTH));
+                    System.out.println("Character Name: ");
                     System.out.println("Item: ");
                     break;
                 case "west":
