@@ -4,6 +4,7 @@ import com.generation_alpha.client.TextParser;
 
 class Main {
     public static void main(String[] args) {
-        TextParser textParser = new TextParser();
+        GameStart gameStart = new GameStart();
+        gameStart.execute();
     }
 }
