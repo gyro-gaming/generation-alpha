@@ -7,17 +7,21 @@ import com.generation_alpha.characters.Villain;
 class Battle {
     private Gyro gyro;
     private Villain villain;
-    private Fighter[][] fightMap = new Fighter[2][2];
-
 
     public void setGyro(Gyro gyro) {
-        fightMap[0][1] = gyro;
         this.gyro = gyro;
     }
 
+    public Gyro getGyro() {
+        return gyro;
+    }
+
     public void setVillain(Villain villain) {
-        fightMap[1][0] = villain;
         this.villain = villain;
+    }
+
+    public Villain getVillain() {
+        return villain;
     }
 
     public FightMovement moveVillain() {
@@ -34,6 +38,8 @@ class Battle {
         if (moveVillain.equals(FightMovement.LEFT) && moveGyro.equals(FightMovement.UP)
                 || moveVillain.equals(FightMovement.DOWN) && moveGyro.equals(FightMovement.RIGHT)) {
             // fight
+        } else {
+            // if powers are used...
         }
 
     }

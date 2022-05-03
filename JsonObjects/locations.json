@@ -6,6 +6,11 @@
       "description": "TBD",
       "image": "TBD",
       "start": "Town Center",
+      "directions": {
+        "north": "Hunter X",
+        "south": "Talon",
+        "east": "Troll"
+      },
       "locations": [
         {
           "type": "Building",
@@ -77,6 +82,12 @@
       "description": "TBD",
       "image": "TBD",
       "start": "Town Center",
+      "directions": {
+        "north": "TBD",
+        "south": "Grave Site",
+        "west": "Saloon",
+        "east": "The Rapid River"
+      },
       "locations": [
         {
           "type": "Building",
@@ -137,6 +148,12 @@
       "description": "TBD",
       "image": "TBD",
       "start": "Stairway to Heaven",
+      "directions": {
+        "north": "The Willow Tree Trail",
+        "south": "TBD",
+        "west": "Museum",
+        "east": "The Merchant"
+      },
       "locations": [
         {
           "type": "structure",
@@ -144,13 +161,13 @@
           "description": "TBD",
           "image": "TBD",
           "directions": {
-            "north":"The Willow Tree Trail",
+            "north": "The Willow Tree Trail",
             "south": "TBD",
             "west": "Museum",
             "east": "The Merchant"
           },
           "character": "TBD",
-          "item": null
+          "item": "null"
         },
         {
           "type": "structure",
@@ -161,7 +178,7 @@
             "south": "Stairway to Heaven"
           },
           "character": "TBD",
-          "item": null
+          "item": "null"
         },
         {
           "type": "structure",
@@ -172,7 +189,7 @@
             "east": "Stairway to Heaven"
           },
           "character": "Dr. Smith",
-          "item": null
+          "item": "null"
         },
         {
           "type": "structure",
@@ -194,7 +211,7 @@
             "north": "Stairway to Heaven"
           },
           "character": "TBD",
-          "item": null
+          "item": "null"
         }
       ]
     },
@@ -204,6 +221,10 @@
       "description": "TBD",
       "image": "TBD",
       "start": "Town Center",
+      "directions": {
+        "west": "Home",
+        "east": "Master Yamamoto"
+      },
       "locations": [
         {
           "type": "structure",
@@ -214,7 +235,7 @@
             "east": "Bridge of Death"
           },
           "character": "Officer Randy",
-          "item": null
+          "item": "null"
         },
         {
           "type": "structure",
@@ -237,16 +258,22 @@
             "west": "Bridge of Death"
           },
           "character": "TBD",
-          "item": null
+          "item": "null"
         }
       ]
     },
     {
       "type": "territory",
-      "name": "Yamamoto",
+      "name": "Master Yamamoto",
       "description": "TBD",
       "image": "TBD",
       "start": "The Church of Flames",
+      "directions": {
+        "north": "The Cliff of Demise",
+        "south": "The Screaming Pasture",
+        "west": "The Gate of Eternal Fate",
+        "east": "TBD"
+      },
       "locations": [
         {
           "type": "structure",
@@ -254,7 +281,7 @@
           "description": "TBD",
           "image": "TBD",
           "directions": {
-            "north":"The Cliff of Demise",
+            "north": "The Cliff of Demise",
             "south": "The Screaming Pasture",
             "west": "The Gate of Eternal Fate",
             "east": "TBD"
@@ -271,7 +298,7 @@
             "south": "The Church of Flames"
           },
           "character": "TBD",
-          "item": null
+          "item": "null"
         },
         {
           "type": "structure",
@@ -282,7 +309,7 @@
             "east": "The Church of Flames"
           },
           "character": "Creepy Crow",
-          "item": null
+          "item": "null"
         },
         {
           "type": "dojo",
@@ -293,7 +320,7 @@
             "west": "The Church of Flames"
           },
           "character": "TBD",
-          "item": null
+          "item": "null"
         },
         {
           "type": "structure",
@@ -304,7 +331,7 @@
             "north": "The Church of Flames"
           },
           "character": "TBD",
-          "item": null
+          "item": "null"
         }
       ]
     }

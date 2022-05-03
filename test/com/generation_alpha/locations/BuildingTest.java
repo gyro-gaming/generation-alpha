@@ -12,50 +12,12 @@ public class BuildingTest {
     }
 
     @Test
-    public void setName() {
-    }
-
-    @Test
-    public void getName() {
-    }
-
-    @Test
-    public void setDescription() {
-    }
-
-    @Test
-    public void getDescription() {
-    }
-
-    @Test
-    public void setImage() {
-    }
-
-    @Test
-    public void getImage() {
-    }
-
-    @Test
     public void setMap() {
+
     }
 
     @Test
-    public void getMap() {
-    }
+    public void testMe() {
 
-    @Test
-    public void setCharacter() {
-    }
-
-    @Test
-    public void getCharacter() {
-    }
-
-    @Test
-    public void setItem() {
-    }
-
-    @Test
-    public void getItem() {
     }
 }

@@ -1,18 +1,7 @@
 package com.generation_alpha.client;
 
-import com.generation_alpha.characters.Character;
-import com.generation_alpha.items.HealthBoost;
-import com.generation_alpha.items.Item;
-import com.generation_alpha.items.PowerItem;
-import com.generation_alpha.items.StrengthBoost;
-import com.generation_alpha.locations.Direction;
-import com.generation_alpha.locations.Location;
-import com.generation_alpha.locations.Territory;
-
 import java.io.*;
 import java.util.StringTokenizer;
-
-
 
 public class TextParser {
     // create a Map for different level location
@@ -57,6 +46,10 @@ public class TextParser {
                 }
                 else if(word1.equals("look") || word1.equals("examine") || word1.equals("peel")){
                     Look.forLook(word2,"Home");
+                    Look.forLook(word2,"Talon");
+                    Look.forLook(word2,"Hunter X");
+                    Look.forLook(word2,"Troll");
+                    Look.forLook(word2, "Master Yamamoto");
                 }
                 else if (word1.equals("quit") || word1.equals("q")){
                     return word2;
@@ -70,11 +63,6 @@ public class TextParser {
             }
         }
     }
-
-
-
-
-
     }
 
 

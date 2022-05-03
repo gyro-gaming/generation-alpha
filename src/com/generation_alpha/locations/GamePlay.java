@@ -1,16 +1,18 @@
-package com.generation_alpha.client;
+package com.generation_alpha.locations;
 
 import com.generation_alpha.characters.Character;
+import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.characters.NPC;
 import com.generation_alpha.characters.Villain;
+import com.generation_alpha.client.JsonParser;
 import com.generation_alpha.items.HealthBoost;
 import com.generation_alpha.items.Item;
 import com.generation_alpha.items.PowerItem;
 import com.generation_alpha.items.StrengthBoost;
-import com.generation_alpha.locations.*;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,17 +20,34 @@ public class GamePlay {
     private Territory territory;
     private List<Map<String, Object>> locationList;
 
+    public int moveGyro(Gyro gyro, String name, List<Structure> locations) {
+        int index = 0;
+        for (Structure location : locations) {
+            if (location.getName().equals(name)) {
+                gyro.setLocation(location);
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+
+    /**
+     * method creates a Territory object
+     * @param name
+     * @return
+     */
     public Territory getTerritory(String name) {
         Map<String, Object> map = JsonParser.parseJson("JsonObjects/locations.json");
         List<Map<String, Object>> territories = (List) map.get("territories");
         String start = "";
         territory = new Territory();
-
         for (Map<String, Object> territoryMap : territories) {
             if (territoryMap.get("name").equals(name)) {
                 territory.setName(territoryMap.get("name").toString());
                 territory.setDescription(territoryMap.get("description").toString());
                 territory.setImage(territoryMap.get("image").toString());
+                territory.setMap((Map<String, Object>)territoryMap.get("directions"));
                 locationList = (List) territoryMap.get("locations");
                 territory.setLocations(locationList);
                 territory.setStart(getStart(territoryMap.get("start").toString()));
@@ -37,35 +56,21 @@ public class GamePlay {
         return territory;
     }
 
-    public List<Structure> convertToLocationList(List<Map<String, Object>> locations) {
-        List<Structure>locationList = new ArrayList<>();
-
-        for (Map<String, Object> locationMap : locations) {
-            if (locationMap.get("type").equals("Building")) {
-                Building building = new Building(
-                        locationMap.get("name").toString(),
-                        locationMap.get("description").toString(),
-                        locationMap.get("image").toString(),
-                        (Map<String, Object>) locationMap.get("directions"),
-                        getCharacters(locationMap.get("character").toString()),
-                        getItems(locationMap.get("item").toString())
-                );
-                locationList.add(building);
-            } else if (locationMap.get("type").equals("Dojo")) {
-                Dojo dojo = new Dojo(
-                        locationMap.get("name").toString(),
-                        locationMap.get("description").toString(),
-                        locationMap.get("image").toString(),
-                        (Map<String, Object>) locationMap.get("directions"),
-                        getCharacters(locationMap.get("character").toString())
-                );
-                locationList.add(dojo);
+    private Structure getStart(String name) {
+        Building building = new Building();
+        for (Map<String, Object> locationMap : locationList) {
+            if (locationMap.get("name").equals(name)) {
+                building.setName(locationMap.get("name").toString());
+                building.setDescription(locationMap.get("description").toString());
+                building.setImage(locationMap.get("image").toString());
+                building.setCharacter(getCharacters(locationMap.get("character").toString()));
+                building.setItem(getItems(locationMap.get("item").toString()));
             }
         }
-        return locationList;
+        return building;
     }
 
-    private Character getCharacters(String name) {
+    public Character getCharacters(String name) {
         Map<String, Object> map = JsonParser.parseJson("JsonObjects/characters.json");
         List<Map<String, Object>> characters = (List) map.get("characters");
 
@@ -91,7 +96,7 @@ public class GamePlay {
         return null;
     }
 
-    private List<PowerItem> getPowers(List<String> powers) {
+    public List<PowerItem> getPowers(List<String> powers) {
         List<PowerItem> powerItems = new ArrayList<>();
         Map<String, Object> map = JsonParser.parseJson("JsonObjects/items.json");
         List<Map<String, Object>> items = (List) map.get("items");
@@ -111,7 +116,7 @@ public class GamePlay {
         return powerItems;
     }
 
-    private Item getItems(String name) {
+    public Item getItems(String name) {
         Map<String, Object> map = JsonParser.parseJson("JsonObjects/items.json");
         List<Map<String, Object>> items = (List) map.get("items");
 
@@ -142,18 +147,16 @@ public class GamePlay {
         return null;
     }
 
-
-    private Structure getStart(String name) {
-        Building building = new Building();
-        for (Map<String, Object> locationMap : locationList) {
-            if (locationMap.get("name").equals(name)) {
-                building.setName(locationMap.get("name").toString());
-                building.setDescription(locationMap.get("description").toString());
-                building.setImage(locationMap.get("image").toString());
-                building.setCharacter(getCharacters(locationMap.get("character").toString()));
-                building.setItem(getItems(locationMap.get("item").toString()));
+    public static Map<Direction, String> convertMap(Map<String, Object> objectMap) {
+        Map<Direction, String> newMap = new HashMap<>();
+        Direction[] directions = Direction.values();
+        for (Map.Entry<String, Object> entry : objectMap.entrySet()) {
+            for (Direction direction : directions) {
+                if (entry.getKey().toUpperCase().equals(direction.toString())) {
+                    newMap.put(direction, entry.getValue().toString());
+                }
             }
         }
-        return building;
+        return newMap;
     }
 }
