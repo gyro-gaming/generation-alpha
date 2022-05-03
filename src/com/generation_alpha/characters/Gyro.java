@@ -5,6 +5,7 @@ import com.generation_alpha.locations.GamePlay;
 import com.generation_alpha.locations.Location;
 import com.generation_alpha.items.Item;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Gyro extends Fighter {
@@ -18,6 +19,10 @@ public class Gyro extends Fighter {
     private List<Item> items;
 
     public Gyro() {}
+
+    public Gyro(String name) {
+        setName(name);
+    }
 
     @Override
     public void setName(String name) {
@@ -84,8 +89,15 @@ public class Gyro extends Fighter {
         this.powers = powerItems;
     }
 
+    public void addPower(PowerItem powerItem) {
+        if (powers == null) {
+            powers = new ArrayList<>();
+        }
+        powers.add(powerItem);
+    }
+
     @Override
-    public void usePowers(PowerItem powerItem) {
+    public void usePower(PowerItem powerItem) {
         powers.remove(powerItem);
     }
 
@@ -98,7 +110,14 @@ public class Gyro extends Fighter {
         this.items = items;
     }
 
-    public void useItems(Item item) {
+    public void addItem(Item item) {
+        if (items == null) {
+            items = new ArrayList<>();
+        }
+        items.add(item);
+    }
+
+    public void useItem(Item item) {
         items.remove(item);
     }
 

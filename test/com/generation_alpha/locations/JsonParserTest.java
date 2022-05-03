@@ -1,4 +1,4 @@
-package com.generation_alpha.client;
+package com.generation_alpha.locations;
 
 import org.junit.Before;
 import org.junit.Test;
