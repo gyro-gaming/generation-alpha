@@ -45,6 +45,8 @@
       "name": "Bully",
       "quote": ["Bully Fight"],
       "image": "TBD",
+      "health": "100",
+      "strength": "25",
       "location": {
         "territory":"Home",
         "structure": "Sand Lot"
