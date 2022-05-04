@@ -61,9 +61,13 @@ public class TextParser {
                     System.out.println(result);
 
                 } else if (word1.equals("look") || word1.equals("examine") || word1.equals("peel")) {
-                    String desc = Look.forLook(gameBoard, word2);
-                    String[] arr = desc.split(" & ");
-                    System.out.println(arr[0] + "\n\n" + arr[1] + "\n\n");
+                    try{
+                        String desc = Look.forLook(gameBoard, word2);
+                        String[] arr = desc.split(" & ");
+                        System.out.println(arr[0] + "\n\n" + arr[1] + "\n\n");
+                    }catch (ArrayIndexOutOfBoundsException e){
+                        System.out.println("There is nothing to see in this direction");
+                    }
 
                 } else if (word1.equals("asks")) {
                     String quote = Ask.forAsk(gameBoard, word2);

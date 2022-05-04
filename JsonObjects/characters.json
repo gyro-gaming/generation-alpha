@@ -3,7 +3,7 @@
     {
       "type": "NPC",
       "name": "Grandma Louise",
-      "quote": ["Hello my dear!", "Don't go to Hunter X", "TBD2", "TBD3"],
+      "quote": ["Hello my dear!", "Don't go to Hunter X", "Good luck with the bully", "There may be an item to collect"],
       "image": "  /((   ))\n        ( )6  6( )\n        (_)  l (_)\n          \\ <> )\n      _____)  (_____\n     (  \\       /   )\n     )  , \\ | /  `  (\n    / /(    Y     )\\ \\\n   / /   `     ,'   \\ \\\n   \\ \\    )===(    / /\n    \\ \\  ,     `  / /\n     '\\\\/        \\//'\n      '|\\`      '|\\`\n         \\      /\n          \\    /\n          )    (\njgs/akg  /      \\\n        /        \\ \n       /          \\\n      /            \\ \n     /              \\\n    /                \\ \n    `-....,      ,..-'\n           `-..-'",
       "location": {
         "territory":"home",
