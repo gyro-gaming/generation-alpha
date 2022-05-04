@@ -42,7 +42,7 @@
     },
     {
       "type": "Villain",
-      "name": "TBD",
+      "name": "Bully",
       "quote": ["Bully Fight"],
       "image": "TBD",
       "location": {
@@ -90,13 +90,17 @@
     },
     {
       "type": "Villain",
-      "name": "TBD",
+      "name": "TBD3",
       "quote": ["Hunter X Fight"],
       "image": "TBD",
       "location": {
         "territory":"Hunter X",
         "structure": "TBD"
-      }
+      },
+      "powers": [
+        "power1",
+        "power2"
+      ]
     },
     {
       "type": "NPC",
@@ -121,13 +125,17 @@
     },
     {
       "type": "Villain",
-      "name": "TBD",
+      "name": "TBD1",
       "quote": ["Talon Fight"],
       "image": "TBD",
       "location": {
         "territory":"Talon",
         "structure":"TBD"
-      }
+      },
+      "powers": [
+        "power1",
+        "power2"
+      ]
     },
     {
       "type": "NPC",
@@ -142,13 +150,17 @@
     },
     {
       "type": "Villain",
-      "name": "TBD",
+      "name": "TBD2",
       "quote": ["Troll Fight"],
       "image": "TBD",
       "location": {
         "territory":"Troll",
         "structure": "TBD"
-      }
+      },
+      "powers": [
+        "power1",
+        "power2"
+      ]
     },
     {
       "type": "NPC",

@@ -19,7 +19,7 @@
           "image": "TBD",
           "directions": {
             "north": "Gym",
-            "south": "Sand lot",
+            "south": "Sand Lot",
             "west": "Temple",
             "east": "Cafeteria"
           },
@@ -71,7 +71,7 @@
           "directions": {
             "north": "Town Center"
           },
-          "character": "TBD",
+          "character": "Bully",
           "item_type": "Power"
         }
       ]
