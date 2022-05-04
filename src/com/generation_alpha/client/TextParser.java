@@ -40,15 +40,13 @@ public class TextParser {
                 //  Conditions - forGo, forGet,forLook, quit
                 if (word1.equals("go") || word1.equals("move") || word1.equals("run") || word1.equals("jump")) {
                     Go.forGo(gameBoard, word2);
-                    try {
                         System.out.println("You are now in " + gameBoard.getGyro().getLocation().getName());
-                    } catch (NullPointerException e) {}
                     try {
                         System.out.println("Would you like to ask " + gameBoard.getGyro().getLocation().getCharacter().getName() + " a question?");
                     } catch (NullPointerException e) {}
-                    if (!gameBoard.getGyro().getLocation().getItem().getName().equals("null")) {
+                    try {
                         System.out.println("There is also a " + gameBoard.getGyro().getLocation().getItem().getName() + " in the room.\n");
-                    }
+                    } catch (NullPointerException e) {}
                 } else if (word1.equals("get") || word1.equals("pickup") || word1.equals("grab") || word1.equals("take")) {
                     String result = Get.forGet(gameBoard, word2);
                     System.out.println(result);
