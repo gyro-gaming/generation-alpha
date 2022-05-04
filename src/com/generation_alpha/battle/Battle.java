@@ -4,7 +4,7 @@ import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.characters.Villain;
 import com.generation_alpha.items.PowerItem;
 
-class Battle {
+public class Battle {
     private Gyro gyro;
     private Villain villain;
     private boolean usePower;
@@ -58,13 +58,13 @@ class Battle {
         }
     }
 
-    public void moveGyro(FightMovement moveGyro) {
+    public String moveGyro(FightMovement moveGyro) {
         FightMovement moveVillain = moveVillain();
         if (moveVillain.equals(FightMovement.LEFT) && moveGyro.equals(FightMovement.UP)
                 || moveVillain.equals(FightMovement.DOWN) && moveGyro.equals(FightMovement.RIGHT)) {
-            fight();
+            return fight();
         } else {
-            powerFight();
+            return powerFight();
         }
     }
 
