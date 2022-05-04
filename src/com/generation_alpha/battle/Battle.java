@@ -150,7 +150,7 @@ public class Battle {
             }
             gyro.usePower(power);
         } else {
-            sb.append("You did not use a power\n.");
+            sb.append("You did not use a power.\n");
         }
         return sb.toString();
     }
