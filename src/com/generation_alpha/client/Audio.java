@@ -1,4 +1,4 @@
-package com.generation_alpha;
+package com.generation_alpha.client;
 
 // Java program to play an Audio
 // file using Clip Object
