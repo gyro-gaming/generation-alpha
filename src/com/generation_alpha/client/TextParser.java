@@ -6,8 +6,10 @@ import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.characters.Villain;
 import com.generation_alpha.items.Item;
 import com.generation_alpha.items.PowerItem;
+import com.generation_alpha.locations.Direction;
 
 import java.io.*;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -22,6 +24,15 @@ public class TextParser {
     public String promptInput(GameBoard gameBoard) throws IOException {
         // Start the game by giving prompt and using while loop
         while (true) {
+            Map<Direction,String> map = gameBoard.getGyro().getLocation().getMap();
+            try{
+                if (!map.equals("null")) {
+                    System.out.println(map);
+                }
+            }
+            catch (NullPointerException e){
+                System.out.println();
+            }
             String inputLine = "";   // will hold the full input line
             System.out.println("Which action would you like to do " + gameBoard.getGyro().getName() + "?");
             System.out.print("> ");     // print prompt
@@ -49,23 +60,25 @@ public class TextParser {
                 //  Conditions - forGo, forGet,forLook, quit
                 if (word1.equals("go") || word1.equals("move") || word1.equals("run") || word1.equals("jump")) {
                     Go.forGo(gameBoard, word2);
-                        System.out.println("You are now in " + gameBoard.getGyro().getLocation().getName());
+                    System.out.println("You are now in " + gameBoard.getGyro().getLocation().getName());
                     try {
                         System.out.println("Would you like to ask " + gameBoard.getGyro().getLocation().getCharacter().getName() + " a question?");
-                    } catch (NullPointerException e) {}
+                    } catch (NullPointerException e) {
+                    }
                     try {
                         System.out.println("There is also a " + gameBoard.getGyro().getLocation().getItem().getName() + " in the room.\n");
-                    } catch (NullPointerException e) {}
+                    } catch (NullPointerException e) {
+                    }
                 } else if (word1.equals("get") || word1.equals("pickup") || word1.equals("grab") || word1.equals("take")) {
                     String result = Get.forGet(gameBoard, word2);
                     System.out.println(result);
 
                 } else if (word1.equals("look") || word1.equals("examine") || word1.equals("peel")) {
-                    try{
+                    try {
                         String desc = Look.forLook(gameBoard, word2);
                         String[] arr = desc.split(" & ");
                         System.out.println(arr[0] + "\n\n" + arr[1] + "\n\n");
-                    }catch (ArrayIndexOutOfBoundsException e){
+                    } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.println("There is nothing to see in this direction");
                     }
 
@@ -73,7 +86,7 @@ public class TextParser {
                     String quote = Ask.forAsk(gameBoard, word2);
                     System.out.println(quote);
 
-                } else if(word1.equals("fight")){
+                } else if (word1.equals("fight")) {
                     try {
                         String result = fightParser(gameBoard);
                         System.out.println(result);
