@@ -46,7 +46,7 @@
       "quote": ["Bully Fight"],
       "image": " ////^\\\\\\\\\n      | ^   ^ |\n     @ (o) (o) @\n      |   <   |\n      |  ___  |\n       \\_____/\n     ____|  |____\n    /    \\__/    \\\n   /              \\\n  /\\_/|        |\\_/\\\n / /  |        |  \\ \\\n( <   |        |   > )\n \\ \\  |        |  / /\n  \\ \\ |________| / /\n   \\ \\|",
       "health": "100",
-      "strength": "25",
+      "strength": "5",
       "location": {
         "territory":"Home",
         "structure": "Sand Lot"

@@ -84,8 +84,8 @@ public class Battle {
         int priorGyroHealth = gyro.getHealth();
         int priorVillainHealth = villain.getHealth();
 
-        villain.setHealth(villain.getHealth() - ((gyroStrength * randomResult()) / villainStrength));
-        gyro.setHealth(gyro.getHealth() - ((villainStrength * randomResult()) / gyroStrength));
+        villain.setHealth(villain.getHealth() - ((gyroStrength * randomResult()) + villainStrength));
+        gyro.setHealth(gyro.getHealth() - ((villainStrength * randomResult()) + gyroStrength));
 
         int afterGyroHealth = gyro.getHealth();
         int afterVillainHealth = villain.getHealth();

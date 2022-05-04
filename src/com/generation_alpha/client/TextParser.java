@@ -128,8 +128,10 @@ public class TextParser {
         if (option.equalsIgnoreCase("y")) {
             if (gyro.getPowers().size() > 0) {
                 System.out.println("Your current powers: ");
-                System.out.println(gyro.getPowers().toString());
-                System.out.println("Would you like to use a power [y/n]? ");
+                for (PowerItem power : gyro.getPowers()) {
+                    System.out.print(power.getName() + " ");
+                }
+                System.out.println("\nWould you like to use a power [y/n]? ");
                 option = input.nextLine();
                 if (option.equalsIgnoreCase("y")) {
                     System.out.println("Which power would you like to use? ");
