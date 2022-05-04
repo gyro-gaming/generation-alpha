@@ -15,7 +15,7 @@
         {
           "type": "Building",
           "name": "Town Center",
-          "description": "TBD",
+          "description": "Town Center with a character with strength item",
           "image": "TBD",
           "directions": {
             "north": "Gym",
@@ -30,8 +30,8 @@
         {
           "type": "Building",
           "name": "Gym",
-          "description": "TBD",
-          "image": "TBD",
+          "description": "Gym has {} character and a strength item",
+          "image": "                         -|             |-\n         -|                  [-_-_-_-_-_-_-_-]                  |-\n         [-_-_-_-_-]          |             |          [-_-_-_-_-]\n          | o   o |           [  0   0   0  ]           | o   o |\n           |     |    -|       |           |       |-    |     |\n           |     |_-___-___-___-|         |-___-___-___-_|     |\n           |  o  ]              [    0    ]              [  o  |\n           |     ]   o   o   o  [ _______ ]  o   o   o   [     | ----__________\n_____----- |     ]              [ ||||||| ]              [     |\n           |     ]              [ ||||||| ]              [     |\n       _-_-|_____]--------------[_|||||||_]--------------[_____|-_-_\n      ( (__________------------_____________-------------_________) )",
           "directions": {
             "south": "Town Center"
           },
@@ -42,8 +42,8 @@
         {
           "type": "Building",
           "name": "Temple",
-          "description": "TBD",
-          "image": "TBD",
+          "description": "Temple has one character and a health item",
+          "image": "       T~~\n               |\n              /\"\\\n      T~~     |'| T~~\n  T~~ |    T~ WWWW|\n  |  /\"\\   |  |  |/\\T~~\n /\"\\ WWW  /\"\\ |' |WW|\nWWWWW/\\| /   \\|'/\\|/\"\\\n|   /__\\/]WWW[\\/__\\WWWW\n|\"  WWWW'|I_I|'WWWW'  |\n|   |' |/  -  \\|' |'  |\n|'  |  |LI=H=LI|' |   |\n|   |' | |[_]| |  |'  |\n|   |  |_|###|_|  |   |\n'---'--'-/___\\-'--'---'",
           "directions": {
             "east": "Town Center"
           },
@@ -54,8 +54,8 @@
         {
           "type": "Building",
           "name": "Cafeteria",
-          "description": "TBD",
-          "image": "TBD",
+          "description": "Cafeteria has {} character and a health item",
+          "image": "                                      /\\      /\\\n                                               ||______||\n                                               || ^  ^ ||\n                                               \\| |  | |/\n                                                |______|\n              __                                |  __  |\n             /  \\       ________________________|_/  \\_|__\n            / ^^ \\     /=========================/ ^^ \\===|\n           /  []  \\   /=========================/  []  \\==|\n          /________\\ /=========================/________\\=|\n       *  |        |/==========================|        |=|\n      *** | ^^  ^^ |---------------------------| ^^  ^^ |--\n     *****| []  [] |           _____           | []  [] | |\n    *******        |          /_____\\          |      * | |\n   *********^^  ^^ |  ^^  ^^  |  |  |  ^^  ^^  |     ***| |\n  ***********]  [] |  []  []  |  |  |  []  []  | ===***** |\n *************     |         @|__|__|@         |/ |*******|\n***************   ***********--=====--**********| *********\n***************___*********** |=====| **********|***********\n *************     ********* /=======\\ ******** | *********",
           "directions": {
             "west": "Town Center"
           },
@@ -66,13 +66,14 @@
         {
           "type": "Dojo",
           "name": "Sand Lot",
-          "description": "TBD",
-          "image": "TBD",
+          "description": "Sandlot has {} character and one health item",
+          "image": "   /\\                                                        /\\\n  |  |                                                      |  |\n /----\\                  Lord Dark's Keep                  /----\\\n[______]             Where Brave Knights Tremble          [______]\n |    |         _____                        _____         |    |\n |[]  |        [     ]                      [     ]        |  []|\n |    |       [_______][ ][ ][ ][][ ][ ][ ][_______]       |    |\n |    [ ][ ][ ]|     |  ,----------------,  |     |[ ][ ][ ]    |\n |             |     |/'    ____..____    '\\|     |             |\n  \\  []        |     |    /'    ||    '\\    |     |        []  /\n   |      []   |     |   |o     ||     o|   |     |  []       |\n   |           |  _  |   |     _||_     |   |  _  |           |\n   |   []      | (_) |   |    (_||_)    |   | (_) |       []  |\n   |           |     |   |     (||)     |   |     |           |\n   |           |     |   |      ||      |   |     |           |\n /''           |     |   |o     ||     o|   |     |           ''\\\n[_____________[_______]--'------''------'--[_______]_____________]",
           "directions": {
             "north": "Town Center"
           },
-          "character": "Bully",
-          "item_type": "Power"
+          "character": "TBD",
+          "item_type": "Health",
+          "item": "null"
         }
       ]
     },
