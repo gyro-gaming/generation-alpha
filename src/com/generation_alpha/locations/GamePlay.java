@@ -84,6 +84,8 @@ public class GamePlay {
                 Villain villain = new Villain(name);
                 villain.setQuote((List<String>)characterMap.get("quote"));
                 villain.setImage(characterMap.get("image").toString());
+                villain.setStrength((int)characterMap.get("strength"));
+                villain.setHealth((int)characterMap.get("health"));
                 Map<String, Object> locationMap = (Map<String, Object>) characterMap.get("location");
                 villain.setLocation(new Dojo(locationMap.get("structure").toString()));
                 List<String> powers = (List<String>) characterMap.get("powers");
