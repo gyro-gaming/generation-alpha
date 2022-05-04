@@ -99,7 +99,7 @@ public class GamePlay {
         Map<String, Object> map = JsonParser.parseJson("JsonObjects/items.json");
         List<Map<String, Object>> items = (List) map.get("items");
 
-        // look at streams to make this better
+        // TODO: look at streams to make this better
         for (Map<String, Object> itemMap : items) {
             for (String power : powers) {
                 if (itemMap.get("name").equals(power) && itemMap.get("type").equals("PowerItem")) {
@@ -123,21 +123,24 @@ public class GamePlay {
                 StrengthBoost strengthBoost = new StrengthBoost(name);
                 strengthBoost.setDescription(itemMap.get("description").toString());
                 strengthBoost.setImage(itemMap.get("image").toString());
-                strengthBoost.setLocation(new Building(itemMap.get("location").toString()));
+                Map<String, Object> locMap = (Map<String, Object>)itemMap.get("location");
+                strengthBoost.setLocation(new Building(locMap.get("structure").toString()));
                 strengthBoost.setStrengthBoost(Integer.parseInt(itemMap.get("modifier").toString()));
                 return strengthBoost;
             } else if (itemMap.get("name").equals(name) && itemMap.get("type").equals("Health")) {
                 HealthBoost healthBoost = new HealthBoost(name);
                 healthBoost.setDescription(itemMap.get("description").toString());
                 healthBoost.setImage(itemMap.get("image").toString());
-                healthBoost.setLocation(new Building(itemMap.get("location").toString()));
+                Map<String, Object> locMap = (Map<String, Object>)itemMap.get("location");
+                healthBoost.setLocation(new Building(locMap.get("structure").toString()));
                 healthBoost.setHealthBoost(Integer.parseInt(itemMap.get("modifier").toString()));
                 return healthBoost;
             } else if (itemMap.get("name").equals(name) && itemMap.get("type").equals("Power")) {
                 PowerItem powerItem = new PowerItem(name);
                 powerItem.setDescription(itemMap.get("description").toString());
                 powerItem.setImage(itemMap.get("image").toString());
-                powerItem.setLocation(new Dojo(itemMap.get("location").toString()));
+                Map<String, Object> locMap = (Map<String, Object>)itemMap.get("location");
+                powerItem.setLocation(new Dojo(locMap.get("structure").toString()));
                 powerItem.setCombatMultiplier(Integer.parseInt(itemMap.get("modifier").toString()));
                 return powerItem;
             }
@@ -172,7 +175,10 @@ public class GamePlay {
     }
 
     public String getLocation(String name, List<Structure> locations) {
+        System.out.println(name);
+        System.out.println(locations);
         for (Structure location : locations) {
+            System.out.println(location.getName());
             if (location.getName().equals(name)) {
                 return location.getImage() + " & " + location.getDescription();
             }

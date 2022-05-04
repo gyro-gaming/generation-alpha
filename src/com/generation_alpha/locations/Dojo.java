@@ -3,7 +3,6 @@ package com.generation_alpha.locations;
 import com.generation_alpha.characters.Character;
 import com.generation_alpha.items.Item;
 
-import java.util.HashMap;
 import java.util.Map;
 
 class Dojo extends Structure {
