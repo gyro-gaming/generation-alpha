@@ -1,4 +1,4 @@
-package com.generation_alpha;
+package com.generation_alpha.client;
 
 import com.apps.util.Console;
 
@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Scanner;
 
-class Display {
+public class Display {
     Scanner scanner = new Scanner(System.in);
     String path = "";
 

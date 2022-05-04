@@ -1,6 +1,6 @@
 package com.generation_alpha;
 
-import com.generation_alpha.characters.Gyro;
+import com.generation_alpha.client.Display;
 import com.generation_alpha.client.GameBoard;
 
 import java.io.IOException;
