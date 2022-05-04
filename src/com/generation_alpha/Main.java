@@ -14,11 +14,9 @@ class Main {
         Scanner scanner = new Scanner(System.in);
         display.hello();
         display.instructions();
-        Gyro gyro = new Gyro();
         System.out.println("What's the name of your Gyro?");
         String input = scanner.nextLine();
-        gyro.setName(input);
-        GameBoard gameBoard = new GameBoard("Home");
+        GameBoard gameBoard = new GameBoard(input);
         try {
             System.out.println(gameBoard.getTextParser().promptInput(gameBoard));
         } catch (IOException e) {
