@@ -36,7 +36,7 @@ public class GamePlay {
      * @return
      */
     public Territory getTerritory(String name) {
-        Map<String, Object> map = JsonParser.parseJson("JsonObjects/locations.json");
+        Map<String, Object> map = JsonParser.parseJson("src/JsonObjects/locations.json");
         List<Map<String, Object>> territories = (List) map.get("territories");
         String start = "";
         territory = new Territory();
@@ -69,7 +69,7 @@ public class GamePlay {
     }
 
     public Character getCharacters(String name) {
-        Map<String, Object> map = JsonParser.parseJson("JsonObjects/characters.json");
+        Map<String, Object> map = JsonParser.parseJson("src/JsonObjects/characters.json");
         List<Map<String, Object>> characters = (List) map.get("characters");
 
         for (Map<String, Object> characterMap : characters) {
@@ -98,7 +98,7 @@ public class GamePlay {
 
     public List<PowerItem> getPowers(List<String> powers) {
         List<PowerItem> powerItems = new ArrayList<>();
-        Map<String, Object> map = JsonParser.parseJson("JsonObjects/items.json");
+        Map<String, Object> map = JsonParser.parseJson("src/JsonObjects/items.json");
         List<Map<String, Object>> items = (List) map.get("items");
 
         // TODO: look at streams to make this better
@@ -117,7 +117,7 @@ public class GamePlay {
     }
 
     public Item getItems(String name) {
-        Map<String, Object> map = JsonParser.parseJson("JsonObjects/items.json");
+        Map<String, Object> map = JsonParser.parseJson("src/JsonObjects/items.json");
         List<Map<String, Object>> items = (List) map.get("items");
 
         for (Map<String, Object> itemMap : items) {

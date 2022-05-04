@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +22,7 @@ class JsonParser {
         Map<String, Object> map = new HashMap<>();
 
         try {
-            map = mapper.readValue(new File(file), new TypeReference<Map<String, Object>>(){});
+            map = mapper.readValue(new FileInputStream(file), new TypeReference<Map<String, Object>>(){});
         } catch (IOException e) {
             System.out.println(e);
         }
