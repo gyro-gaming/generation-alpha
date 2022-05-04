@@ -8,9 +8,11 @@ import com.generation_alpha.items.Item;
 import com.generation_alpha.items.PowerItem;
 
 import java.io.*;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class TextParser {
+    private static Scanner input = new Scanner(System.in);
     // create a Map for different level location
     String inputLine = "";   // will hold the full input line
     String word1;           // will hold the first word entered
@@ -68,8 +70,12 @@ public class TextParser {
                     System.out.println(quote);
 
                 } else if(word1.equals("fight")){
-                    // TODO need to assure that they don't fight NPC
-                    fightParser(gameBoard);
+                    try {
+                        String result = fightParser(gameBoard);
+                        System.out.println(result);
+                    } catch (ClassCastException e) {
+                        System.out.println("You may not fight an NPC.");
+                    }
                 } else if (word1.equals("inspect")) {
                     if (gameBoard.getGyro().getItems().size() > 0) {
                         String description = Inspect.forInspect(gameBoard);
@@ -100,22 +106,64 @@ public class TextParser {
 
     private static String fightParser(GameBoard gameBoard) {
         // Give option to fight
-        int villianHealth = ((Villain)gameBoard.getGyro().getLocation().getCharacter()).getHealth();
-        int villianStrength = ((Villain)gameBoard.getGyro().getLocation().getCharacter()).getStrength();
-        int gyroHealth = (gameBoard.getGyro().getHealth());
-        int gyroStrength = gameBoard.getGyro().getStrength();
+        StringBuilder sb = new StringBuilder();
+        Battle battle;
+        Villain villain = (Villain)gameBoard.getGyro().getLocation().getCharacter();
+        int villainHealth = villain.getHealth();
+        int villainStrength = villain.getStrength();
+        Gyro gyro = gameBoard.getGyro();
+        int gyroHealth = gyro.getHealth();
+        int gyroStrength = gyro.getStrength();
         System.out.println("Your health: " + gyroHealth);
         System.out.println("Your Strength: " + gyroStrength);
-        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s health: " + villianStrength);
-        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s Strength: " + villianStrength);
-        System.out.println("Are you sure?");
+        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s health: " + villainHealth);
+        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s Strength: " + villainStrength);
+        System.out.println("Are you sure [y/n]? ");
+        String option = input.nextLine();
 
-        boolean usePow = false;
-        Item p = gameBoard.getGamePlay().getItems("power3");
-
-        Battle battle = new Battle(gameBoard.getGyro(),(Villain)gameBoard.getGyro().getLocation().getCharacter(),true,(PowerItem) p);
-        battle.moveGyro(FightMovement.UP);
-        return "";
+        if (option.equalsIgnoreCase("y")) {
+            if (gyro.getPowers().size() > 0) {
+                System.out.println("Your current powers: ");
+                System.out.println(gyro.getPowers().toString());
+                System.out.println("Would you like to use a power [y/n]? ");
+                option = input.nextLine();
+                if (option.equalsIgnoreCase("y")) {
+                    System.out.println("Which power would you like to use? ");
+                    option = input.nextLine();
+                    Item power = new PowerItem();
+                    try {
+                        power = gameBoard.getGamePlay().getItems(option);
+                    } catch (NullPointerException e) {
+                        System.out.println("Sorry you do not have that power");
+                    }
+                    battle = new Battle(gyro, villain, true, (PowerItem) power);
+                } else {
+                    battle = new Battle(gyro, villain);
+                }
+            } else {
+                battle = new Battle(gyro, villain);
+            }
+            System.out.println("Which direction to move to [up/right]");
+            option = input.nextLine();
+            FightMovement move = FightMovement.UP;
+            option = option.toLowerCase();
+            switch (option) {
+                case "up":
+                    move = FightMovement.UP;
+                    break;
+                case "right":
+                    move = FightMovement.RIGHT;
+                    break;
+                default:
+                    System.out.println("Not a valid direction.");
+                    break;
+            }
+            String result = battle.moveGyro(move);
+            System.out.println(result);
+        } else {
+            return sb.toString();
+        }
+        return sb.toString();
     }
 }
 
