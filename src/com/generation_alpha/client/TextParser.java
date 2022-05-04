@@ -40,45 +40,48 @@ public class TextParser {
                 //  Conditions - forGo, forGet,forLook, quit
                 if (word1.equals("go") || word1.equals("move") || word1.equals("run") || word1.equals("jump")) {
                     Go.forGo(gameBoard, word2);
-                    System.out.println("You are now in " + gameBoard.getGyro().getLocation().getName());
-                    System.out.println("Would you like to ask " + gameBoard.getGyro().getLocation().getCharacter().getName() + " a question?");
+                    try {
+                        System.out.println("You are now in " + gameBoard.getGyro().getLocation().getName());
+                    } catch (NullPointerException e) {}
+                    try {
+                        System.out.println("Would you like to ask " + gameBoard.getGyro().getLocation().getCharacter().getName() + " a question?");
+                    } catch (NullPointerException e) {}
                     if (!gameBoard.getGyro().getLocation().getItem().getName().equals("null")) {
-                        System.out.println("There is also a " + gameBoard.getGyro().getLocation().getItem().getName() + " in the room.");
+                        System.out.println("There is also a " + gameBoard.getGyro().getLocation().getItem().getName() + " in the room.\n");
                     }
                 } else if (word1.equals("get") || word1.equals("pickup") || word1.equals("grab") || word1.equals("take")) {
                     String result = Get.forGet(gameBoard, word2);
                     System.out.println(result);
+
                 } else if (word1.equals("look") || word1.equals("examine") || word1.equals("peel")) {
                     String desc = Look.forLook(gameBoard, word2);
                     String[] arr = desc.split(" & ");
                     System.out.println(arr[0] + "\n\n" + arr[1] + "\n\n");
 
-                }
-                else if (word1.equals("asks")) {
+                } else if (word1.equals("asks")) {
                     String quote = Ask.forAsk(gameBoard, word2);
                     System.out.println(quote);
-                }
-                else if (word1.equals("inspect")) {
+
+                } else if (word1.equals("inspect")) {
                     if (gameBoard.getGyro().getItems().size() > 0) {
                         String description = Inspect.forInspect(gameBoard);
                         System.out.println(description);
-                    }else{
+                    } else {
                         System.out.println("No items in your bag!!");
                     }
 
-                }
-                else if (word1.equals("use")) {
+                } else if (word1.equals("use")) {
                     if (gameBoard.getGyro().getItems().size() > 0) {
                         String result = Use.forUse(gameBoard, word2);
                         System.out.println(result);
-                    }else{
+                    } else {
                         System.out.println("No items in your bag!!");
                     }
-                }
-                else if (word1.equals("quit") || word1.equals("q")){
+
+                } else if (word1.equals("quit") || word1.equals("q")) {
                     return word2;
-                }
-                else{
+
+                } else {
                     System.out.println("Must enter go/get direction/item or quit");
                 }
 
@@ -87,7 +90,7 @@ public class TextParser {
             }
         }
     }
-    }
+}
 
 
 
