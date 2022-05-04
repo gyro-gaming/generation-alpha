@@ -17,7 +17,7 @@ public class Display {
         super();
     }
     public void hello() {
-        setPath("resources/welcomeBanner.txt");
+        setPath("src/resources/welcomeBanner.txt");
         getPathReturn(getPath());
         story();
     }
@@ -44,24 +44,24 @@ public class Display {
 
     public void story() {
 
-        setPath("text_files/story.txt");
+        setPath("src/text_files/story.txt");
         getPathReturn(getPath());
     }
 
     public void instructions() {
 
-        setPath("text_files/instructions.txt");
+        setPath("src/text_files/instructions.txt");
         getPathReturn(getPath());
     }
 
 
     public void gameEnd() {
-        setPath("resources/endBanner.txt");
+        setPath("src/resources/endBanner.txt");
         getPathReturn(getPath());
     }
 
     public void showVictory() {
-        setPath("resources/victoryBanner.txt");
+        setPath("src/resources/victoryBanner.txt");
         getPathReturn(path);
     }
 
