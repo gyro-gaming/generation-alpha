@@ -4,6 +4,8 @@ import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.characters.Villain;
 import com.generation_alpha.items.PowerItem;
 
+import java.util.List;
+
 public class Battle {
     private Gyro gyro;
     private Villain villain;
@@ -131,7 +133,12 @@ public class Battle {
                     sb.append("You sustained " + (priorGyroHealth - afterGyroHealth)  + " damage.\n");
                     sb.append("Your current health level is: " + afterGyroHealth);
                 }
-                villain.usePower(villainPower);
+                List<PowerItem> powers = villain.getPowers();
+                for (int i = 0; i < powers.size(); i++) {
+                    if (powers.get(i).getName().equals(villainPower.getName())) {
+                        villain.usePower(powers.get(i));
+                    }
+                }
             }
         } else {
             sb.append(villain.getName() + " did not use a power.\n");
@@ -148,7 +155,14 @@ public class Battle {
                         + " damage.\n");
                 sb.append(villain.getName() + "'s current health level is: " + afterVillainHealth+ "\n");
             }
-            gyro.usePower(power);
+            List<PowerItem> powers = gyro.getPowers();
+            for (int i = 0; i < powers.size(); i++) {
+                if (powers.get(i).getName().equals(power.getName())) {
+                    gyro.usePower(powers.get(i));
+                }
+            }
+
+
         } else {
             sb.append("You did not use a power.\n");
         }
