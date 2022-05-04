@@ -19,7 +19,7 @@ class Display {
     public void hello() {
         setPath("resources/welcomeBanner.txt");
         getPathReturn(getPath());
-        instructions();
+        story();
     }
     public void getPathReturn(String path){
         if(Files.exists(Path.of(path))){
@@ -42,9 +42,15 @@ class Display {
         String input = scanner.nextLine();
     }
 
-    public void instructions() {
+    public void story() {
 
         setPath("text_files/story.txt");
+        getPathReturn(getPath());
+    }
+
+    public void instructions() {
+
+        setPath("text_files/instructions.txt");
         getPathReturn(getPath());
     }
 

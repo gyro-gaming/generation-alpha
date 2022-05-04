@@ -4,7 +4,7 @@ import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.characters.Villain;
 import com.generation_alpha.items.PowerItem;
 
-class Battle {
+public class Battle {
     private Gyro gyro;
     private Villain villain;
     private boolean usePower;

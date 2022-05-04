@@ -1,5 +1,12 @@
 package com.generation_alpha.client;
 
+import com.generation_alpha.battle.Battle;
+import com.generation_alpha.battle.FightMovement;
+import com.generation_alpha.characters.Gyro;
+import com.generation_alpha.characters.Villain;
+import com.generation_alpha.items.Item;
+import com.generation_alpha.items.PowerItem;
+
 import java.io.*;
 import java.util.StringTokenizer;
 
@@ -60,6 +67,9 @@ public class TextParser {
                     String quote = Ask.forAsk(gameBoard, word2);
                     System.out.println(quote);
 
+                } else if(word1.equals("fight")){
+                    // TODO need to assure that they don't fight NPC
+                    fightParser(gameBoard);
                 } else if (word1.equals("inspect")) {
                     if (gameBoard.getGyro().getItems().size() > 0) {
                         String description = Inspect.forInspect(gameBoard);
@@ -67,7 +77,6 @@ public class TextParser {
                     } else {
                         System.out.println("No items in your bag!!");
                     }
-
                 } else if (word1.equals("use")) {
                     if (gameBoard.getGyro().getItems().size() > 0) {
                         String result = Use.forUse(gameBoard, word2);
@@ -87,6 +96,26 @@ public class TextParser {
                 e.printStackTrace();
             }
         }
+    }
+
+    private static String fightParser(GameBoard gameBoard) {
+        // Give option to fight
+        int villianHealth = ((Villain)gameBoard.getGyro().getLocation().getCharacter()).getHealth();
+        int villianStrength = ((Villain)gameBoard.getGyro().getLocation().getCharacter()).getStrength();
+        int gyroHealth = (gameBoard.getGyro().getHealth());
+        int gyroStrength = gameBoard.getGyro().getStrength();
+        System.out.println("Your health: " + gyroHealth);
+        System.out.println("Your Strength: " + gyroStrength);
+        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s health: " + gyroHealth);
+        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s Strength: " + gyroStrength);
+        System.out.println("Are you sure?");
+
+        boolean usePow = false;
+        Item p = gameBoard.getGamePlay().getItems("power3");
+
+        Battle battle = new Battle(gameBoard.getGyro(),(Villain)gameBoard.getGyro().getLocation().getCharacter(),true,(PowerItem) p);
+        battle.moveGyro(FightMovement.UP);
+        return "";
     }
 }
 
