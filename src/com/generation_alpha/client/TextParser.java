@@ -106,8 +106,8 @@ public class TextParser {
         int gyroStrength = gameBoard.getGyro().getStrength();
         System.out.println("Your health: " + gyroHealth);
         System.out.println("Your Strength: " + gyroStrength);
-        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s health: " + gyroHealth);
-        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s Strength: " + gyroStrength);
+        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s health: " + villianStrength);
+        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s Strength: " + villianStrength);
         System.out.println("Are you sure?");
 
         boolean usePow = false;
