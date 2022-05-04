@@ -10,6 +10,12 @@ public class Battle {
     private boolean usePower;
     private PowerItem power;
 
+    public Battle(Gyro gyro, Villain villain) {
+        setGyro(gyro);
+        setVillain(villain);
+        setUsePower(false);
+    }
+
     public Battle(Gyro gyro, Villain villain, boolean usePower, PowerItem power) {
         setGyro(gyro);
         setVillain(villain);
@@ -60,12 +66,16 @@ public class Battle {
 
     public String moveGyro(FightMovement moveGyro) {
         FightMovement moveVillain = moveVillain();
+        StringBuilder sb = new StringBuilder();
         if (moveVillain.equals(FightMovement.LEFT) && moveGyro.equals(FightMovement.UP)
                 || moveVillain.equals(FightMovement.DOWN) && moveGyro.equals(FightMovement.RIGHT)) {
-            return fight();
+            String result = fight();
+            sb.append(result);
         } else {
-            return powerFight();
+            String result = powerFight();
+            sb.append(result);
         }
+        return sb.toString();
     }
 
     private String fight() {
@@ -92,12 +102,11 @@ public class Battle {
         } else {
             sb.append("You fought " + villain.getName() + "\n");
             sb.append("You sustained " + (priorGyroHealth - afterGyroHealth)  + " damage.\n");
-            sb.append("Your current health level is: " + afterGyroHealth);
+            sb.append("Your current health level is: " + afterGyroHealth + "\n");
             sb.append(villain.getName() + " sustained " + (priorVillainHealth - afterVillainHealth)
                     + " damage.\n");
             sb.append(villain.getName() + "'s current health level is: " + afterVillainHealth+ "\n");
         }
-
         return sb.toString();
     }
 
@@ -124,6 +133,8 @@ public class Battle {
                 }
                 villain.usePower(villainPower);
             }
+        } else {
+            sb.append(villain.getName() + " did not use a power.\n");
         }
         if (usePower) {
             int powerMultiplier = power.getCombatMultiplier();
@@ -138,8 +149,9 @@ public class Battle {
                 sb.append(villain.getName() + "'s current health level is: " + afterVillainHealth+ "\n");
             }
             gyro.usePower(power);
+        } else {
+            sb.append("You did not use a power\n.");
         }
-
         return sb.toString();
     }
 
