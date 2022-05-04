@@ -12,7 +12,6 @@ class Look {
 
     public static String forLook(GameBoard gameBoard, String input) {
         Location start = gameBoard.getGyro().getLocation();
-        System.out.println(start.getName());
         GamePlay gamePlay = gameBoard.getGamePlay();
         List<Structure> locations = gameBoard.getTerritory().getLocations();
         for (Structure location : locations) {

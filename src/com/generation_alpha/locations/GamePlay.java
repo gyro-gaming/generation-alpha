@@ -177,8 +177,6 @@ public class GamePlay {
     }
 
     public String getLocation(String name, List<Structure> locations) {
-        System.out.println(name);
-        System.out.println(locations);
         for (Structure location : locations) {
             System.out.println(location.getName());
             if (location.getName().equals(name)) {
