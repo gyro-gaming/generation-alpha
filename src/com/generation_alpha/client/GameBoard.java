@@ -22,6 +22,13 @@ public class GameBoard {
         this.textParser = new TextParser();
     }
 
+    public GameBoard(String name, GamePlay gamePlay, Gyro gyro, TextParser textParser) {
+        this.gamePlay = gamePlay;
+        this.territory = gamePlay.getTerritory(name);
+        this.gyro = gyro;
+        this.textParser = textParser;
+    }
+
     public GamePlay getGamePlay() {
         return gamePlay;
     }
