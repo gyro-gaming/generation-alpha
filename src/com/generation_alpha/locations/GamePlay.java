@@ -104,7 +104,7 @@ public class GamePlay {
         // TODO: look at streams to make this better
         for (Map<String, Object> itemMap : items) {
             for (String power : powers) {
-                if (itemMap.get("name").equals(power) && itemMap.get("type").equals("PowerItem")) {
+                if (itemMap.get("name").equals(power) && itemMap.get("type").equals("Power")) {
                     PowerItem powerItem = new PowerItem(power);
                     powerItem.setDescription(itemMap.get("description").toString());
                     powerItem.setImage(itemMap.get("image").toString());

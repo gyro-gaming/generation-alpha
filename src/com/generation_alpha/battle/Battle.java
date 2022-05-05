@@ -37,24 +37,12 @@ public class Battle {
         this.villain = villain;
     }
 
-    public Villain getVillain() {
-        return villain;
-    }
-
     public void setUsePower(boolean usePower) {
         this.usePower = usePower;
     }
 
-    public boolean getUsePower() {
-        return usePower;
-    }
-
     public void setPower(PowerItem power) {
         this.power = power;
-    }
-
-    public PowerItem getPower() {
-        return power;
     }
 
     public FightMovement moveVillain() {
@@ -101,6 +89,12 @@ public class Battle {
             sb.append("You defeated " + villain.getName() + "\n");
             sb.append("You sustained " + (priorGyroHealth - afterGyroHealth)  + " damage.\n");
             sb.append("Your current health level is: " + afterGyroHealth + "\n");
+            if (villain.getPowers().size() > 0) {
+                for (int i = 0; i < villain.getPowers().size(); i++) {
+                    gyro.addPower(villain.getPowers().remove(i));
+                }
+            }
+
         } else {
             sb.append("You fought " + villain.getName() + "\n");
             sb.append("You sustained " + (priorGyroHealth - afterGyroHealth)  + " damage.\n");
@@ -121,7 +115,7 @@ public class Battle {
         sb.append("Powers Combat\n");
         if (villain.getPowers().size() > 0) {
             if (randomMove() == 0) {
-                villainPower = villain.getPowers().get(villain.getPowers().size());
+                villainPower = villain.getPowers().get(villain.getPowers().size() - 1);
                 int powerMultiplier = villainPower.getCombatMultiplier();
                 sb.append(villain.getName() + " used " + villainPower.getName() + " that takes "
                         + powerMultiplier +  " power.\n");
@@ -150,6 +144,11 @@ public class Battle {
             if (afterVillainHealth <= 0) {
                 sb.append("You won!\n");
                 sb.append("You defeated " + villain.getName() + "\n");
+                if (villain.getPowers().size() > 0) {
+                    for (int i = 0; i < villain.getPowers().size(); i++) {
+                        gyro.addPower(villain.getPowers().remove(i));
+                    }
+                }
             } else {
                 sb.append(villain.getName() + " sustained " + (priorVillainHealth - afterVillainHealth)
                         + " damage.\n");
@@ -161,7 +160,6 @@ public class Battle {
                     gyro.usePower(powers.get(i));
                 }
             }
-
 
         } else {
             sb.append("You did not use a power.\n");
