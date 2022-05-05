@@ -13,12 +13,12 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class TextParser {
+public class TextParser implements Serializable {
     private static Scanner input = new Scanner(System.in);
     // create a Map for different level location
-    String inputLine = "";   // will hold the full input line
-    String word1;           // will hold the first word entered
-    String word2;           // will hold the second word entered
+    private String inputLine = "";   // will hold the full input line
+    private String word1;           // will hold the first word entered
+    private String word2;           // will hold the second word entered
 
     // Method to prompt for input
     public String promptInput(GameBoard gameBoard) throws IOException {
@@ -33,7 +33,7 @@ public class TextParser {
             catch (NullPointerException e){
                 System.out.println();
             }
-            String inputLine = "";   // will hold the full input line
+
             System.out.println("Which action would you like to do " + gameBoard.getGyro().getName() + "?");
             System.out.print("> ");     // print prompt
 
@@ -109,9 +109,12 @@ public class TextParser {
                     }
 
                 } else if (word1.equals("quit") || word1.equals("q")) {
+                    GameBoard.forSave(gameBoard);
                     return word2;
 
-                } else {
+                }else if (word1.equals("save")) {
+                    GameBoard.forSave(gameBoard);
+                }else {
                     System.out.println("Must enter go/get direction/item or quit");
                 }
 

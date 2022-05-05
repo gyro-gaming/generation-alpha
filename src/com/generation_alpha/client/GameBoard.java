@@ -1,14 +1,23 @@
 package com.generation_alpha.client;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.generation_alpha.characters.Fighter;
 import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.locations.GamePlay;
 import com.generation_alpha.locations.Structure;
 import com.generation_alpha.locations.Territory;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.Serializable;
+import java.nio.file.Paths;
 import java.util.List;
 
-public class GameBoard {
+public class GameBoard implements Serializable {
     private Territory territory;
     private Gyro gyro;
     private TextParser textParser;
@@ -29,6 +38,21 @@ public class GameBoard {
         this.textParser = textParser;
     }
 
+    public static void forSave(GameBoard gameBoard) {
+        try {
+
+            // create object mapper instance
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+            ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+            // convert map to JSON file
+            writer.writeValue(new File("savedGames/userLocation.json"), gameBoard);
+            writer.writeValue(new File("savedGames/userAttributes.json"), gameBoard.getGyro());
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     public GamePlay getGamePlay() {
         return gamePlay;
     }
