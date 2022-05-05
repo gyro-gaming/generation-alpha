@@ -3,9 +3,10 @@ package com.generation_alpha.locations;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +23,7 @@ class JsonParser {
         Map<String, Object> map = new HashMap<>();
 
         try {
-            map = mapper.readValue(new FileInputStream(file), new TypeReference<Map<String, Object>>(){});
+            map = mapper.readValue(new FileInputStream (String.valueOf(Path.of(file))), new TypeReference<Map<String, Object>>(){});
         } catch (IOException e) {
             System.out.println(e);
         }
