@@ -23,7 +23,7 @@ class JsonParser {
         Map<String, Object> map = new HashMap<>();
 
         try {
-            map = mapper.readValue(new FileInputStream ("src/" + String.valueOf(Path.of(file))), new TypeReference<Map<String, Object>>(){});
+            map = mapper.readValue(new FileInputStream (String.valueOf(Path.of(file))), new TypeReference<Map<String, Object>>(){});
         } catch (IOException e) {
             System.out.println(e);
         }
