@@ -19,7 +19,6 @@ public class GamePlay {
     private Territory territory;
     private List<Map<String, Object>> locationList;
 
-
     public Gyro getGyro(String name) {
         Gyro gyro = new Gyro(name);
         gyro.setStrength(10);
@@ -184,6 +183,42 @@ public class GamePlay {
         }
         territory = getTerritory(name);
             return territory.getImage() + " & " + territory.getDescription();
+    }
+
+    public Structure removeItemFromStructure(Map<String, Object> map, Structure location) {
+        if (location instanceof Building) {
+            Building structure = new Building(map.get("name").toString());
+            structure.setDescription(map.get("description").toString());
+            structure.setImage(map.get("image").toString());
+            Map<String, Object> newMap = new HashMap<>();
+            String[] mapArr = map.get("map").toString().split("=");
+            newMap.put(mapArr[0].substring(1),(Object)mapArr[1].substring(0, mapArr[1].length() - 1));
+            structure.setMap(newMap);
+            structure.setCharacter(getCharacters(map.get("character").toString()));
+            return structure;
+        } else if (location instanceof Dojo) {
+            Dojo structure = new Dojo(map.get("name").toString());
+            structure.setDescription(map.get("description").toString());
+            structure.setImage(map.get("image").toString());
+            Map<String, Object> newMap = new HashMap<>();
+            newMap.put("map", map.get("map"));
+            structure.setMap(newMap);
+            structure.setCharacter(getCharacters(map.get("character").toString()));
+            return structure;
+        }
+
+        return new Building();
+    }
+
+    public Structure removeKilledVillainFromStructure(Map<String, Object> map) {
+        Dojo structure = new Dojo(map.get("name").toString());
+        structure.setDescription(map.get("description").toString());
+        structure.setImage(map.get("image").toString());
+        Map<String, Object> newMap = new HashMap<>();
+        newMap.put("map", map.get("map"));
+        structure.setMap(newMap);
+        structure.setItem(getItems(map.get("item").toString()));
+        return structure;
     }
 
     public Direction getDirection(String input) {

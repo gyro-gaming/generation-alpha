@@ -28,6 +28,7 @@ class Go {
             int index = gamePlay.moveGyro(gyro, locName, locations);
             return locations.get(index);
         } else {
+            System.out.println("You may not travel in that direction!\n\n");
             return null;
         }
     }
