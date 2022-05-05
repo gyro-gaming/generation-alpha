@@ -24,15 +24,12 @@ public class TextParser implements Serializable {
     public String promptInput(GameBoard gameBoard) throws IOException {
         // Start the game by giving prompt and using while loop
         while (true) {
-            Map<Direction,String> map = gameBoard.getGyro().getLocation().getMap();
-            try{
+            Map<Direction, String> map = gameBoard.getGyro().getLocation().getMap();
+            try {
                 if (!map.equals("null")) {
-                    System.out.println(map);
+                    // System.out.println(map);
                 }
-            }
-            catch (NullPointerException e){
-                System.out.println();
-            }
+            } catch (NullPointerException e) {}
 
             System.out.println("Which action would you like to do " + gameBoard.getGyro().getName() + "?");
             System.out.print("> ");     // print prompt
@@ -62,13 +59,15 @@ public class TextParser implements Serializable {
                     Go.forGo(gameBoard, word2);
                     System.out.println("You are now in " + gameBoard.getGyro().getLocation().getName());
                     try {
-                        System.out.println("Would you like to ask " + gameBoard.getGyro().getLocation().getCharacter().getName() + " a question?");
-                    } catch (NullPointerException e) {
-                    }
+                        if (gameBoard.getGyro().getLocation().getCharacter().getName() != "null") {
+                            System.out.println("Would you like to ask " + gameBoard.getGyro().getLocation().getCharacter().getName() + " a question?");
+                        }
+                    } catch (NullPointerException e) {}
                     try {
-                        System.out.println("There is also a " + gameBoard.getGyro().getLocation().getItem().getName() + " in the room.\n");
-                    } catch (NullPointerException e) {
-                    }
+                        if (gameBoard.getGyro().getLocation().getItem().getName() != "null") {
+                            System.out.println("There is also a " + gameBoard.getGyro().getLocation().getItem().getName() + " in the room.\n");
+                        }
+                    } catch (NullPointerException e) {}
                 } else if (word1.equals("get") || word1.equals("pickup") || word1.equals("grab") || word1.equals("take")) {
                     String result = Get.forGet(gameBoard, word2);
                     System.out.println(result);
@@ -112,9 +111,9 @@ public class TextParser implements Serializable {
                     GameBoard.forSave(gameBoard);
                     return word2;
 
-                }else if (word1.equals("save")) {
+                } else if (word1.equals("save")) {
                     GameBoard.forSave(gameBoard);
-                }else {
+                } else {
                     System.out.println("Must enter go/get direction/item or quit");
                 }
 
@@ -128,7 +127,7 @@ public class TextParser implements Serializable {
         // Give option to fight
         StringBuilder sb = new StringBuilder();
         Battle battle;
-        Villain villain = (Villain)gameBoard.getGyro().getLocation().getCharacter();
+        Villain villain = (Villain) gameBoard.getGyro().getLocation().getCharacter();
         int villainHealth = villain.getHealth();
         int villainStrength = villain.getStrength();
         Gyro gyro = gameBoard.getGyro();
@@ -136,8 +135,8 @@ public class TextParser implements Serializable {
         int gyroStrength = gyro.getStrength();
         System.out.println("Your health: " + gyroHealth);
         System.out.println("Your Strength: " + gyroStrength);
-        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s health: " + villainHealth);
-        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName()+ "'s Strength: " + villainStrength);
+        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName() + "'s health: " + villainHealth);
+        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName() + "'s Strength: " + villainStrength);
         System.out.println("Are you sure [y/n]? ");
         String option = input.nextLine();
 
