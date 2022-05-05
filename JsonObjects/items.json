@@ -35,6 +35,28 @@
     },
     {
       "type": "Power",
+      "name": "power1",
+      "description": "TBD",
+      "image": "TBD",
+      "location": {
+        "territory": "Home",
+        "structure": "Sand Lot"
+      },
+      "modifier": "15"
+    },
+    {
+      "type": "Power",
+      "name": "power2",
+      "description": "TBD",
+      "image": "TBD",
+      "location": {
+        "territory": "Home",
+        "structure": "Sand Lot"
+      },
+      "modifier": "10"
+    },
+    {
+      "type": "Power",
       "name": "power3",
       "description": "TBD",
       "image": "TBD",
