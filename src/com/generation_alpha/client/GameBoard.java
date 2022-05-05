@@ -38,6 +38,13 @@ public class GameBoard implements Serializable {
         this.textParser = textParser;
     }
 
+    public GameBoard(Boolean isSavedGame, String name, GamePlay gamePlay, Gyro gyro, TextParser textParser) {
+        this.gamePlay = gamePlay;
+        this.territory = gamePlay.getTerritory(name);
+        this.gyro = gyro; // calls the GamePlay() method to parse saved gyro
+        this.textParser = textParser;
+    }
+
     public static void forSave(GameBoard gameBoard) {
         try {
 
