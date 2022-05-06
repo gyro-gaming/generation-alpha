@@ -16,11 +16,19 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class TextParser implements Serializable {
+
+    private static TextParser instance = new TextParser();
     private static Scanner input = new Scanner(System.in);
     // create a Map for different level location
     private String inputLine = "";   // will hold the full input line
     private String word1;           // will hold the first word entered
     private String word2;           // will hold the second word entered
+
+    private TextParser() {}
+
+    public static TextParser getInstance() {
+        return instance;
+    }
 
     // Method to prompt for input
     public String promptInput(GameBoard gameBoard) throws IOException {
@@ -58,7 +66,7 @@ public class TextParser implements Serializable {
 
                 //  Conditions - forGo, forGet,forLook, quit
                 if (word1.equals("go") || word1.equals("move") || word1.equals("run") || word1.equals("jump")) {
-                    Go.forGo(gameBoard, word2);
+                    gameBoard.getGyro().forGo(gameBoard, word2);
                     System.out.println("You are now in " + gameBoard.getGyro().getLocation().getName());
                     try {
                         if (gameBoard.getGyro().getLocation().getCharacter().getName() != "null") {
@@ -71,12 +79,12 @@ public class TextParser implements Serializable {
                         }
                     } catch (NullPointerException e) {}
                 } else if (word1.equals("get") || word1.equals("pickup") || word1.equals("grab") || word1.equals("take")) {
-                    String result = Get.forGet(gameBoard, word2);
+                    String result = gameBoard.getGyro().forGet(gameBoard, word2);
                     System.out.println(result);
 
                 } else if (word1.equals("look") || word1.equals("examine") || word1.equals("peel")) {
                     try {
-                        String desc = Look.forLook(gameBoard, word2);
+                        String desc = gameBoard.getGyro().forLook(gameBoard, word2);
                         String[] arr = desc.split(" & ");
                         System.out.println(arr[0] + "\n\n" + arr[1] + "\n\n");
                     } catch (ArrayIndexOutOfBoundsException e) {
@@ -84,7 +92,7 @@ public class TextParser implements Serializable {
                     }
 
                 } else if (word1.equals("asks")) {
-                    String quote = Ask.forAsk(gameBoard, word2);
+                    String quote = gameBoard.getGyro().forAsk(gameBoard, word2);
                     System.out.println(quote);
 
                 } else if (word1.equals("fight")) {
@@ -96,14 +104,14 @@ public class TextParser implements Serializable {
                     }
                 } else if (word1.equals("inspect")) {
                     if (gameBoard.getGyro().getItems().size() > 0) {
-                        String description = Inspect.forInspect(gameBoard);
+                        String description = gameBoard.getGyro().forInspect(gameBoard);
                         System.out.println(description);
                     } else {
                         System.out.println("No items in your bag!!");
                     }
                 } else if (word1.equals("use")) {
                     if (gameBoard.getGyro().getItems().size() > 0) {
-                        String result = Use.forUse(gameBoard, word2);
+                        String result = gameBoard.getGyro().forUse(gameBoard, word2);
                         System.out.println(result);
                     } else {
                         System.out.println("No items in your bag!!");
@@ -180,12 +188,12 @@ public class TextParser implements Serializable {
                     } catch (NullPointerException e) {
                         System.out.println("Sorry you do not have that power");
                     }
-                    battle = new Battle(gyro, villain, true, (PowerItem) power);
+                    battle = new Battle(gameBoard, gyro, villain, true, (PowerItem) power);
                 } else {
-                    battle = new Battle(gyro, villain);
+                    battle = new Battle(gameBoard, gyro, villain);
                 }
             } else {
-                battle = new Battle(gyro, villain);
+                battle = new Battle(gameBoard, gyro, villain);
             }
             System.out.println("Which direction to move to [up/right]");
             option = input.nextLine();

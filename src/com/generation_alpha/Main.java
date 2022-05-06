@@ -24,7 +24,8 @@ class Main {
         display.instructions();
         System.out.println("What's the name of your Gyro?");
         String input = scanner.nextLine();
-        GameBoard gameBoard = new GameBoard(input);
+        GameBoard gameBoard = GameBoard.getInstance();
+        gameBoard.init(input);
         try {
             System.out.println(gameBoard.getTextParser().promptInput(gameBoard));
         } catch (IOException e) {

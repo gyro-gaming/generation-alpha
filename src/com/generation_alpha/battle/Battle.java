@@ -1,28 +1,43 @@
 package com.generation_alpha.battle;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.characters.Villain;
+import com.generation_alpha.client.GameBoard;
 import com.generation_alpha.items.PowerItem;
+import com.generation_alpha.locations.Structure;
 
 import java.util.List;
+import java.util.Map;
 
 public class Battle {
+    private GameBoard board;
     private Gyro gyro;
     private Villain villain;
     private boolean usePower;
     private PowerItem power;
 
-    public Battle(Gyro gyro, Villain villain) {
+    public Battle(GameBoard gameBoard, Gyro gyro, Villain villain) {
+        setGameBoard(gameBoard);
         setGyro(gyro);
         setVillain(villain);
         setUsePower(false);
     }
 
-    public Battle(Gyro gyro, Villain villain, boolean usePower, PowerItem power) {
+    public Battle(GameBoard gameBoard, Gyro gyro, Villain villain, boolean usePower, PowerItem power) {
+        setGameBoard(gameBoard);
         setGyro(gyro);
         setVillain(villain);
         setUsePower(usePower);
         setPower(power);
+    }
+
+    public void setGameBoard(GameBoard board) {
+        this.board = board;
+    }
+
+    public GameBoard getGameBoard() {
+        return board;
     }
 
     public void setGyro(Gyro gyro) {
@@ -94,7 +109,7 @@ public class Battle {
                     gyro.addPower(villain.getPowers().remove(i));
                 }
             }
-
+            removeVillain();
         } else {
             sb.append("You fought " + villain.getName() + "\n");
             sb.append("You sustained " + (priorGyroHealth - afterGyroHealth)  + " damage.\n");
@@ -125,7 +140,7 @@ public class Battle {
                     return "Game Over\n\n";
                 } else {
                     sb.append("You sustained " + (priorGyroHealth - afterGyroHealth)  + " damage.\n");
-                    sb.append("Your current health level is: " + afterGyroHealth);
+                    sb.append("Your current health level is: " + afterGyroHealth + "\n");
                 }
                 List<PowerItem> powers = villain.getPowers();
                 for (int i = 0; i < powers.size(); i++) {
@@ -141,6 +156,8 @@ public class Battle {
             int powerMultiplier = power.getCombatMultiplier();
             villain.setHealth(villain.getHealth() - powerMultiplier);
             int afterVillainHealth = villain.getHealth();
+            sb.append(gyro.getName() + " used " + power.getName() + " that takes "
+                    + powerMultiplier +  " power.\n");
             if (afterVillainHealth <= 0) {
                 sb.append("You won!\n");
                 sb.append("You defeated " + villain.getName() + "\n");
@@ -149,6 +166,7 @@ public class Battle {
                         gyro.addPower(villain.getPowers().remove(i));
                     }
                 }
+                removeVillain();
             } else {
                 sb.append(villain.getName() + " sustained " + (priorVillainHealth - afterVillainHealth)
                         + " damage.\n");
@@ -165,6 +183,25 @@ public class Battle {
             sb.append("You did not use a power.\n");
         }
         return sb.toString();
+    }
+
+    private void removeVillain() {
+        ObjectMapper mapper = new ObjectMapper();
+        Gyro gyro = getGameBoard().getGyro();
+        Structure location = gyro.getLocation();
+
+        Map<String, Object> map = mapper.convertValue(location, Map.class);
+        map.remove("character");
+        Structure newStructure = getGameBoard().getGamePlay().removeKilledVillainFromStructure(map, location);
+        gyro.setLocation(newStructure);
+
+        List<Structure> locations = getGameBoard().getTerritory().getLocations();
+        for (int i = 0; i < locations.size(); i++) {
+            if (locations.get(i).getName().equals(newStructure.getName())) {
+                locations.remove(i);
+                locations.add(newStructure);
+            }
+        }
     }
 
     private int randomResult() {

@@ -10,7 +10,7 @@ public class GyroTest {
 
     @Before
     public void init() {
-        gyro = new Gyro();
+        gyro = Gyro.getInstance();
     }
 
     @Test
