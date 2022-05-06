@@ -15,12 +15,8 @@ public class LoadPuzzleFromJson {
 
         Map<String, Object> map = JsonParser.parseJson("JsonObjects/puzzle.json");
         List<Map<String, Object>> puzzles = (List)map.get("results");
-//        System.out.println(puzzles.get(0));
-//        System.out.println(puzzles.get(0).get("question"));
 
         for (Map<String, Object> puzzleMap: puzzles) {
-//            System.out.println(puzzleMap);
-
             String question = puzzleMap.get("question").toString();
             List choicesInList = (List<String>)puzzleMap.get("incorrect_answers");
             // Convert List to String

@@ -11,16 +11,12 @@ import java.util.List;
 import java.util.Scanner;
 class Main {
     public static void main(String[] args) throws LineUnavailableException, UnsupportedAudioFileException, IOException {
-        // Clip clip = AudioSystem.getClip();
-        // File f = new File("resources/sounds/classic.wav");
-        // AudioInputStream as = AudioSystem.getAudioInputStream(f);
-        // clip.open(as);
-        // clip.start();
-        // clip.loop(-1);
-
-//        List<Puzzle> puzzleList = LoadPuzzleFromJson.loadPuzzleFromJson();
-//        System.out.println(puzzleList);
-
+        Clip clip = AudioSystem.getClip();
+        File f = new File("resources/sounds/classic.wav");
+        AudioInputStream as = AudioSystem.getAudioInputStream(f);
+        clip.open(as);
+        clip.start();
+        clip.loop(-1);
         Display display = new Display();
         Scanner scanner = new Scanner(System.in);
         display.hello();
