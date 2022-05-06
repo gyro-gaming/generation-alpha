@@ -1,17 +1,23 @@
 package com.generation_alpha;
 
-import com.generation_alpha.client.AudioPlayer;
 import com.generation_alpha.client.Display;
 import com.generation_alpha.client.GameBoard;
-import com.generation_alpha.locations.GamePlay;
 
+import javax.sound.sampled.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
 class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws LineUnavailableException, UnsupportedAudioFileException, IOException {
+        Clip clip = AudioSystem.getClip();
+        File f = new File("resources/sounds/classic.wav");
+        AudioInputStream as = AudioSystem.getAudioInputStream(f);
+        clip.open(as);
+        clip.start();
+        clip.loop(-1);
         Display display = new Display();
         Scanner scanner = new Scanner(System.in);
         display.hello();
