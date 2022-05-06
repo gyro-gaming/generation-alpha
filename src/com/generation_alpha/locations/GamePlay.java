@@ -1,15 +1,18 @@
 package com.generation_alpha.locations;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.generation_alpha.characters.Character;
 import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.characters.NPC;
 import com.generation_alpha.characters.Villain;
+import com.generation_alpha.client.GameBoard;
 import com.generation_alpha.items.HealthBoost;
 import com.generation_alpha.items.Item;
 import com.generation_alpha.items.PowerItem;
 import com.generation_alpha.items.StrengthBoost;
 
 
+import java.rmi.MarshalledObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -66,6 +69,7 @@ public class GamePlay {
         }
         return building;
     }
+
 
     public Character getCharacters(String name) {
         Map<String, Object> map = JsonParser.parseJson("JsonObjects/characters.json");

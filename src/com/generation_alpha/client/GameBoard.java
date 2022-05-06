@@ -54,7 +54,6 @@ public class GameBoard implements Serializable {
             ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
             // convert map to JSON file
             writer.writeValue(new File("savedGames/userLocation.json"), gameBoard);
-            writer.writeValue(new File("savedGames/userAttributes.json"), gameBoard.getGyro());
 
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -7,6 +7,8 @@ import com.generation_alpha.characters.Villain;
 import com.generation_alpha.items.Item;
 import com.generation_alpha.items.PowerItem;
 import com.generation_alpha.locations.Direction;
+import com.generation_alpha.locations.GamePlay;
+import com.generation_alpha.locations.JsonParser;
 
 import java.io.*;
 import java.util.Map;
@@ -109,6 +111,7 @@ public class TextParser implements Serializable {
 
                 } else if (word1.equals("quit") || word1.equals("q")) {
                     GameBoard.forSave(gameBoard);
+                    getPastGyro(gameBoard.getGyro().getName(),gameBoard);
                     return word2;
 
                 } else if (word1.equals("save")) {
@@ -122,6 +125,23 @@ public class TextParser implements Serializable {
             }
         }
     }
+
+    private Gyro getPastGyro(String name, GameBoard gameBoard) {
+        Map<String, Object> userLoc = JsonParser.parseJson("savedGames/userLocation.json");
+        Map<String, Object> userLocation = (Map<String, Object>) userLoc.get("territory");
+        Map<String, Object> pastGyro = (Map<String, Object>) userLoc.get("gyro");
+        Map<String, Object> gamePlay = (Map<String, Object>) userLoc.get("gameplay");
+        Object territoryName = userLocation.get("name");
+        Object gyroName = pastGyro.get("name");
+        Object loc = pastGyro.get("location");
+        System.out.println("Territory: " + territoryName);
+        System.out.println("Gyro Name: " + gyroName);
+        System.out.println("Last Known Location: " + loc);
+        System.out.println("Items: " + pastGyro.get("items"));
+
+        return gameBoard.getGyro();
+    }
+
 
     private static String fightParser(GameBoard gameBoard) {
         // Give option to fight
