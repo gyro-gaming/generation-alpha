@@ -5,40 +5,46 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.generation_alpha.characters.Fighter;
 import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.locations.GamePlay;
-import com.generation_alpha.locations.Structure;
 import com.generation_alpha.locations.Territory;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.Serializable;
-import java.nio.file.Paths;
-import java.util.List;
 
 public class GameBoard implements Serializable {
     private Territory territory;
     private Gyro gyro;
     private TextParser textParser;
     private GamePlay gamePlay;
-    private Structure currentLocation;
 
-    public GameBoard(String name) {
-        this.gamePlay = new GamePlay();
-        this.territory = gamePlay.getTerritory("Home");
-        this.gyro = gamePlay.getGyro(name);
-        this.textParser = new TextParser();
+
+    private static GameBoard instance = new GameBoard();
+
+    private GameBoard(){}
+
+    public static GameBoard getInstance() {
+        return instance;
     }
 
-    public GameBoard(String name, GamePlay gamePlay, Gyro gyro, TextParser textParser) {
-        this.gamePlay = gamePlay;
-        this.territory = gamePlay.getTerritory(name);
-        this.gyro = gyro;
-        this.textParser = textParser;
+    public void init(String name) {
+        setGamePlay(new GamePlay());
+        setTerritory(gamePlay.getTerritory("Home"));
+        setGyro(Gyro.getInstance());
+        getGyro().setName(name);
+        getGyro().setLocation(getTerritory().getStart());
+        setTextParser(TextParser.getInstance());
     }
 
-    public GameBoard(Boolean isSavedGame, String name, GamePlay gamePlay, Gyro gyro, TextParser textParser) {
+    public void init(String territory, GamePlay gamePlay, Gyro gyro) {
+        setGamePlay(gamePlay);
+        setTerritory(gamePlay.getTerritory(territory));
+        setGyro(gyro);
+        getGyro().setLocation(getTerritory().getStart());
+        setTextParser(textParser);
+    }
+
+    public void init (Boolean isSavedGame, String name, GamePlay gamePlay, Gyro gyro, TextParser textParser) {
         this.gamePlay = gamePlay;
         this.territory = gamePlay.getTerritory(name);
         this.gyro = gyro; // calls the GamePlay() method to parse saved gyro
@@ -59,16 +65,33 @@ public class GameBoard implements Serializable {
             ex.printStackTrace();
         }
     }
+
+    public void setGamePlay(GamePlay gamePlay) {
+        this.gamePlay = gamePlay;
+    }
+
     public GamePlay getGamePlay() {
         return gamePlay;
+    }
+
+    public void setTerritory(Territory territory) {
+        this.territory = territory;
     }
 
     public Territory getTerritory() {
         return territory;
     }
 
+    public void setGyro(Gyro gyro) {
+        this.gyro = gyro;
+    }
+
     public Gyro getGyro() {
         return gyro;
+    }
+
+    public void setTextParser(TextParser textParser) {
+        this.textParser = textParser;
     }
 
     public TextParser getTextParser() {

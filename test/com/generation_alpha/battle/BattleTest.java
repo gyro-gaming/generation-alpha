@@ -19,7 +19,8 @@ public class BattleTest {
 
     @Before
     public void setUp() {
-        gameBoard = new GameBoard("Jamal");
+        gameBoard = GameBoard.getInstance();
+        gameBoard.init("Jamal");
         gyro = gameBoard.getGyro();
     }
 
@@ -41,15 +42,13 @@ public class BattleTest {
         }
         Villain bully = (Villain)gameBoard.getGamePlay().getCharacters(gameBoard.getGyro().getLocation().getCharacter().getName());
         System.out.println(bully.getPowers());
-        battle = new Battle(gyro, bully, true, (PowerItem) power3 );
+        battle = new Battle(gameBoard, gyro, bully, true, (PowerItem) power3);
         System.out.println(battle.moveGyro(FightMovement.UP));
+        battle = new Battle(gameBoard, gyro, bully, true, (PowerItem) power1);
         System.out.println(battle.moveGyro(FightMovement.UP));
+        battle = new Battle(gameBoard, gyro, bully, true, (PowerItem) power1);
         System.out.println(battle.moveGyro(FightMovement.UP));
-        System.out.println(battle.moveGyro(FightMovement.UP));
-        System.out.println(battle.moveGyro(FightMovement.UP));
-        System.out.println(battle.moveGyro(FightMovement.UP));
-        System.out.println(battle.moveGyro(FightMovement.UP));
-        System.out.println(battle.moveGyro(FightMovement.UP));
+        battle = new Battle(gameBoard, gyro, bully);
         System.out.println(battle.moveGyro(FightMovement.UP));
         System.out.println(battle.moveGyro(FightMovement.UP));
         System.out.println(gyro.getPowers());

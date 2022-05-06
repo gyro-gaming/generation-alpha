@@ -35,7 +35,7 @@
           "directions": {
             "south": "Town Center"
           },
-          "character": "TBD",
+          "character": "Fitness Susie",
           "item_type": "Strength",
           "item": "strength2"
         },
@@ -59,7 +59,7 @@
           "directions": {
             "west": "Town Center"
           },
-          "character": "TBD",
+          "character": "Mr Baker",
           "item_type": "Health",
           "item": "health1"
         },

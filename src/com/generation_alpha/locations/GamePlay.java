@@ -1,18 +1,14 @@
 package com.generation_alpha.locations;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.generation_alpha.characters.Character;
 import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.characters.NPC;
 import com.generation_alpha.characters.Villain;
-import com.generation_alpha.client.GameBoard;
 import com.generation_alpha.items.HealthBoost;
 import com.generation_alpha.items.Item;
 import com.generation_alpha.items.PowerItem;
 import com.generation_alpha.items.StrengthBoost;
 
-
-import java.rmi.MarshalledObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,16 +17,6 @@ import java.util.Map;
 public class GamePlay {
     private Territory territory;
     private List<Map<String, Object>> locationList;
-
-    public Gyro getGyro(String name) {
-        Gyro gyro = new Gyro(name);
-        gyro.setStrength(10);
-        gyro.setHealth(100);
-        gyro.setLocation(territory.getStart());
-        gyro.setItems(new ArrayList<>());
-        gyro.setPowers(new ArrayList<>());
-        return gyro;
-    }
 
     /**
      * method creates a Territory object
@@ -112,6 +98,7 @@ public class GamePlay {
                     powerItem.setDescription(itemMap.get("description").toString());
                     powerItem.setImage(itemMap.get("image").toString());
                     powerItem.setLocation(new Dojo(itemMap.get("location").toString()));
+                    powerItem.setCombatMultiplier(Integer.parseInt(itemMap.get("modifier").toString()));
                     powerItems.add(powerItem);
                 }
             }
@@ -191,37 +178,42 @@ public class GamePlay {
 
     public Structure removeItemFromStructure(Map<String, Object> map, Structure location) {
         if (location instanceof Building) {
-            Building structure = new Building(map.get("name").toString());
-            structure.setDescription(map.get("description").toString());
-            structure.setImage(map.get("image").toString());
+            Building structure = new Building(location.getName());
+            structure.setDescription(location.getDescription());
+            structure.setImage(location.getImage());
             Map<String, Object> newMap = new HashMap<>();
-            String[] mapArr = map.get("map").toString().split("=");
-            newMap.put(mapArr[0].substring(1),(Object)mapArr[1].substring(0, mapArr[1].length() - 1));
+            for (Map.Entry<Direction, String> entry : location.getMap().entrySet()) {
+                newMap.put(entry.getKey().toString(), (Object)entry.getValue());
+            }
             structure.setMap(newMap);
-            structure.setCharacter(getCharacters(map.get("character").toString()));
+            structure.setCharacter(location.getCharacter());
             return structure;
         } else if (location instanceof Dojo) {
-            Dojo structure = new Dojo(map.get("name").toString());
-            structure.setDescription(map.get("description").toString());
-            structure.setImage(map.get("image").toString());
+            Dojo structure = new Dojo(location.getName());
+            structure.setDescription(location.getDescription());
+            structure.setImage(location.getImage());
             Map<String, Object> newMap = new HashMap<>();
-            newMap.put("map", map.get("map"));
+            for (Map.Entry<Direction, String> entry : location.getMap().entrySet()) {
+                newMap.put(entry.getKey().toString(), (Object)entry.getValue());
+            }
             structure.setMap(newMap);
-            structure.setCharacter(getCharacters(map.get("character").toString()));
+            structure.setCharacter(location.getCharacter());
             return structure;
         }
 
         return new Building();
     }
 
-    public Structure removeKilledVillainFromStructure(Map<String, Object> map) {
-        Dojo structure = new Dojo(map.get("name").toString());
-        structure.setDescription(map.get("description").toString());
-        structure.setImage(map.get("image").toString());
+    public Structure removeKilledVillainFromStructure(Map<String, Object> map, Structure location) {
+        Dojo structure = new Dojo(location.getName());
+        structure.setDescription(location.getDescription());
+        structure.setImage(location.getImage());
         Map<String, Object> newMap = new HashMap<>();
-        newMap.put("map", map.get("map"));
+        for (Map.Entry<Direction, String> entry : location.getMap().entrySet()) {
+            newMap.put(entry.getKey().toString(), (Object)entry.getValue());
+        }
         structure.setMap(newMap);
-        structure.setItem(getItems(map.get("item").toString()));
+        structure.setItem(location.getItem());
         return structure;
     }
 
