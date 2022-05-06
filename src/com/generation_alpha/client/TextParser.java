@@ -133,10 +133,13 @@ public class TextParser implements Serializable {
         Map<String, Object> gamePlay = (Map<String, Object>) userLoc.get("gameplay");
         Object territoryName = userLocation.get("name");
         Object gyroName = pastGyro.get("name");
-        Object loc = pastGyro.get("location");
+        Map<String,Object> loc = (Map<String, Object>) pastGyro.get("location");
+        Object locName = loc.get("name");
         System.out.println("Territory: " + territoryName);
         System.out.println("Gyro Name: " + gyroName);
-        System.out.println("Last Known Location: " + loc);
+        System.out.println("Last Known Location: " + locName);
+        System.out.println("Image: " + loc.get("image"));
+        System.out.println("Only Possible directions: "+ loc.get("map"));
         System.out.println("Items: " + pastGyro.get("items"));
 
         return gameBoard.getGyro();
