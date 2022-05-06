@@ -18,7 +18,7 @@ public class Display {
         super();
     }
     public void hello() {
-        AudioPlayer.playSound("resources/sounds/gameplay.wav");
+//        AudioPlayer.playSound("resources/sounds/gameplay.wav");
         setPath("resources/asciiBanners/welcomeBanner.txt");
         getPathReturn(getPath());
         story();
