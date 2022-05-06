@@ -2,6 +2,7 @@ package com.generation_alpha;
 
 import com.generation_alpha.client.Display;
 import com.generation_alpha.client.GameBoard;
+import com.generation_alpha.locations.GamePlay;
 
 import java.io.IOException;
 import java.util.Scanner;

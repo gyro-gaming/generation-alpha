@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
-class JsonParser {
+public class JsonParser {
 
     /**
      * method parses .json into a Java usable map created by
