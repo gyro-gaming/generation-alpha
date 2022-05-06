@@ -64,5 +64,8 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="app-utils-1.11" level="project" />
+    <orderEntry type="library" name="hamcrest-core-1.31" level="project" />
+    <orderEntry type="library" name="jackson-annotations-2.13.21" level="project" />
   </component>
 </module>

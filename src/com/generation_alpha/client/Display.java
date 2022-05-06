@@ -2,6 +2,7 @@ package com.generation_alpha.client;
 
 import com.apps.util.Console;
 
+import javax.sound.sampled.AudioSystem;
 import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,7 +18,8 @@ public class Display {
         super();
     }
     public void hello() {
-        setPath("resources/welcomeBanner.txt");
+        AudioPlayer.playSound("resources/sounds/gameplay.wav");
+        setPath("resources/asciiBanners/welcomeBanner.txt");
         getPathReturn(getPath());
         story();
     }
@@ -44,24 +46,24 @@ public class Display {
 
     public void story() {
 
-        setPath("text_files/story.txt");
+        setPath("resources/text_files/story.txt");
         getPathReturn(getPath());
     }
 
     public void instructions() {
 
-        setPath("text_files/instructions.txt");
+        setPath("resources/text_files/instructions.txt");
         getPathReturn(getPath());
     }
 
 
     public void gameEnd() {
-        setPath("resources/endBanner.txt");
+        setPath("resources/asciiBanners/endBanner.txt");
         getPathReturn(getPath());
     }
 
     public void showVictory() {
-        setPath("resources/victoryBanner.txt");
+        setPath("resources/asciiBanners/victoryBanner.txt");
         getPathReturn(path);
     }
 
