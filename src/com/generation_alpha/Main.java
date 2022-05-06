@@ -1,5 +1,6 @@
 package com.generation_alpha;
 
+import com.generation_alpha.client.AudioPlayer;
 import com.generation_alpha.client.Display;
 import com.generation_alpha.client.GameBoard;
 import com.generation_alpha.locations.GamePlay;
