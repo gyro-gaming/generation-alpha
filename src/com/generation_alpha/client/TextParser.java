@@ -9,8 +9,11 @@ import com.generation_alpha.items.PowerItem;
 import com.generation_alpha.locations.Direction;
 import com.generation_alpha.locations.GamePlay;
 import com.generation_alpha.locations.JsonParser;
+import com.generation_alpha.puzzle.LoadPuzzleFromJson;
+import com.generation_alpha.puzzle.Puzzle;
 
 import java.io.*;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -90,6 +93,14 @@ public class TextParser implements Serializable {
                     } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.println("There is nothing to see in this direction");
                     }
+
+                } else if (word1.equals("puzzle")) {
+                    List<Puzzle> puzzleList = LoadPuzzleFromJson.loadPuzzleFromJson();
+                    int index = (int)(Math.random() * puzzleList.size());
+                    puzzleList.get(index).askQuestion();
+                    Scanner input = new Scanner(System.in);
+                    String userInput = input.nextLine();
+                    puzzleList.get(index).checkAnswer(userInput);
 
                 } else if (word1.equals("asks")) {
                     String quote = gameBoard.getGyro().forAsk(gameBoard, word2);

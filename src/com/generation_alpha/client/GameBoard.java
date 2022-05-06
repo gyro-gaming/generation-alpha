@@ -18,9 +18,7 @@ public class GameBoard implements Serializable {
     private TextParser textParser;
     private GamePlay gamePlay;
 
-
     private static GameBoard instance = new GameBoard();
-
     private GameBoard(){}
 
     public static GameBoard getInstance() {

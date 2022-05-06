@@ -4,9 +4,9 @@
     "description" : "You are at your home base",
     "image" : "                  \\  |  /         ___________\n   ____________  \\ \\_# /         |  ___      |       _________\n  |            |  \\  #/          | |   |     |      | = = = = |\n  | |   |   |  |   \\\\#           | |`v'|     |      |         |\n  |            |    \\#  //       |  --- ___  |      | |  || | |\n  | |   |   |  |     #_//        |     |   | |      |         |\n  |            |  \\\\ #_/_______  |     |   | |      | |  || | |\n  | |   |   |  |   \\\\# /_____/ \\ |      ---  |      |         |\n  |            |    \\# |+ ++|  | |  |~~~~~~| |      | |  || | |\n  |            |    \\# |+ ++|  | |  |~~~~~~| |      | |  || | |\n~~|    (~~~~~) |~~~~~#~| H  |_ |~|  | |||| | |~~~~~~|         |\n  |    ( ||| ) |     # ~~~~~~    |  | |||| | |      | ||||||| |\n  ~~~~~~~~~~~~~________/  /_____ |  | |||| | |      | ||||||| |\n                                 ~~~~~~~~~~~~~      | ||||||| |",
     "map" : {
-      "SOUTH" : "Talon",
       "EAST" : "Troll",
-      "NORTH" : "Hunter X"
+      "NORTH" : "Hunter X",
+      "SOUTH" : "Talon"
     },
     "start" : {
       "name" : "Town Center",
@@ -70,10 +70,10 @@
       "description" : "Town Center with a character with strength item",
       "image" : "                  \\  |  /         ___________\n   ____________  \\ \\_# /         |  ___      |       _________\n  |            |  \\  #/          | |   |     |      | = = = = |\n  | |   |   |  |   \\\\#           | |`v'|     |      |         |\n  |            |    \\#  //       |  --- ___  |      | |  || | |\n  | |   |   |  |     #_//        |     |   | |      |         |\n  |            |  \\\\ #_/_______  |     |   | |      | |  || | |\n  | |   |   |  |   \\\\# /_____/ \\ |      ---  |      |         |\n  |            |    \\# |+ ++|  | |  |~~~~~~| |      | |  || | |\n  |            |    \\# |+ ++|  | |  |~~~~~~| |      | |  || | |\n~~|    (~~~~~) |~~~~~#~| H  |_ |~|  | |||| | |~~~~~~|         |\n  |    ( ||| ) |     # ~~~~~~    |  | |||| | |      | ||||||| |\n  ~~~~~~~~~~~~~________/  /_____ |  | |||| | |      | ||||||| |\n                                 ~~~~~~~~~~~~~      | ||||||| |",
       "map" : {
-        "SOUTH" : "Sand Lot",
-        "EAST" : "Cafeteria",
         "WEST" : "Temple",
-        "NORTH" : "Gym"
+        "EAST" : "Cafeteria",
+        "NORTH" : "Gym",
+        "SOUTH" : "Sand Lot"
       },
       "start" : null,
       "locations" : null,
@@ -252,7 +252,22 @@
       },
       "start" : null,
       "locations" : null,
-      "npc" : null,
+      "npc" : {
+        "name" : "Mr Baker",
+        "quote" : [ "Welcome to the Cafeteria", "Remember to get health" ],
+        "image" : ",#####,\n                 #_   _#\n                 |a` `a|\n                 |  u  |\n                 \\  =  /\n                 |\\___/|\n        ___ ____/:     :\\____ ___\n      .'   `.-===-\\   /-===-.`   '.\n     /      .-\"\"\"\"\"-.-\"\"\"\"\"-.      \\\n    /'             =:=             '\\\n  .'  ' .:    o   -=:=-   o    :. '  `.\n  (.'   /'. '-.....-'-.....-' .'\\   '.)\n  /' ._/   \".     --:--     .\"   \\_. '\\\n |  .'|      \".  ---:---  .\"      |'.  |\n |  : |       |  ---:---  |       | :  |\n  \\ : |       |_____._____|       | : /\n  /   (       |----|------|       )   \\\n /... .|      |    |      |      |. ...\\\n|::::/'' jgs /     |       \\     ''\\::::|\n'\"\"\"\"       /'    .L_      `\\       \"\"\"\"'\n           /'-.,__/` `\\__..-'\\\n          ;      /     \\      ;\n          :     /       \\     |\n          |    /         \\.   |\n          |`../           |  ,/\n          ( _ )           |  _)\n          |   |           |   |\n          |___|           \\___|\n          :===|            |==|\n           \\  /            |__|\n           /\\/\\           /\"\"\"`8.__\n           |oo|           \\__.//___)\n           |==|\n           \\__/",
+        "location" : {
+          "name" : "Cafeteria",
+          "description" : null,
+          "image" : null,
+          "map" : null,
+          "start" : null,
+          "locations" : null,
+          "npc" : null,
+          "item" : null,
+          "character" : null
+        }
+      },
       "item" : {
         "name" : "health1",
         "description" : "TBD",
@@ -270,7 +285,22 @@
         },
         "healthBoost" : 25
       },
-      "character" : null
+      "character" : {
+        "name" : "Mr Baker",
+        "quote" : [ "Welcome to the Cafeteria", "Remember to get health" ],
+        "image" : ",#####,\n                 #_   _#\n                 |a` `a|\n                 |  u  |\n                 \\  =  /\n                 |\\___/|\n        ___ ____/:     :\\____ ___\n      .'   `.-===-\\   /-===-.`   '.\n     /      .-\"\"\"\"\"-.-\"\"\"\"\"-.      \\\n    /'             =:=             '\\\n  .'  ' .:    o   -=:=-   o    :. '  `.\n  (.'   /'. '-.....-'-.....-' .'\\   '.)\n  /' ._/   \".     --:--     .\"   \\_. '\\\n |  .'|      \".  ---:---  .\"      |'.  |\n |  : |       |  ---:---  |       | :  |\n  \\ : |       |_____._____|       | : /\n  /   (       |----|------|       )   \\\n /... .|      |    |      |      |. ...\\\n|::::/'' jgs /     |       \\     ''\\::::|\n'\"\"\"\"       /'    .L_      `\\       \"\"\"\"'\n           /'-.,__/` `\\__..-'\\\n          ;      /     \\      ;\n          :     /       \\     |\n          |    /         \\.   |\n          |`../           |  ,/\n          ( _ )           |  _)\n          |   |           |   |\n          |___|           \\___|\n          :===|            |==|\n           \\  /            |__|\n           /\\/\\           /\"\"\"`8.__\n           |oo|           \\__.//___)\n           |==|\n           \\__/",
+        "location" : {
+          "name" : "Cafeteria",
+          "description" : null,
+          "image" : null,
+          "map" : null,
+          "start" : null,
+          "locations" : null,
+          "npc" : null,
+          "item" : null,
+          "character" : null
+        }
+      }
     }, {
       "name" : "Sand Lot",
       "description" : "Sandlot has {} character and one health item",
@@ -393,24 +423,22 @@
     } ]
   },
   "gyro" : {
-    "name" : "j",
+    "name" : "s",
     "quote" : null,
     "image" : null,
     "location" : {
-      "name" : "Gym",
-      "description" : "Gym has {} character and a strength item",
-      "image" : "                         -|             |-\n         -|                  [-_-_-_-_-_-_-_-]                  |-\n         [-_-_-_-_-]          |             |          [-_-_-_-_-]\n          | o   o |           [  0   0   0  ]           | o   o |\n           |     |    -|       |           |       |-    |     |\n           |     |_-___-___-___-|         |-___-___-___-_|     |\n           |  o  ]              [    0    ]              [  o  |\n           |     ]   o   o   o  [ _______ ]  o   o   o   [     | ----__________\n_____----- |     ]              [ ||||||| ]              [     |\n           |     ]              [ ||||||| ]              [     |\n       _-_-|_____]--------------[_|||||||_]--------------[_____|-_-_\n      ( (__________------------_____________-------------_________) )",
-      "map" : {
-        "SOUTH" : "Town Center"
-      },
+      "name" : "Town Center",
+      "description" : "Town Center with a character with strength item",
+      "image" : "                  \\  |  /         ___________\n   ____________  \\ \\_# /         |  ___      |       _________\n  |            |  \\  #/          | |   |     |      | = = = = |\n  | |   |   |  |   \\\\#           | |`v'|     |      |         |\n  |            |    \\#  //       |  --- ___  |      | |  || | |\n  | |   |   |  |     #_//        |     |   | |      |         |\n  |            |  \\\\ #_/_______  |     |   | |      | |  || | |\n  | |   |   |  |   \\\\# /_____/ \\ |      ---  |      |         |\n  |            |    \\# |+ ++|  | |  |~~~~~~| |      | |  || | |\n  |            |    \\# |+ ++|  | |  |~~~~~~| |      | |  || | |\n~~|    (~~~~~) |~~~~~#~| H  |_ |~|  | |||| | |~~~~~~|         |\n  |    ( ||| ) |     # ~~~~~~    |  | |||| | |      | ||||||| |\n  ~~~~~~~~~~~~~________/  /_____ |  | |||| | |      | ||||||| |\n                                 ~~~~~~~~~~~~~      | ||||||| |",
+      "map" : null,
       "start" : null,
       "locations" : null,
       "npc" : {
-        "name" : "Fitness Susie",
-        "quote" : [ "Welcome to the Gym", "Remember to get strengths" ],
-        "image" : " /////////////\\\\\\\\\n(((((((((((((( \\\\\\\\\n))) ~~      ~~  (((\n((( (*)     (*) )))\n)))     <       (((\n((( '\\______/`  )))\n)))\\___________/(((\n       _) (_\n      / \\_/ \\\n     /(     )\\\n    // )___( \\\\\n    \\\\(     )//\n     (       )\n      |  |  |\n       | | |\n       | | |\n      _|_|_|_",
+        "name" : "Grandma Louise",
+        "quote" : [ "Hello my dear!", "Don't go to Hunter X", "Good luck with the bully", "There may be an item to collect" ],
+        "image" : "  /((   ))\n        ( )6  6( )\n        (_)  l (_)\n          \\ <> )\n      _____)  (_____\n     (  \\       /   )\n     )  , \\ | /  `  (\n    / /(    Y     )\\ \\\n   / /   `     ,'   \\ \\\n   \\ \\    )===(    / /\n    \\ \\  ,     `  / /\n     '\\\\/        \\//'\n      '|\\`      '|\\`\n         \\      /\n          \\    /\n          )    (\njgs/akg  /      \\\n        /        \\ \n       /          \\\n      /            \\ \n     /              \\\n    /                \\ \n    `-....,      ,..-'\n           `-..-'",
         "location" : {
-          "name" : "Gym",
+          "name" : "Town Center",
           "description" : null,
           "image" : null,
           "map" : null,
@@ -422,11 +450,11 @@
         }
       },
       "item" : {
-        "name" : "strength2",
+        "name" : "strength1",
         "description" : "TBD",
         "image" : "TBD",
         "location" : {
-          "name" : "Gym",
+          "name" : "Town Center",
           "description" : null,
           "image" : null,
           "map" : null,
@@ -436,14 +464,14 @@
           "item" : null,
           "character" : null
         },
-        "strengthBoost" : 5
+        "strengthBoost" : 1
       },
       "character" : {
-        "name" : "Fitness Susie",
-        "quote" : [ "Welcome to the Gym", "Remember to get strengths" ],
-        "image" : " /////////////\\\\\\\\\n(((((((((((((( \\\\\\\\\n))) ~~      ~~  (((\n((( (*)     (*) )))\n)))     <       (((\n((( '\\______/`  )))\n)))\\___________/(((\n       _) (_\n      / \\_/ \\\n     /(     )\\\n    // )___( \\\\\n    \\\\(     )//\n     (       )\n      |  |  |\n       | | |\n       | | |\n      _|_|_|_",
+        "name" : "Grandma Louise",
+        "quote" : [ "Hello my dear!", "Don't go to Hunter X", "Good luck with the bully", "There may be an item to collect" ],
+        "image" : "  /((   ))\n        ( )6  6( )\n        (_)  l (_)\n          \\ <> )\n      _____)  (_____\n     (  \\       /   )\n     )  , \\ | /  `  (\n    / /(    Y     )\\ \\\n   / /   `     ,'   \\ \\\n   \\ \\    )===(    / /\n    \\ \\  ,     `  / /\n     '\\\\/        \\//'\n      '|\\`      '|\\`\n         \\      /\n          \\    /\n          )    (\njgs/akg  /      \\\n        /        \\ \n       /          \\\n      /            \\ \n     /              \\\n    /                \\ \n    `-....,      ,..-'\n           `-..-'",
         "location" : {
-          "name" : "Gym",
+          "name" : "Town Center",
           "description" : null,
           "image" : null,
           "map" : null,
@@ -471,9 +499,9 @@
       "description" : "You are at your home base",
       "image" : "                  \\  |  /         ___________\n   ____________  \\ \\_# /         |  ___      |       _________\n  |            |  \\  #/          | |   |     |      | = = = = |\n  | |   |   |  |   \\\\#           | |`v'|     |      |         |\n  |            |    \\#  //       |  --- ___  |      | |  || | |\n  | |   |   |  |     #_//        |     |   | |      |         |\n  |            |  \\\\ #_/_______  |     |   | |      | |  || | |\n  | |   |   |  |   \\\\# /_____/ \\ |      ---  |      |         |\n  |            |    \\# |+ ++|  | |  |~~~~~~| |      | |  || | |\n  |            |    \\# |+ ++|  | |  |~~~~~~| |      | |  || | |\n~~|    (~~~~~) |~~~~~#~| H  |_ |~|  | |||| | |~~~~~~|         |\n  |    ( ||| ) |     # ~~~~~~    |  | |||| | |      | ||||||| |\n  ~~~~~~~~~~~~~________/  /_____ |  | |||| | |      | ||||||| |\n                                 ~~~~~~~~~~~~~      | ||||||| |",
       "map" : {
-        "SOUTH" : "Talon",
         "EAST" : "Troll",
-        "NORTH" : "Hunter X"
+        "NORTH" : "Hunter X",
+        "SOUTH" : "Talon"
       },
       "start" : {
         "name" : "Town Center",
@@ -537,10 +565,10 @@
         "description" : "Town Center with a character with strength item",
         "image" : "                  \\  |  /         ___________\n   ____________  \\ \\_# /         |  ___      |       _________\n  |            |  \\  #/          | |   |     |      | = = = = |\n  | |   |   |  |   \\\\#           | |`v'|     |      |         |\n  |            |    \\#  //       |  --- ___  |      | |  || | |\n  | |   |   |  |     #_//        |     |   | |      |         |\n  |            |  \\\\ #_/_______  |     |   | |      | |  || | |\n  | |   |   |  |   \\\\# /_____/ \\ |      ---  |      |         |\n  |            |    \\# |+ ++|  | |  |~~~~~~| |      | |  || | |\n  |            |    \\# |+ ++|  | |  |~~~~~~| |      | |  || | |\n~~|    (~~~~~) |~~~~~#~| H  |_ |~|  | |||| | |~~~~~~|         |\n  |    ( ||| ) |     # ~~~~~~    |  | |||| | |      | ||||||| |\n  ~~~~~~~~~~~~~________/  /_____ |  | |||| | |      | ||||||| |\n                                 ~~~~~~~~~~~~~      | ||||||| |",
         "map" : {
-          "SOUTH" : "Sand Lot",
-          "EAST" : "Cafeteria",
           "WEST" : "Temple",
-          "NORTH" : "Gym"
+          "EAST" : "Cafeteria",
+          "NORTH" : "Gym",
+          "SOUTH" : "Sand Lot"
         },
         "start" : null,
         "locations" : null,
@@ -719,7 +747,22 @@
         },
         "start" : null,
         "locations" : null,
-        "npc" : null,
+        "npc" : {
+          "name" : "Mr Baker",
+          "quote" : [ "Welcome to the Cafeteria", "Remember to get health" ],
+          "image" : ",#####,\n                 #_   _#\n                 |a` `a|\n                 |  u  |\n                 \\  =  /\n                 |\\___/|\n        ___ ____/:     :\\____ ___\n      .'   `.-===-\\   /-===-.`   '.\n     /      .-\"\"\"\"\"-.-\"\"\"\"\"-.      \\\n    /'             =:=             '\\\n  .'  ' .:    o   -=:=-   o    :. '  `.\n  (.'   /'. '-.....-'-.....-' .'\\   '.)\n  /' ._/   \".     --:--     .\"   \\_. '\\\n |  .'|      \".  ---:---  .\"      |'.  |\n |  : |       |  ---:---  |       | :  |\n  \\ : |       |_____._____|       | : /\n  /   (       |----|------|       )   \\\n /... .|      |    |      |      |. ...\\\n|::::/'' jgs /     |       \\     ''\\::::|\n'\"\"\"\"       /'    .L_      `\\       \"\"\"\"'\n           /'-.,__/` `\\__..-'\\\n          ;      /     \\      ;\n          :     /       \\     |\n          |    /         \\.   |\n          |`../           |  ,/\n          ( _ )           |  _)\n          |   |           |   |\n          |___|           \\___|\n          :===|            |==|\n           \\  /            |__|\n           /\\/\\           /\"\"\"`8.__\n           |oo|           \\__.//___)\n           |==|\n           \\__/",
+          "location" : {
+            "name" : "Cafeteria",
+            "description" : null,
+            "image" : null,
+            "map" : null,
+            "start" : null,
+            "locations" : null,
+            "npc" : null,
+            "item" : null,
+            "character" : null
+          }
+        },
         "item" : {
           "name" : "health1",
           "description" : "TBD",
@@ -737,7 +780,22 @@
           },
           "healthBoost" : 25
         },
-        "character" : null
+        "character" : {
+          "name" : "Mr Baker",
+          "quote" : [ "Welcome to the Cafeteria", "Remember to get health" ],
+          "image" : ",#####,\n                 #_   _#\n                 |a` `a|\n                 |  u  |\n                 \\  =  /\n                 |\\___/|\n        ___ ____/:     :\\____ ___\n      .'   `.-===-\\   /-===-.`   '.\n     /      .-\"\"\"\"\"-.-\"\"\"\"\"-.      \\\n    /'             =:=             '\\\n  .'  ' .:    o   -=:=-   o    :. '  `.\n  (.'   /'. '-.....-'-.....-' .'\\   '.)\n  /' ._/   \".     --:--     .\"   \\_. '\\\n |  .'|      \".  ---:---  .\"      |'.  |\n |  : |       |  ---:---  |       | :  |\n  \\ : |       |_____._____|       | : /\n  /   (       |----|------|       )   \\\n /... .|      |    |      |      |. ...\\\n|::::/'' jgs /     |       \\     ''\\::::|\n'\"\"\"\"       /'    .L_      `\\       \"\"\"\"'\n           /'-.,__/` `\\__..-'\\\n          ;      /     \\      ;\n          :     /       \\     |\n          |    /         \\.   |\n          |`../           |  ,/\n          ( _ )           |  _)\n          |   |           |   |\n          |___|           \\___|\n          :===|            |==|\n           \\  /            |__|\n           /\\/\\           /\"\"\"`8.__\n           |oo|           \\__.//___)\n           |==|\n           \\__/",
+          "location" : {
+            "name" : "Cafeteria",
+            "description" : null,
+            "image" : null,
+            "map" : null,
+            "start" : null,
+            "locations" : null,
+            "npc" : null,
+            "item" : null,
+            "character" : null
+          }
+        }
       }, {
         "name" : "Sand Lot",
         "description" : "Sandlot has {} character and one health item",
@@ -903,7 +961,7 @@
       "directions" : {
         "west" : "Town Center"
       },
-      "character" : "Mr. Baker",
+      "character" : "Mr Baker",
       "item_type" : "Health",
       "item" : "health1"
     }, {
