@@ -10,12 +10,11 @@ public class NPC implements Character {
     private String image;
     private Structure location;
 
-    public NPC() {}
-
     public NPC(String name) {
         setName(name);
     }
 
+    // getters and setters
     @Override
     public void setName(String name) {
         this.name = name;
@@ -55,4 +54,5 @@ public class NPC implements Character {
     public Structure getLocation() {
         return location;
     }
+    // end getters and setters
 }

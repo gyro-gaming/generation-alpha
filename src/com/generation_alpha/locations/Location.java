@@ -1,14 +1,20 @@
 package com.generation_alpha.locations;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public interface Location {
-    void setName(String a);
+
+    void setType(String a);
+    String getType();
+    void setName(String b);
     String getName();
-    void setDescription(String b);
+    void setDescription(String c);
     String getDescription();
-    void setImage(String c);
+    void setImage(String d);
     String getImage();
-    void setMap(Map<String, Object> d);
+    void setMap(Map<String, Object> e);
     Map<Direction, String> getMap();
 }

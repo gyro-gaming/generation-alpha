@@ -3,10 +3,10 @@ package com.generation_alpha.locations;
 import com.generation_alpha.characters.Character;
 import com.generation_alpha.items.Item;
 
-import java.util.HashMap;
 import java.util.Map;
 
 class Building extends Structure {
+    private String type;
     private String name;
     private String description;
     private String image;
@@ -20,14 +20,30 @@ class Building extends Structure {
         setName(name);
     }
 
-    public Building(String name, String description, String image, Map<String, Object> objectMap,
+    public Building(String type, String name, String description, String image, Map<String, Object> objectMap,
                     Character npc, Item item) {
+        setType(type);
         setName(name);
         setDescription(description);
         setImage(image);
-        setMap(objectMap);
+        try {
+            setMap(objectMap);
+        } catch (Exception e) {
+            System.out.println("No directions available for " + getName());
+        }
         setCharacter(npc);
         setItem(item);
+    }
+
+    // getters and setters
+    @Override
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public String getType() {
+        return type;
     }
 
     @Override
@@ -89,4 +105,5 @@ class Building extends Structure {
     public Item getItem() {
         return item;
     }
+    // end getters and setters
 }
