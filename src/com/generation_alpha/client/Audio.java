@@ -32,7 +32,7 @@ public class Audio {
     public static void volumeUp(Clip clip){
         FloatControl gainControl =
                 (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-        gainControl.setValue(6.0f); // increase volume by 10 decibels.
+        gainControl.setValue(4.0f); // increase volume by 4 decibels.
         clip.start();
     }
 
