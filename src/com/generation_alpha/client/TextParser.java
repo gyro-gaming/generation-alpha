@@ -8,6 +8,9 @@ import com.generation_alpha.items.Item;
 import com.generation_alpha.items.PowerItem;
 import com.generation_alpha.puzzle.Puzzle;
 
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.*;
 import java.util.List;
 import java.util.Scanner;
@@ -38,7 +41,7 @@ public class TextParser {
      * @return String
      * @throws IOException
      */
-    public String promptInput(GameBoard gameBoard) throws IOException {
+    public String promptInput(GameBoard gameBoard, Clip clip) throws IOException {
         // Start the game by giving prompt and using while loop
         while (true) {
             PrintToScreen.getCurrentLocation(gameBoard);
@@ -66,9 +69,9 @@ public class TextParser {
                 else
                     word2 = "";
 
-                textParse(gameBoard, word1, word2);
+                textParse(gameBoard, word1, word2, clip);
 
-            } catch (IOException e) {
+            } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
                 e.printStackTrace();
             }
         }
@@ -103,7 +106,7 @@ public class TextParser {
      * @param word1
      * @param word2
      */
-    private static void textParse(GameBoard gameBoard, String word1, String word2) {
+    private static void textParse(GameBoard gameBoard, String word1, String word2, Clip clip) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         switch (word1) {
             case "look":
             case "examine":
@@ -138,6 +141,10 @@ public class TextParser {
             case "utilize":
                 preUse(gameBoard, word2);
                 break;
+            case "stop":
+                Audio.stopAudio(clip);
+            case "play":
+                Audio.playAudio(clip);
             case "save":
             case "s":
                 GameBoard.forSave(gameBoard);
