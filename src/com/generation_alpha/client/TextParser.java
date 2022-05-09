@@ -144,8 +144,10 @@ public class TextParser {
                 break;
             case "stop":
                 Audio.stopAudio(clip);
+                break;
             case "play":
                 Audio.playAudio(clip);
+                break;
             case "save":
             case "s":
                 GameBoard.forSave(gameBoard);
