@@ -23,6 +23,8 @@ You will start home and use the below command to navigate and move throughout th
                                ["inspect"]
                                 -use item-
                                  ["use"]
+                                -puzzle game-
+                                 ["puzzle"]
 
                                   HOW TO WIN
 Navigate through all the territories and defeat all the villains in each territory. You will need the help of the
