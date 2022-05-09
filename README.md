@@ -25,6 +25,14 @@ You will start home and use the below command to navigate and move throughout th
                                  ["use"]
                                 -puzzle game-
                                  ["puzzle"]
+                                -stop audio-
+                                  ["stop"]
+                                -play audio-
+                                  ["play"]
+                                   -save-
+                                  ["save"]
+                                   -quit-
+                                ["quit", "q"]
 
                                   HOW TO WIN
 Navigate through all the territories and defeat all the villains in each territory. You will need the help of the
