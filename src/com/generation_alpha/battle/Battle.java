@@ -168,7 +168,7 @@ public class Battle {
                 }
             }
             removeVillain();
-            nextLevel();
+            nextLevel(gameBoard);
         } else {
             sb.append("You fought " + villain.getName() + "\n");
             sb.append("You sustained " + (priorGyroHealth - afterGyroHealth)  + " damage.\n");
@@ -233,7 +233,7 @@ public class Battle {
                     }
                 }
                 removeVillain();
-                nextLevel();
+                nextLevel(gameBoard);
             } else {
                 sb.append(villain.getName() + " sustained " + (priorVillainHealth - afterVillainHealth)
                         + " damage.\n");
@@ -290,7 +290,7 @@ public class Battle {
         return (int)Math.round(Math.random());
     }
 
-    private void nextLevel() {
+    public void nextLevel(GameBoard gameBoard) {
         String[] levels = {"Master Yamamoto", "Troll", "Talon", "Hunter X", "Home"};
         String name = gameBoard.getTerritory().getName();
         try {
@@ -305,6 +305,6 @@ public class Battle {
             Display.gameEnd();
             GameBoard.forQuit();
         }
-        gameBoard.getGamePlay().getTerritory(name);
+        gameBoard.setTerritory(gameBoard.getGamePlay().getTerritory(name));
     }
 }

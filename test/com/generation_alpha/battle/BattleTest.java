@@ -62,4 +62,11 @@ public class BattleTest {
         battle = new Battle(gameBoard, gyro, villain, true, (PowerItem) power3);
         assertThat(battle.moveGyro(FightMovement.UP), notNullValue());
     }
+
+    @Test
+    public void nextLevel() {
+        battle = new Battle(gameBoard, gyro, villain);
+        battle.nextLevel(gameBoard);
+        System.out.println(gameBoard.getTerritory().getName());
+    }
 }
