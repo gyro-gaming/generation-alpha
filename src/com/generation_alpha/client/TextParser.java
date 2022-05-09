@@ -22,6 +22,7 @@ public class TextParser {
     private static Scanner input = new Scanner(System.in);
     private Puzzle puzzle = Puzzle.getInstance();
     private List<Puzzle> puzzleList;
+    private int correctAnswers;
     // create a Map for different level location
     private String inputLine = "";   // will hold the full input line
     private String word1;           // will hold the first word entered
@@ -202,7 +203,7 @@ public class TextParser {
     private static void preAsk(GameBoard gameBoard, String word2) {
         int random = getRandom();
         TextParser textParser = new TextParser();
-        if (random == 7) {
+        if (random == 3) {
             textParser.getPuzzleQuestion();
         } else {
             String quote = gameBoard.getGyro().forAsk(gameBoard, word2);
@@ -358,7 +359,7 @@ public class TextParser {
      * @return int
      */
     private static int getRandom() {
-        return (int) (Math.random() * 8);
+        return (int) (Math.random() * 4);
     }
 
     /**
@@ -378,7 +379,16 @@ public class TextParser {
         int index = getRandomPuzzle(puzzleList.size());
         puzzleList.get(index).askQuestion();
         String option = input.nextLine();
-        puzzleList.get(index).checkAnswer(option);
+        boolean correct;
+        correct = puzzleList.get(index).checkAnswer(option);
+        if (correct) {
+            correctAnswers++;
+        }
         puzzleList.remove(index);
+        if (correctAnswers > 8) {
+            Display.showVictory();
+            Display.gameEnd();
+            GameBoard.forQuit();
+        }
     }
 }
