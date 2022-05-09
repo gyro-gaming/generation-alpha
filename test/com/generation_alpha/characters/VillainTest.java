@@ -1,28 +1,44 @@
 package com.generation_alpha.characters;
 
+import com.generation_alpha.items.Item;
+import com.generation_alpha.items.PowerItem;
+import com.generation_alpha.locations.GamePlay;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class VillainTest {
-    Fighter villain;
+    Villain villain;
+    GamePlay gamePlay;
 
     @Before
     public void init() {
-        villain = new Villain();
+        gamePlay = new GamePlay();
+        Character character = gamePlay.getCharacters("Bully");
+        villain = (Villain) character;
     }
 
     @Test
-    public void usePowers() {
+    public void usePowerBuildPowerItemAndRemoveFromPowersListInValid() {
+        Item power = gamePlay.getItems("power2");
+        List<PowerItem> powers = villain.getPowers();
+        villain.usePower((PowerItem) power);
+        assertNotEquals(villain.getPowers().size(), 1);
     }
 
     @Test
-    public void useItems() {
-    }
-
-    @Test
-    public void testMe() {
-
+    public void usePowerBuildPowerItemAndRemoveFromPowersListValid() {
+        Item power = gamePlay.getItems("power2");
+        List<PowerItem> powers = villain.getPowers();
+        for (int i = 0; i < powers.size(); i++) {
+            if (powers.get(i).getName().equals(power.getName())) {
+                power = powers.get(i);
+            }
+        }
+        villain.usePower((PowerItem) power);
+        assertEquals(villain.getPowers().size(), 1);
     }
 }

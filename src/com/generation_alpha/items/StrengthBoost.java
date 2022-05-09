@@ -9,12 +9,11 @@ public class StrengthBoost implements Item {
     private Location location;
     private int strengthBoost;
 
-    public StrengthBoost() {}
-
     public StrengthBoost(String name) {
         setName(name);
     }
 
+    // getters and setters
     @Override
     public void setName(String name) {
         this.name = name;
@@ -62,4 +61,5 @@ public class StrengthBoost implements Item {
     public int getStrengthBoost() {
         return strengthBoost;
     }
+    // end getters and setters
 }

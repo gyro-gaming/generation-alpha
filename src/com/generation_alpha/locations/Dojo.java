@@ -6,6 +6,7 @@ import com.generation_alpha.items.Item;
 import java.util.Map;
 
 class Dojo extends Structure {
+    private String type;
     private String name;
     private String description;
     private String image;
@@ -13,19 +14,33 @@ class Dojo extends Structure {
     private Character villain;
     private Item power;
 
-    public Dojo() {}
-
     public Dojo(String name) {
         setName(name);
     }
 
-    public Dojo(String name, String description, String image, Map<String, Object> objectMap,
+    public Dojo(String type, String name, String description, String image, Map<String, Object> objectMap,
                     Character villain) {
+        setType(type);
         setName(name);
         setDescription(description);
         setImage(image);
-        setMap(objectMap);
+        try {
+            setMap(objectMap);
+        } catch (Exception e) {
+            System.out.println("No directions available for " + getName());
+        }
         setCharacter(villain);
+    }
+
+    // getters and setters
+    @Override
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public String getType() {
+        return type;
     }
 
     @Override
@@ -87,4 +102,5 @@ class Dojo extends Structure {
     public Item getItem() {
         return power;
     }
+    // end getters and setters
 }

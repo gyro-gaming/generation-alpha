@@ -20,6 +20,7 @@ public class Villain extends Fighter {
         this.name = name;
     }
 
+    // getters and setters
     @Override
     public void setName(String name) {
         this.name = name;
@@ -86,12 +87,17 @@ public class Villain extends Fighter {
     }
 
     @Override
-    public void usePower(PowerItem powerItem) {
-        powers.remove(powerItem);
-    }
-
-    @Override
     public List<PowerItem> getPowers() {
         return powers;
+    }
+    // end getters and setters
+
+    /**
+     * method to remove a used PowerItem from powers List
+     * @param powerItem
+     */
+    @Override
+    public void usePower(PowerItem powerItem) {
+        powers.remove(powerItem);
     }
 }
