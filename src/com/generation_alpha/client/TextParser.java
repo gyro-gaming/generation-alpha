@@ -184,7 +184,7 @@ public class TextParser {
      */
     private static void preGo(GameBoard gameBoard, String word2) {
         gameBoard.getGyro().forGo(gameBoard, word2);
-        PrintToScreen.getCurrentLocation(gameBoard);
+        // PrintToScreen.getCurrentLocation(gameBoard);
     }
 
     /**
