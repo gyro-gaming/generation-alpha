@@ -6,22 +6,19 @@ import com.generation_alpha.characters.Gyro;
 import com.generation_alpha.characters.Villain;
 import com.generation_alpha.items.Item;
 import com.generation_alpha.items.PowerItem;
-import com.generation_alpha.locations.Direction;
-import com.generation_alpha.locations.GamePlay;
-import com.generation_alpha.locations.JsonParser;
-import com.generation_alpha.puzzle.LoadPuzzleFromJson;
 import com.generation_alpha.puzzle.Puzzle;
 
 import java.io.*;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class TextParser implements Serializable {
+public class TextParser {
 
     private static TextParser instance = new TextParser();
     private static Scanner input = new Scanner(System.in);
+    private Puzzle puzzle = Puzzle.getInstance();
+    private List<Puzzle> puzzleList;
     // create a Map for different level location
     private String inputLine = "";   // will hold the full input line
     private String word1;           // will hold the first word entered
@@ -34,15 +31,17 @@ public class TextParser implements Serializable {
     }
 
     // Method to prompt for input
+
+    /**
+     * method to prompt for user input
+     * @param gameBoard
+     * @return String
+     * @throws IOException
+     */
     public String promptInput(GameBoard gameBoard) throws IOException {
         // Start the game by giving prompt and using while loop
         while (true) {
-            Map<Direction, String> map = gameBoard.getGyro().getLocation().getMap();
-            try {
-                if (!map.equals("null")) {
-                    // System.out.println(map);
-                }
-            } catch (NullPointerException e) {}
+            PrintToScreen.getCurrentLocation(gameBoard);
 
             System.out.println("Which action would you like to do " + gameBoard.getGyro().getName() + "?");
             System.out.print("> ");     // print prompt
@@ -67,77 +66,7 @@ public class TextParser implements Serializable {
                 else
                     word2 = "";
 
-                //  Conditions - forGo, forGet,forLook, quit
-                if (word1.equals("go") || word1.equals("move") || word1.equals("run") || word1.equals("jump")) {
-                    gameBoard.getGyro().forGo(gameBoard, word2);
-                    System.out.println("You are now in " + gameBoard.getGyro().getLocation().getName());
-                    try {
-                        if (gameBoard.getGyro().getLocation().getCharacter().getName() != "null") {
-                            System.out.println("Would you like to ask " + gameBoard.getGyro().getLocation().getCharacter().getName() + " a question?");
-                        }
-                    } catch (NullPointerException e) {}
-                    try {
-                        if (gameBoard.getGyro().getLocation().getItem().getName() != "null") {
-                            System.out.println("There is also a " + gameBoard.getGyro().getLocation().getItem().getName() + " in the room.\n");
-                        }
-                    } catch (NullPointerException e) {}
-                } else if (word1.equals("get") || word1.equals("pickup") || word1.equals("grab") || word1.equals("take")) {
-                    String result = gameBoard.getGyro().forGet(gameBoard, word2);
-                    System.out.println(result);
-
-                } else if (word1.equals("look") || word1.equals("examine") || word1.equals("peel")) {
-                    try {
-                        String desc = gameBoard.getGyro().forLook(gameBoard, word2);
-                        String[] arr = desc.split(" & ");
-                        System.out.println(arr[0] + "\n\n" + arr[1] + "\n\n");
-                    } catch (ArrayIndexOutOfBoundsException e) {
-                        System.out.println("There is nothing to see in this direction");
-                    }
-
-                } else if (word1.equals("puzzle")) {
-                    List<Puzzle> puzzleList = LoadPuzzleFromJson.loadPuzzleFromJson();
-                    int index = (int)(Math.random() * puzzleList.size());
-                    puzzleList.get(index).askQuestion();
-                    Scanner input = new Scanner(System.in);
-                    String userInput = input.nextLine();
-                    puzzleList.get(index).checkAnswer(userInput);
-
-                } else if (word1.equals("asks")) {
-                    String quote = gameBoard.getGyro().forAsk(gameBoard, word2);
-                    System.out.println(quote);
-
-                } else if (word1.equals("fight")) {
-                    try {
-                        String result = fightParser(gameBoard);
-                        System.out.println(result);
-                    } catch (ClassCastException e) {
-                        System.out.println("You may not fight an NPC.");
-                    }
-                } else if (word1.equals("inspect")) {
-                    if (gameBoard.getGyro().getItems().size() > 0) {
-                        String description = gameBoard.getGyro().forInspect(gameBoard);
-                        System.out.println(description);
-                    } else {
-                        System.out.println("No items in your bag!!");
-                    }
-                } else if (word1.equals("use")) {
-                    if (gameBoard.getGyro().getItems().size() > 0) {
-                        String result = gameBoard.getGyro().forUse(gameBoard, word2);
-                        System.out.println(result);
-                    } else {
-                        System.out.println("No items in your bag!!");
-                    }
-
-                } else if (word1.equals("quit") || word1.equals("q")) {
-                    GameBoard.forSave(gameBoard);
-                    getPastGyro(gameBoard.getGyro().getName(),gameBoard);
-                    return word2;
-
-                } else if (word1.equals("save")) {
-                    GameBoard.forSave(gameBoard);
-                } else {
-                    System.out.println("Must enter go/get direction/item or quit");
-                }
+                textParse(gameBoard, word1, word2);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -145,82 +74,217 @@ public class TextParser implements Serializable {
         }
     }
 
-    private Gyro getPastGyro(String name, GameBoard gameBoard) {
-        Map<String, Object> userLoc = JsonParser.parseJson("savedGames/userLocation.json");
-        Map<String, Object> userLocation = (Map<String, Object>) userLoc.get("territory");
-        Map<String, Object> pastGyro = (Map<String, Object>) userLoc.get("gyro");
-        Map<String, Object> gamePlay = (Map<String, Object>) userLoc.get("gameplay");
-        Object territoryName = userLocation.get("name");
-        Object gyroName = pastGyro.get("name");
-        Map<String,Object> loc = (Map<String, Object>) pastGyro.get("location");
-        Object locName = loc.get("name");
-        System.out.println("Territory: " + territoryName);
-        System.out.println("Gyro Name: " + gyroName);
-        System.out.println("Last Known Location: " + locName);
-        System.out.println("Image: " + loc.get("image"));
-        System.out.println("Only Possible directions: "+ loc.get("map"));
-        System.out.println("Items: " + pastGyro.get("items"));
-
-        return gameBoard.getGyro();
+    /**
+     * method to determine if user wants to play a new or saved game
+     * @return boolean
+     */
+    public static boolean newGame() {
+        System.out.println("Would you like to start a new game [y/n]?");
+        String option = input.nextLine();
+        if (option.equalsIgnoreCase("y")) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
+    /**
+     * method to capture the user input for naming their Gyro Character
+     * @return String
+     */
+    public static String getName() {
+        System.out.println("What's the name of your Gyro?");
+        return input.nextLine();
+    }
 
+    /**
+     * helper method parse to determine user input
+     * @param gameBoard
+     * @param word1
+     * @param word2
+     */
+    private static void textParse(GameBoard gameBoard, String word1, String word2) {
+        switch (word1) {
+            case "look":
+            case "examine":
+            case "peel":
+                preLook(gameBoard, word2);
+                break;
+            case "go":
+            case "move":
+            case "run":
+            case "jump":
+                preGo(gameBoard, word2);
+                break;
+            case "asks":
+                preAsk(gameBoard, word2);
+                break;
+            case "fight":
+            case "battle":
+            case "rumble":
+                preFight(gameBoard, word2);
+                break;
+            case "get":
+            case "pickup":
+            case "grab":
+            case "take":
+                preGet(gameBoard, word2);
+                break;
+            case "inspect":
+            case "check":
+                preInspect(gameBoard, word2);
+                break;
+            case "use":
+            case "utilize":
+                preUse(gameBoard, word2);
+                break;
+            case "save":
+            case "s":
+                GameBoard.forSave(gameBoard);
+                break;
+            case "quit":
+            case "q":
+                preQuit(gameBoard, word2);
+                break;
+            default:
+                System.out.println("Must enter a verb and a noun, save, or quit");
+                break;
+        }
+    }
+
+    /**
+     * method to run forLook()
+     * @param gameBoard
+     * @param word2
+     */
+    private static void preLook(GameBoard gameBoard, String word2) {
+            try {
+                String desc = gameBoard.getGyro().forLook(gameBoard, word2);
+                String[] arr = desc.split(" & ");
+                System.out.println(arr[0] + "\n\n" + arr[1] + "\n\n");
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("There is nothing to see in this direction");
+            }
+    }
+
+    /**
+     * method to run forGo()
+     * @param gameBoard
+     * @param word2
+     */
+    private static void preGo(GameBoard gameBoard, String word2) {
+        gameBoard.getGyro().forGo(gameBoard, word2);
+        PrintToScreen.getCurrentLocation(gameBoard);
+    }
+
+    /**
+     * method to run forGet()
+     * @param gameBoard
+     * @param word2
+     */
+    private static void preGet(GameBoard gameBoard, String word2) {
+        String result = gameBoard.getGyro().forGet(gameBoard, word2);
+        System.out.println(result);
+    }
+
+    /**
+     * method to run forAsk() or if random number the getPuzzleQuestion()
+     * @param gameBoard
+     * @param word2
+     */
+    private static void preAsk(GameBoard gameBoard, String word2) {
+        int random = getRandom();
+        TextParser textParser = new TextParser();
+        if (random == 7) {
+            textParser.getPuzzleQuestion();
+        } else {
+            String quote = gameBoard.getGyro().forAsk(gameBoard, word2);
+            System.out.println(quote);
+        }
+    }
+
+    /**
+     * method to run Fight()
+     * @param gameBoard
+     * @param word2
+     */
+    private static void preFight(GameBoard gameBoard, String word2) {
+        try {
+            String result = fightParser(gameBoard);
+            System.out.println(result);
+        } catch (ClassCastException e) {
+            System.out.println("You may not fight an NPC.");
+        }
+    }
+
+    /**
+     * method run forInspect()
+     * @param gameBoard
+     * @param word2
+     */
+    private static void preInspect(GameBoard gameBoard, String word2) {
+        if (gameBoard.getGyro().getItems().size() > 0) {
+            String description = gameBoard.getGyro().forInspect(gameBoard);
+            System.out.println(description);
+        } else {
+            System.out.println("No items in your bag!!");
+        }
+    }
+
+    /**
+     * method run forUse()
+     * @param gameBoard
+     * @param word2
+     */
+    private static void preUse(GameBoard gameBoard, String word2) {
+        if (gameBoard.getGyro().getItems().size() > 0) {
+            String result = gameBoard.getGyro().forUse(gameBoard, word2);
+            System.out.println(result);
+        } else {
+            System.out.println("No items in your bag!!");
+        }
+    }
+
+    /**
+     * method run forQuit()
+     * @param gameBoard
+     * @param word2
+     */
+    private static void preQuit(GameBoard gameBoard, String word2) {
+        GameBoard.forSave(gameBoard);
+        GameBoard.forQuit();
+    }
+
+    /**
+     * method to collect user input during Battle phase of game
+     * @param gameBoard
+     * @return String
+     */
     private static String fightParser(GameBoard gameBoard) {
-        // Give option to fight
+        Gyro gyro = gameBoard.getGyro();
+        Villain villain = (Villain) gameBoard.getGyro().getLocation().getCharacter();
+        PrintToScreen.getHealth(gameBoard);
         StringBuilder sb = new StringBuilder();
         Battle battle;
-        Villain villain = (Villain) gameBoard.getGyro().getLocation().getCharacter();
-        int villainHealth = villain.getHealth();
-        int villainStrength = villain.getStrength();
-        Gyro gyro = gameBoard.getGyro();
-        int gyroHealth = gyro.getHealth();
-        int gyroStrength = gyro.getStrength();
-        System.out.println("Your health: " + gyroHealth);
-        System.out.println("Your Strength: " + gyroStrength);
-        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName() + "'s health: " + villainHealth);
-        System.out.println(gameBoard.getGyro().getLocation().getCharacter().getName() + "'s Strength: " + villainStrength);
+
         System.out.println("Are you sure [y/n]? ");
         String option = input.nextLine();
 
         if (option.equalsIgnoreCase("y")) {
             if (gyro.getPowers().size() > 0) {
-                System.out.println("Your current powers: ");
-                for (PowerItem power : gyro.getPowers()) {
-                    System.out.print(power.getName() + " ");
-                }
+                checkPowers(gameBoard);
                 System.out.println("\nWould you like to use a power [y/n]? ");
                 option = input.nextLine();
                 if (option.equalsIgnoreCase("y")) {
-                    System.out.println("Which power would you like to use? ");
-                    option = input.nextLine();
-                    Item power = new PowerItem();
-                    try {
-                        power = gameBoard.getGamePlay().getItems(option);
-                    } catch (NullPointerException e) {
-                        System.out.println("Sorry you do not have that power");
-                    }
-                    battle = new Battle(gameBoard, gyro, villain, true, (PowerItem) power);
+                    PowerItem power = useAPower(gameBoard);
+                    battle = new Battle(gameBoard, gyro, villain, true, power);
                 } else {
                     battle = new Battle(gameBoard, gyro, villain);
                 }
             } else {
                 battle = new Battle(gameBoard, gyro, villain);
             }
-            System.out.println("Which direction to move to [up/right]");
-            option = input.nextLine();
-            FightMovement move = FightMovement.UP;
-            option = option.toLowerCase();
-            switch (option) {
-                case "up":
-                    move = FightMovement.UP;
-                    break;
-                case "right":
-                    move = FightMovement.RIGHT;
-                    break;
-                default:
-                    System.out.println("Not a valid direction.");
-                    break;
-            }
+            FightMovement move = moveFighter();
             String result = battle.moveGyro(move);
             System.out.println(result);
         } else {
@@ -228,15 +292,86 @@ public class TextParser implements Serializable {
         }
         return sb.toString();
     }
+
+    /**
+     * helper method to check if Fighter has PowerItems remaining
+     * @param gameBoard
+     */
+    private static void checkPowers(GameBoard gameBoard) {
+        Gyro gyro = gameBoard.getGyro();
+        System.out.println("Your current powers: ");
+        for (PowerItem power : gyro.getPowers()) {
+            System.out.print(power.getName() + " ");
+        }
+    }
+
+    /**
+     * helper method to use a PowerItem
+     * @param gameBoard
+     * @return PowerItem
+     */
+    private static PowerItem useAPower(GameBoard gameBoard) {
+        System.out.println("Which power would you like to use? ");
+        String option = input.nextLine();
+        Item power = new PowerItem();
+        try {
+            power = gameBoard.getGamePlay().getItems(option);
+            return (PowerItem) power;
+        } catch (NullPointerException e) {
+            System.out.println("Sorry you do not have that power");
+        }
+        return (PowerItem) power;
+    }
+
+    /**
+     * helper method to move Gyro Character
+     * @return FightMovement
+     */
+    private static FightMovement moveFighter() {
+        System.out.println("Which direction to move to [up/right]");
+        String option = input.nextLine();
+        FightMovement move = FightMovement.UP;
+        option = option.toLowerCase();
+        switch (option) {
+            case "up":
+                move = FightMovement.UP;
+                break;
+            case "right":
+                move = FightMovement.RIGHT;
+                break;
+            default:
+                System.out.println("Not a valid direction.");
+                break;
+        }
+        return move;
+    }
+
+    /**
+     * method to return a random int between 0 and 7
+     * @return int
+     */
+    private static int getRandom() {
+        return (int) (Math.random() * 8);
+    }
+
+    /**
+     * method to get random int based on puzzleList size
+     * @param num
+     * @return int
+     */
+    private static int getRandomPuzzle(int num) {
+        return (int) (Math.random() * num);
+    }
+
+    /**
+     * method to get and display the Puzzle question and get user input
+     */
+    private void getPuzzleQuestion() {
+        puzzleList = puzzle.getPuzzleList();
+        int index = getRandomPuzzle(puzzleList.size());
+        puzzleList.get(index).askQuestion();
+        String option = input.nextLine();
+        puzzleList.get(index).checkAnswer(option);
+        puzzleList.remove(index);
+    }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -9,12 +9,11 @@ public class HealthBoost implements Item {
     private Location location;
     private int healthBoost;
 
-    public HealthBoost() {}
-
     public HealthBoost(String name) {
         setName(name);
     }
 
+    // getters and setters
     @Override
     public void setName(String name) {
         this.name = name;
@@ -62,4 +61,5 @@ public class HealthBoost implements Item {
     public int getHealthBoost() {
         return healthBoost;
     }
+    // end getters and setters
 }
