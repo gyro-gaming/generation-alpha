@@ -12,6 +12,9 @@ import com.generation_alpha.locations.JsonParser;
 import com.generation_alpha.puzzle.LoadPuzzleFromJson;
 import com.generation_alpha.puzzle.Puzzle;
 
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.*;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +37,7 @@ public class TextParser implements Serializable {
     }
 
     // Method to prompt for input
-    public String promptInput(GameBoard gameBoard) throws IOException {
+    public String promptInput(GameBoard gameBoard, Clip clip) throws IOException {
         // Start the game by giving prompt and using while loop
         while (true) {
             Map<Direction, String> map = gameBoard.getGyro().getLocation().getMap();
@@ -102,11 +105,15 @@ public class TextParser implements Serializable {
                     String userInput = input.nextLine();
                     puzzleList.get(index).checkAnswer(userInput);
 
-                } else if (word1.equals("asks")) {
+                } else if (word1.equals("asks") || word1.equals("ask")) {
                     String quote = gameBoard.getGyro().forAsk(gameBoard, word2);
                     System.out.println(quote);
 
-                } else if (word1.equals("fight")) {
+                } else if (word1.equals("stop")) {
+                    Audio.stopAudio(clip);
+                } else if(word1.equals("play")) {
+                    Audio.playAudio(clip);
+                }else if (word1.equals("fight")) {
                     try {
                         String result = fightParser(gameBoard);
                         System.out.println(result);
@@ -141,11 +148,18 @@ public class TextParser implements Serializable {
 
             } catch (IOException e) {
                 e.printStackTrace();
+            } catch (UnsupportedAudioFileException e) {
+                e.printStackTrace();
+            } catch (LineUnavailableException e) {
+                e.printStackTrace();
             }
         }
     }
 
+    // Method to get the most recent Gyro
     private Gyro getPastGyro(String name, GameBoard gameBoard) {
+
+        // gets data from json based on keys
         Map<String, Object> userLoc = JsonParser.parseJson("savedGames/userLocation.json");
         Map<String, Object> userLocation = (Map<String, Object>) userLoc.get("territory");
         Map<String, Object> pastGyro = (Map<String, Object>) userLoc.get("gyro");

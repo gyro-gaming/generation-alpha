@@ -1,4 +1,5 @@
 package com.generation_alpha;
+import com.generation_alpha.client.Audio;
 import com.generation_alpha.client.Display;
 import com.generation_alpha.client.GameBoard;
 import com.generation_alpha.puzzle.LoadPuzzleFromJson;
@@ -12,11 +13,7 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args) throws LineUnavailableException, UnsupportedAudioFileException, IOException {
         Clip clip = AudioSystem.getClip();
-        File f = new File("resources/sounds/classic.wav");
-        AudioInputStream as = AudioSystem.getAudioInputStream(f);
-        clip.open(as);
-        clip.start();
-        clip.loop(-1);
+        Audio.playAudio(clip);
         Display display = new Display();
         Scanner scanner = new Scanner(System.in);
         display.hello();
@@ -26,7 +23,7 @@ class Main {
         GameBoard gameBoard = GameBoard.getInstance();
         gameBoard.init(input);
         try {
-            System.out.println(gameBoard.getTextParser().promptInput(gameBoard));
+            System.out.println(gameBoard.getTextParser().promptInput(gameBoard, clip));
         } catch (IOException e) {
             System.out.println(e);
         }
