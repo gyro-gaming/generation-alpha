@@ -15,6 +15,7 @@ public class PowerItem implements Item {
         setName(name);
     }
 
+    // getters and setters
     @Override
     public void setName(String name) {
         this.name = name;
@@ -62,4 +63,5 @@ public class PowerItem implements Item {
     public int getCombatMultiplier() {
         return combatMultiplier;
     }
+    // end getters and setters
 }

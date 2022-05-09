@@ -37,6 +37,7 @@ public class Gyro extends Fighter {
         return instance;
     }
 
+    // getters and setters
     @Override
     public void setName(String name) {
         this.name = name;
@@ -102,15 +103,6 @@ public class Gyro extends Fighter {
         this.powers = powerItems;
     }
 
-    public void addPower(PowerItem powerItem) {
-        powers.add(powerItem);
-    }
-
-    @Override
-    public void usePower(PowerItem powerItem) {
-        powers.remove(powerItem);
-    }
-
     @Override
     public List<PowerItem> getPowers() {
         return powers;
@@ -120,18 +112,50 @@ public class Gyro extends Fighter {
         this.items = items;
     }
 
+    public List<Item> getItems() {
+        return items;
+    }
+    // end getters and setters
+
+    /**
+     * add acquired PowerItem to powers list
+     * @param powerItem
+     */
+    public void addPower(PowerItem powerItem) {
+        powers.add(powerItem);
+    }
+
+    /**
+     * remove PowerItem from powers list after it has been used
+     * @param powerItem
+     */
+    @Override
+    public void usePower(PowerItem powerItem) {
+        powers.remove(powerItem);
+    }
+
+    /**
+     * add acquired Item to items list
+     * @param item
+     */
     public void addItem(Item item) {
         items.add(item);
     }
 
+    /**
+     * remove Item from items list after it has been used
+     * @param item
+     */
     public void useItem(Item item) {
         items.remove(item);
     }
 
-    public List<Item> getItems() {
-        return items;
-    }
-
+    /**
+     * method to move Gyro Character from one Location to the next
+     * @param gameBoard
+     * @param input
+     * @return Structure
+     */
     public static Structure forGo(GameBoard gameBoard, String input) {
         Gyro gyro = gameBoard.getGyro();
         Location start = gyro.getLocation();
@@ -154,6 +178,12 @@ public class Gyro extends Fighter {
         }
     }
 
+    /**
+     * method for Gyro Character to look at other Locations to see image and description
+     * @param gameBoard
+     * @param input
+     * @return String
+     */
     public static String forLook(GameBoard gameBoard, String input) {
         Location start = gameBoard.getGyro().getLocation();
         GamePlay gamePlay = gameBoard.getGamePlay();
@@ -173,6 +203,12 @@ public class Gyro extends Fighter {
         }
     }
 
+    /**
+     * method to allow Gyro Character to pick up an Item
+     * @param gameBoard
+     * @param name
+     * @return String
+     */
     public static String forGet(GameBoard gameBoard, String name) {
         ObjectMapper mapper = new ObjectMapper();
         Gyro gyro = gameBoard.getGyro();
@@ -220,6 +256,11 @@ public class Gyro extends Fighter {
         return String.format("%s was added to %s's bag.\n", item.getName(), gyro.getName());
     }
 
+    /**
+     * method for Gyro Character to inspect an Item in the Gyro's bag
+     * @param gameBoard
+     * @return String
+     */
     public static String forInspect(GameBoard gameBoard){
         Gyro gyro = gameBoard.getGyro();
         List<Item> items = gyro.getItems();
@@ -230,6 +271,12 @@ public class Gyro extends Fighter {
         return sb.toString();
     }
 
+    /**
+     * method for Gyro Character to ask NPC Characters for a random quote
+     * @param gameBoard
+     * @param name
+     * @return String
+     */
     public static String forAsk(GameBoard gameBoard, String name) {
         Gyro gyro = gameBoard.getGyro();
         List<String> quotes = gyro.getLocation().getCharacter().says();
@@ -238,6 +285,12 @@ public class Gyro extends Fighter {
         return quotes.get(index);
     }
 
+    /**
+     * method to use an Item
+     * @param gameBoard
+     * @param name
+     * @return String
+     */
     public static String forUse (GameBoard gameBoard, String name) {
         Gyro gyro = gameBoard.getGyro();
         Item item = gameBoard.getGamePlay().getItems(name);

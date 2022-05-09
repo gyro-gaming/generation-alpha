@@ -7,50 +7,59 @@ import com.generation_alpha.items.Item;
 import com.generation_alpha.items.PowerItem;
 import com.generation_alpha.locations.Location;
 import com.generation_alpha.locations.Structure;
+import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.anyOf;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.notNullValue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 public class BattleTest {
     GameBoard gameBoard;
     Gyro gyro;
+    Villain villain;
     Battle battle;
 
     @Before
-    public void setUp() {
+    public void init() {
         gameBoard = GameBoard.getInstance();
         gameBoard.init("Jamal");
         gyro = gameBoard.getGyro();
-    }
-
-    @Test
-    public void testMoveVillain() {
-    }
-
-    @Test
-    public void testMoveGyro() {
-        Item power1 = gameBoard.getGamePlay().getItems("power1");
-        Item power2 = gameBoard.getGamePlay().getItems("power2");
-        Item power3 = gameBoard.getGamePlay().getItems("power3");
-        gyro.addPower((PowerItem) power3);
         List<Structure> locations = gameBoard.getTerritory().getLocations();
         for (Structure location : locations) {
-            if (location.getName().toString().equals("Sand Lot")) {
+            if (location.getName().equals("Sand Lot")) {
                 gyro.setLocation(location);
             }
         }
-        Villain bully = (Villain)gameBoard.getGamePlay().getCharacters(gameBoard.getGyro().getLocation().getCharacter().getName());
-        System.out.println(bully.getPowers());
-        battle = new Battle(gameBoard, gyro, bully, true, (PowerItem) power3);
-        System.out.println(battle.moveGyro(FightMovement.UP));
-        battle = new Battle(gameBoard, gyro, bully, true, (PowerItem) power1);
-        System.out.println(battle.moveGyro(FightMovement.UP));
-        battle = new Battle(gameBoard, gyro, bully, true, (PowerItem) power1);
-        System.out.println(battle.moveGyro(FightMovement.UP));
-        battle = new Battle(gameBoard, gyro, bully);
-        System.out.println(battle.moveGyro(FightMovement.UP));
-        System.out.println(battle.moveGyro(FightMovement.UP));
-        System.out.println(gyro.getPowers());
+        villain = (Villain)gameBoard.getGamePlay().getCharacters(gameBoard.getGyro().getLocation().getCharacter().getName());
+
+    }
+
+    @Test
+    public void testMoveVillainAssertsThatIsFightMovementLeftOrDown() {
+        battle = new Battle(gameBoard, gyro, villain);
+        assertThat(battle.moveVillain(), anyOf(is(FightMovement.DOWN), is(FightMovement.LEFT)));
+    }
+
+    @Test
+    public void testMoveVillainAssertsThatIsNotFightMovementRightOrUp() {
+        battle = new Battle(gameBoard, gyro, villain);
+        assertThat(battle.moveVillain(), not(anyOf(is(FightMovement.UP), is(FightMovement.RIGHT))));
+    }
+
+    @Test
+    public void testMoveGyroAssertsThatReturnString() {
+        Item power3 = gameBoard.getGamePlay().getItems("power3");
+        gyro.addPower((PowerItem) power3);
+
+        battle = new Battle(gameBoard, gyro, villain, true, (PowerItem) power3);
+        assertThat(battle.moveGyro(FightMovement.UP), notNullValue());
     }
 }

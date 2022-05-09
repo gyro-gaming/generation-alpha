@@ -1,12 +1,11 @@
-package com.generation_alpha.client;
+package com.generation_alpha.locations;
 
-import com.generation_alpha.locations.GamePlay;
-import com.generation_alpha.locations.Territory;
 import org.junit.Before;
 import org.junit.Test;
 
 public class GamePlayTest {
     GamePlay gamePlay;
+    Territory territory;
 
     @Before
     public void init() {
@@ -15,12 +14,18 @@ public class GamePlayTest {
 
     @Test
     public void getTerritory() {
-        Territory territory = gamePlay.getTerritory("Home");
-        System.out.println(territory.getLocations());
+        territory = gamePlay.getTerritory("Home");
+        System.out.println(territory.getLocations().get(0).getName());
     }
 
     @Test
-    public void getStructure() {
+    public void getTerritoryOverload() {
+        territory = gamePlay.getTerritory(true);
+        //System.out.println(territory.getLocations().get(0).getMap());
+    }
+
+    @Test
+    public void getStart() {
     }
 
     @Test
@@ -28,6 +33,36 @@ public class GamePlayTest {
     }
 
     @Test
+    public void getPowers() {
+    }
+
+    @Test
     public void getItems() {
+    }
+
+    @Test
+    public void convertMap() {
+    }
+
+    @Test
+    public void moveGyro() {
+    }
+
+    @Test
+    public void getLocation() {
+    }
+
+    @Test
+    public void removeItemFromStructure() {
+    }
+
+    @Test
+    public void removeKilledVillainFromStructure() {
+
+    }
+
+    @Test
+    public void getDirection() {
+
     }
 }
