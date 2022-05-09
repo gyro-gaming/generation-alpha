@@ -8,7 +8,7 @@ public class Audio {
 
     public static Clip playAudio(Clip clip) throws LineUnavailableException, UnsupportedAudioFileException, IOException {
        // create new file and passed into getAudioInputAStream
-        File f = new File("resources/sounds/classic.wav");
+        File f = new File("resources/sounds/BEAST2.wav");
         AudioInputStream as = AudioSystem.getAudioInputStream(f);
         // open the audio file
         clip.open(as);
