@@ -65,7 +65,6 @@ public class GyroTest {
     public void forGo() {
         Structure newStructure = Gyro.forGo(gameBoard, "north");
 
-        Structure gym = gamePlay.getLocation("gy")
     }
 
     @Test

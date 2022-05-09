@@ -7,13 +7,13 @@ class PrintToScreen {
     public static void getCurrentLocation(GameBoard gameBoard) {
         System.out.println("You are now in " + gameBoard.getGyro().getLocation().getName());
         try {
-            if (gameBoard.getGyro().getLocation().getCharacter().getName().equals("null")) {
+            if (!gameBoard.getGyro().getLocation().getCharacter().getName().equals("null")) {
                 System.out.println("Would you like to ask " + gameBoard.getGyro().getLocation().getCharacter().getName() + " a question?");
             }
         } catch (NullPointerException e) {
         }
         try {
-            if (gameBoard.getGyro().getLocation().getItem().getName().equals("null")) {
+            if (!gameBoard.getGyro().getLocation().getItem().getName().equals("null")) {
                 System.out.println("There is also a " + gameBoard.getGyro().getLocation().getItem().getName() + " in the room.\n");
             }
         } catch (NullPointerException e) {
