@@ -23,5 +23,17 @@ public class Audio {
         clip.stop();
         clip.close();
     }
+    public static void volumeDown(Clip clip){
+        FloatControl gainControl =
+                (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(-10.0f); // Reduce volume by 10 decibels.
+        clip.start();
+    }
+    public static void volumeUp(Clip clip){
+        FloatControl gainControl =
+                (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(6.0f); // increase volume by 10 decibels.
+        clip.start();
+    }
 
 }

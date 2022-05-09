@@ -121,6 +121,7 @@ public class TextParser {
                 preGo(gameBoard, word2);
                 break;
             case "asks":
+            case "ask":
                 preAsk(gameBoard, word2);
                 break;
             case "fight":
@@ -141,6 +142,14 @@ public class TextParser {
             case "use":
             case "utilize":
                 preUse(gameBoard, word2);
+                break;
+            case "volume":
+                if (word2.equals("up")){
+                    Audio.volumeUp(clip);
+                }
+                else{
+                    Audio.volumeDown(clip);
+                }
                 break;
             case "stop":
                 Audio.stopAudio(clip);
